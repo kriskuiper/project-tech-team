@@ -1,0 +1,28 @@
+<section>
+<% for (let index = 0; index < posts.length; index++) { %>
+    <a href="/my-feed/<%= posts[index].url %>">
+        <article class="feed__post">
+            <header>
+                <p class="post__author"><%= posts[index].author %></p>
+            </header>
+            <h3 class="post__title"><%= posts[index].title %></h3>
+            <footer>
+                <p class="post__meta"><%= posts[index].location %></p> 
+                <p class="post__meta">Dist: <%= posts[index].kms %> km's %></p>
+                <p class="post__meta">Bike: <%= posts[index].bike %></p>
+            </footer>
+        </article>
+    </a>
+<% } %>
+    <% if (paginate.hasPreviousPages || paginate.hasNextPages) { %>
+        <nav>
+            <ol class="page-navigation">
+                <% if (paginate.hasPreviousPages) { %>
+                    <li><a href="<%= paginate.href(true) %>">Previous</a></li>
+                <% } else if (paginate.hasNextPages) { %>
+                    <li><a href="<%= paginate.href()">Next</a></li>
+                <% } %>
+            </ol>
+        </nav>
+    <% } %>
+</section>
