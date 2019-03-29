@@ -4,9 +4,8 @@
   "description": "A package for my Project Tech product",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app/index.js",
-    "lint": "eslint app/index.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
