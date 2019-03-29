@@ -1,7 +1,7 @@
 # Contributing to Project Tech Team
 
 ## Branches
-The `master` branch is always being deployed to the live environment, so everything on the master branch needs to be bug free. For development we use a `develop` branch.
+The `master` branch is always being deployed to the live environment, so everything on the master branch needs to be bug free. For development we use a `develop` branch so all bugfixes and features get a last check before merging it with `master`.
 
 ### Features
 A feature branch is branched off from the `develop` branch and is formatted like: `feature/feature-name`.
@@ -31,7 +31,7 @@ git commit -m "Change title of pages"
 ```
 
 ## ESLint
-ESLint covers most of the conding standards defined in our first meeting.
+ESLint covers most of the coding standards defined in our first meeting.
 
 ## Var or let and const?
 We complied to using let and cost since it's less buggy.
