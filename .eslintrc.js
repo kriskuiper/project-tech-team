@@ -15,6 +15,12 @@ module.exports = {
     },
     "rules": {
         "semi": ["error", "always"],
-        "quotes": ["error", "double"]
+        "quotes": ["error", "double"],
+        "no-var": ["error", "always"],
+        "arrow-body-style": ["error", "as-needed"],
+        "prefer-arrow-callback": "error",
+        "prefer-destructuring": "error",
+        "new-cap": ["error", {"newIsCap": false}],
+        "space-before-function-paren": ["error", "never"]
     }
 };
