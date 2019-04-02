@@ -2,9 +2,9 @@
 :root {
     /* Colors */
     --bg-color: #fff;
-    --main-color: #ffec3d;
-    --text-color: #26343b;
-    --third-color: #fffce9;
+    --main-color: #fcbd12;
+    --text-color: #2c2c2c;
+    --third-color: #999;
 
     /* Font sizes */
     --font-size-title: 2.488em;
@@ -84,38 +84,33 @@ ul {
 }
 
 a {
-    color: var(--text-color);
+    color: var(--main-color);
     text-decoration: none;
     font-weight: var(--font-weight-body);
 }
 
-p.subtitle {
-    font-size: var(--font-size-h2);
-}
-
-p.error {
+.error {
     background: #eb4d4b;
     padding: 0.5em;
     color: #fff;
 }
 
 /* Buttons */
-a.btn, 
+.btn, 
 form button {
-    transition: var(--anim-speed-fast) var(--easing);
     display: block;
     font-size: var(--font-size-buttons);
-    background: var(--text-color);
+    background: var(--main-color);
     padding: 1em 2em;
-    border: 1px solid var(--text-color);
+    border: 1px solid var(--bg-color);
     margin: 0.5em 0;
     color: #fff;
 }
 
-a.btn:hover, 
+.btn:hover, 
 form button:hover {
-    background-color: var(--main-color);
-    color: var(--text-color)!important;
+    background-color: #fcce51;
+    color: var(--bg-color)!important;
 }
 
 /* Forms */
@@ -146,73 +141,7 @@ textarea:focus {
 }
 
 /* Header styling */
-body > header {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    padding: 0 0.5em;
-    margin: 0 auto;
-}
-    header img {
-        width: 2rem;
-    }
 
-    header ul {
-        margin: 1em 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        max-width: 69.5em;
-        margin: 1em auto;
-        padding: 0 1em;
-    }
-
-body#homepage {
-    margin: 0;
-    padding: 0;
-}
-
-body#homepage > main {
-    margin-top: 0;
-    padding-top: 0;
-}
-
-    body#homepage > main > section.homepage-banner {
-        background-image: url("/static/media/images/cyclists.min.jpg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        max-width: 100vw;
-        height: 70vh;
-        padding-top: 25vh;
-        color: var(--bg-color);
-    }
-
-        body#homepage section:first-of-type > * {
-            max-width: 15em;
-            margin: 1rem auto;
-            text-align: center;
-        }
-
-        body#homepage section:first-of-type > a {
-            color: white;
-        }
-
-
-body > main,
-body > section:first-of-type {
-    margin-top: 4em;
-    padding-top: 0.5em;
-}
-
-body > section,
-body > main > section,
-body#homepage > main section:nth-of-type(2) {
-    max-width: 70em;
-    margin: 0em auto;
-    padding: 0 0.5em;
-}
 
 /* Footer styling */
 body > footer {
@@ -234,98 +163,7 @@ body > footer {
         color: var(--bg-color);
     }
 
-/* Feed post styling */
-.feed h3 {
-    margin: 0;
-}
+/* User / Bar block styling */
 
-    .js-enabled .feed__post {
-        opacity: 0;
-        transform: scale(0.9);
-        transition: .5s ease-in;
-    }
-
-    .js-enabled .feed__post.is--visible {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    .feed__post {
-        border-radius: 4px;
-        box-shadow: 2px 2px 7px rgba(0,0,0,0.2);
-        padding: 1em;
-        margin: 1em 0;
-        color: #26343b;
-        background: #fff;
-    }
-
-        .feed__post > footer {
-            display: flex;
-        }
-
-        .post__author,
-        .post__meta{
-            font-weight: 300;
-            font-size: .8em;
-            color: #26343b;
-            opacity: 0.8;
-        }
-
-            .post__author > span {
-                text-transform: capitalize;
-            }
-
-        .post__meta {
-            margin-right: 1em;
-        }
 
 /* 404 Page styling */
-
-
-/* Success stories */
-figure,
-blockquote {
-    margin: 0;
-}
-
-.stories {
-    display: grid;
-    grid-template-columns: 100%;
-    grid-gap: 1em;
-}
-
-@media screen and (min-width: 30em) {
-    .stories {
-        grid-template-columns: repeat(2, 1fr)
-    }
-}
-
-@media screen and (min-width: 60em) {
-    .stories {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-figure.story__img {
-    overflow: hidden;
-    width: 100%;
-    margin-bottom: 0.5em;
-}
-
-    figcaption {
-        background: var(--main-color);
-        color: var(--text-color);
-        padding: 0.5em 1em;
-    }
-
-    figure > img {
-        width: 100%;
-        height: 15em;
-        object-fit: cover;
-        position: relative;
-    }
-
-blockquote.story__quote {
-    margin-bottom: 2em;
-    font-style: italic;
-}

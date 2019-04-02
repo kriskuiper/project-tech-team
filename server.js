@@ -12,10 +12,7 @@ const createAccount = require("./app/controllers/createAccount");
 const login = require("./app/controllers/login");
 const logout = require("./app/controllers/logout");
 const renderLogin = require("./app/controllers/renderLogin");
-const renderFeed = require("./app/controllers/renderFeed");
 const renderForm = require("./app/controllers/renderForm");
-const addPost = require("./app/controllers/addPost");
-const renderPostDetail = require("./app/controllers/renderPostDetail");
 const serveNotFound = require("./app/controllers/serveNotFound");
 
 // Process environment vars and connect to database
@@ -45,17 +42,14 @@ app
     .get("/create-account", renderCreateAccount)
     .get("/log-in", renderLogin)
     .get("/log-out", logout)
-    .get("/my-feed", renderFeed)
-    .get("/add-post", renderForm) 
-    .get("/my-feed/:url", renderPostDetail)
+    .get("/add-post", renderForm)
 
     .post("/", createAccount)
-    .post("/my-feed", addPost)
     .post("/log-in", login)
 
     .use(serveNotFound)
     .listen(process.env.PORT || port, listening);
 
 function listening() {
-    console.log(`App is on port ${port}`); // eslint-disable-line
+    console.log(`App is on port ${port}`);
 }
