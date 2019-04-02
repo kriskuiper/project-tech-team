@@ -141,7 +141,10 @@ textarea:focus {
 }
 
 /* Header styling */
-
+#homepage > header {
+    background: transparent;
+    position: absolute;
+}
 
 /* Footer styling */
 body > footer {
@@ -164,7 +167,7 @@ body > footer {
     }
 
 /* User / Bar block styling */
-.card-wrapper {
+.card-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 1em;
@@ -172,12 +175,18 @@ body > footer {
 
     .card {
         position: relative;
+        border-radius: 10px;
         width: 100%;
         overflow: hidden;
+        box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
     }
 
         .card__button {
-            
+            position: absolute;
+            border-radius: 50%;
+            font-size: 0;
+            background-image: url("../path/to/img");
+            box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
         }
 
         .card__img {
@@ -186,7 +195,7 @@ body > footer {
             object-fit: cover;
         }
 
-        .card__meta-wrapper {
+        .card__meta-block {
             padding: 1em;
             position: absolute;
             bottom: 0.5em;
