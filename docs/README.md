@@ -7,13 +7,14 @@
 - A meetup feature, like liking people just like Tinder and Happn
 - Following users, For their feed like Facebook
 - Last visited bar, Where they went (api Untappd & Google Maps?)
-- Login, To use the website 
-- Register, To make a account and use the website
+- ~~Login, To use the website~~
+- ~~Register, To make a account and use the website~~
 - Password hash, To make sure their passwork is kept safe in a database
 - Male/Female filter, So the user kan search for a female or male.
 - Favorite beer filter, In case of not searching for a male or female you can seach for someone that likes the same beer as you do.
 - Meetup bar, After a match a bar will show up where they serve your favorite beers
 - Google maps, Here will be the bars displayed in your area
+- Make it a PWA
 
 ## Packages
 | Name             | Purpose                          |
