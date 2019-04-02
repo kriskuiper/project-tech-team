@@ -1,0 +1,17 @@
+<% for (let index = 0; index < bars.length; index++) { %>
+    <a href="/my-feed/<%= bars[index].url %>">
+        <article class="bar">
+            <header>
+                <p class="bar__location">
+                    <%= bars[index].author %>
+                </p>
+            </header>
+            <h3 class="bar__name"><%= bars[index].title %></h3>
+            <footer>
+                <p class="post__meta"><%= bars[index].location %></p> 
+                <p class="post__meta">Dist: <%= bars[index].kms %> km's %></p>
+                <p class="post__meta">Bike: <%= bars[index].bike %></p>
+            </footer>
+        </article>
+    </a>
+<% } %>

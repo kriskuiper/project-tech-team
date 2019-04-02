@@ -1,0 +1,17 @@
+<% for (let index = 0; index < users.length; index++) { %>
+    <a href="/my-feed/<%= users[index].url %>">
+        <article class="feed__post">
+            <header>
+                <p class="post__author">
+                    <%= users[index].author %>
+                </p>
+            </header>
+            <h3 class="post__title"><%= users[index].title %></h3>
+            <footer>
+                <p class="post__meta"><%= users[index].location %></p> 
+                <p class="post__meta">Dist: <%= users[index].kms %> km's %></p>
+                <p class="post__meta">Bike: <%= users[index].bike %></p>
+            </footer>
+        </article>
+    </a>
+<% } %>
