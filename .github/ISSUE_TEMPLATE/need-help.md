@@ -8,9 +8,9 @@ assignees: ''
 ---
 
 <Insert the person you need help from>
-#@Name
+@Name
 
 <Describe your problem specifically, what do you need help with?>
-# I've tried this and this but don't get this and this. This is what my console says etc.
+I've tried this and this but don't get this and this. This is what my console says etc.
 
-# Don't forget to assign this issue to the person you need help from!
+Don't forget to assign this issue to the person you need help from!
