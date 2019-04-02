@@ -12,7 +12,6 @@ const createAccount = require("./app/controllers/createAccount");
 const login = require("./app/controllers/login");
 const logout = require("./app/controllers/logout");
 const renderLogin = require("./app/controllers/renderLogin");
-const renderForm = require("./app/controllers/renderForm");
 const serveNotFound = require("./app/controllers/serveNotFound");
 
 // Process environment vars and connect to database
@@ -42,7 +41,6 @@ app
     .get("/create-account", renderCreateAccount)
     .get("/log-in", renderLogin)
     .get("/log-out", logout)
-    .get("/add-post", renderForm)
 
     .post("/", createAccount)
     .post("/log-in", login)
