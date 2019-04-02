@@ -49,5 +49,5 @@ app
     .listen(process.env.PORT || port, listening);
 
 function listening() {
-    console.log(`App is on port ${port}`);
+    console.log(`App is on port ${port}`); // eslint-disable-line
 }
