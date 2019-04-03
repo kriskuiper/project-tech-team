@@ -19,7 +19,7 @@ function untappdAuth(req, res) {
 
 
     const ACCESS_TOKEN = data.response.access_token
-    fetch('https://api.untappd.com/v4/user/info&access_token=' + ACCESS_TOKEN, {
+    fetch('https://api.untappd.com/v4/user/info?access_token=' + ACCESS_TOKEN, {
       method: 'GET'
       })
     .then(response => response.json())
