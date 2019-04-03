@@ -25,7 +25,7 @@ function untappdAuth(req, res) {
     .then(response => response.json())
     .then(function(data) {
       // req.user.username = data.response.user.username
-      console.log(data);
+      console.log(data.response.user.user_name);
     })
     .catch(error => console.error('Error:', error))
   })
