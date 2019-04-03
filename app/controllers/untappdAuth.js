@@ -14,18 +14,18 @@ function untappdAuth(req, res) {
     })
   .then(response => response.json())
   .then(function(data) {
-    req.user.access_token = data.response.access_token
+    // req.user.access_token = data.response.access_token
     console.log(data);
 
 
-    const ACCESS_TOKEN = req.user.access_token
+    const ACCESS_TOKEN = data.response.access_token
     fetch('https://api.untappd.com/v4/user/info&access_token=' + ACCESS_TOKEN, {
       method: 'GET'
       })
     .then(response => response.json())
-    .then(function(data) {
-      req.user.username = data.response.user.username
-      console.log(req.user.username);
+    .then(function(user) {
+      // req.user.username = data.response.user.username
+      console.log(user.response.user.username);
     })
     .catch(error => console.error('Error:', error))
   })
