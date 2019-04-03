@@ -14,14 +14,14 @@ module.exports = {
         "ecmaVersion": 2018
     },
     "rules": {
-        "semi": ["error", "always"],
-        "quotes": ["error", "double"],
-        "no-var": "error",
-        "arrow-body-style": ["error", "as-needed"],
-        "prefer-arrow-callback": "error",
-        "prefer-destructuring": "warn",
+        "semi": [2, "always"],
+        "quotes": [2, "double"],
+        "no-var": [2],
+        "arrow-body-style": [2, "as-needed"],
+        "prefer-arrow-callback": 2,
+        "prefer-destructuring": 1,
         "new-cap": ["error", {"newIsCap": false}],
-        "space-before-function-paren": ["error", "never"],
-        "func-call-spacing": "error"
+        "space-before-function-paren": [2, "never"],
+        "space-before-blocks": [2, "always"]
     }
 };
