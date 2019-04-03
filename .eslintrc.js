@@ -21,6 +21,7 @@ module.exports = {
         "prefer-arrow-callback": 2,
         "prefer-destructuring": 1,
         "new-cap": ["error", {"newIsCap": false}],
-        "space-before-function-paren": [2, "never"]
+        "space-before-function-paren": [2, "never"],
+        "space-before-blocks": [2, "always"]
     }
 };
