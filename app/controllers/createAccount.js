@@ -22,9 +22,9 @@ function createAccount(req, res, next) {
         if (error) {
             next(error);
         } else {
-            req.session.user = { 
-                firstName: newUser.firstName, 
-                lastName: newUser.lastName, 
+            req.session.user = {
+                firstName: newUser.firstName,
+                lastName: newUser.lastName,
                 bike: newUser.bike
             };
             res.redirect("/my-feed");

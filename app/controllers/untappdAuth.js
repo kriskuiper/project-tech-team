@@ -14,9 +14,20 @@ function untappdAuth(req, res) {
     })
   .then(response => response.json())
   .then(function(data) {
-    // req.user.access_token = data.response.access_token
+    req.user.access_token = data.response.access_token
     console.log(data);
-    res.redirect('/')
+
+
+    const ACCESS_TOKEN = req.user.access_token
+    fetch('https://api.untappd.com/v4/user/info&access_token=' + ACCESS_TOKEN, {
+      method: 'GET'
+      })
+    .then(response => response.json())
+    .then(function(data) {
+      req.user.username = data.response.user.username
+      console.log(req.user.username);
+    })
+    .catch(error => console.error('Error:', error))
   })
   .catch(error => console.error('Error:', error))
 }
