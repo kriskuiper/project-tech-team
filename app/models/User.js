@@ -10,6 +10,7 @@ const userSchema = new Schema({
     profilePicture: String,
     location: String,
     gender: String,
+    age: Number,
     likedpersons: Array,
     beers: Object
 });
