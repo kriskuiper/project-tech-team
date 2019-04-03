@@ -38,11 +38,11 @@ function untappdAuth(req, res) {
                 lastName = data.response.user.last_name
                 profilePicture = data.response.user.user_avatar_hd
               };
-              res.redirect("/my-feed");
+              res.redirect("/");
           }
       }
       console.log(data.response.user.user_name);
-      res.redirect("/", user: req.session.user)
+      res.redirect("/")
     })
     .catch(error => console.error('Error:', error))
   })
