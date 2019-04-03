@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require('body-parser');
+const session = require("express-session");
 const fetch = require("node-fetch");
 
 function untappdAuth(req, res) {
@@ -24,8 +25,24 @@ function untappdAuth(req, res) {
       })
     .then(response => response.json())
     .then(function(data) {
-      // req.user.username = data.response.user.username
+
+      setSession();
+
+      function setSession(error) {
+          if (error) {
+              next(error);
+          } else {
+              req.session.user = {
+                username = data.response.user.user_name
+                firstName = data.response.user.first_name
+                lastName = data.response.user.last_name
+                profilePicture = data.response.user.user_avatar_hd
+              };
+              res.redirect("/my-feed");
+          }
+      }
       console.log(data.response.user.user_name);
+      res.redirect("/", user: req.session.user)
     })
     .catch(error => console.error('Error:', error))
   })
