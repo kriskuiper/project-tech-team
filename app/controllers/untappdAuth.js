@@ -14,7 +14,7 @@ function untappdAuth(req, res) {
     })
   .then(response => response.json())
   .then(function(data) {
-    req.user.access_token = data.response.access_token
+    // req.user.access_token = data.response.access_token
     console.log(data.response.access_token);
     res.redirect('/')
   })
