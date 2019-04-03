@@ -13,6 +13,7 @@ const login = require("./app/controllers/login");
 const logout = require("./app/controllers/logout");
 const renderLogin = require("./app/controllers/renderLogin");
 const serveNotFound = require("./app/controllers/serveNotFound");
+const matches = require("./app/controllers/match");
 
 // Process environment vars and connect to database
 const uri = process.env.MONGODB_URI;
@@ -43,11 +44,12 @@ app
     .get("/log-out", logout)
 
     .post("/", createAccount)
+    .post("/matches", matches)
     .post("/log-in", login)
 
     .use(serveNotFound)
     .listen(process.env.PORT || port, listening);
 
 function listening() {
-    console.log(`App is on port ${port}`);
+    console.log(`App is on port ${port}`); // eslint-disable-line
 }
