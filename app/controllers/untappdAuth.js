@@ -33,10 +33,10 @@ function untappdAuth(req, res) {
               next(error);
           } else {
               req.session.user = {
-                username = data.response.user.user_name,
-                firstName = data.response.user.first_name,
-                lastName = data.response.user.last_name,
-                profilePicture = data.response.user.user_avatar_hd
+                username: data.response.user.user_name,
+                firstName: data.response.user.first_name,
+                lastName: data.response.user.last_name,
+                profilePicture: data.response.user.user_avatar_hd
               };
               res.redirect("/");
           }
