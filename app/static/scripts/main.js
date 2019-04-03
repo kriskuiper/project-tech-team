@@ -30,7 +30,7 @@ function showPosts(entries) {
 document.getElementById("untappdConnect").addEventListener("click", untappdConnect);
 
 function untappdConnect() {
-  let CLIENTID = 'A0D5D7F766E859E3EF145BD051A3A576D2EA97CF'
+  const CLIENTID = 'A0D5D7F766E859E3EF145BD051A3A576D2EA97CF'
   let REDIRECT_URL = 'https://untappdtest.herokuapp.com/untappd-authentication'
 
   window.location.href = 'https://untappd.com/oauth/authenticate/?client_id=' + CLIENTID + '&response_type=code&redirect_url=' + REDIRECT_URL;
