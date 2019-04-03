@@ -1,18 +1,14 @@
 <% include partials/head.ejs %>
-    <title>Sign up - CycLove</title>
+    <title>Sign-up | Drinkerz</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/"><img src="/static/media/images/cyclove-logo.svg" alt="Logo CycLove"></a></li>
-                <li><a href="/">Log in</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h1>Create an account on CycLove</h1>
+    <main class="sign-up__container">
+        <section class="sign-up__section">
+          <figure class="sign-up__header">
+            <img src="/static/media/images/logo.png" alt="logo Drinkerz">
+            <h1 class="sign-up__title">Drinkerz</h1>
+          </figure>
+
             <% include partials/sign-up-form.ejs %>
         </section>
     </main>

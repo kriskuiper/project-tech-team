@@ -12,11 +12,8 @@ const createAccount = require("./app/controllers/createAccount");
 const login = require("./app/controllers/login");
 const logout = require("./app/controllers/logout");
 const renderLogin = require("./app/controllers/renderLogin");
-const renderFeed = require("./app/controllers/renderFeed");
-const renderForm = require("./app/controllers/renderForm");
-const addPost = require("./app/controllers/addPost");
-const renderPostDetail = require("./app/controllers/renderPostDetail");
 const serveNotFound = require("./app/controllers/serveNotFound");
+const untappdAuth = require("./app/controllers/untappdAuth");
 
 // Process environment vars and connect to database
 const uri = process.env.MONGODB_URI;
@@ -40,17 +37,14 @@ app
     .use(session(sess))
     .set("view engine", "ejs")
     .set("views", "app/view")
-    
+
     .get("/", serveHome)
     .get("/create-account", renderCreateAccount)
     .get("/log-in", renderLogin)
     .get("/log-out", logout)
-    .get("/my-feed", renderFeed)
-    .get("/add-post", renderForm) 
-    .get("/my-feed/:url", renderPostDetail)
+    .get("/untappd-authentication", untappdAuth)
 
     .post("/", createAccount)
-    .post("/my-feed", addPost)
     .post("/log-in", login)
 
     .use(serveNotFound)

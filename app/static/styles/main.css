@@ -2,9 +2,9 @@
 :root {
     /* Colors */
     --bg-color: #fff;
-    --main-color: #ffec3d;
-    --text-color: #26343b;
-    --third-color: #fffce9;
+    --main-color: #fcbd12;
+    --text-color: #2c2c2c;
+    --third-color: #999;
 
     /* Font sizes */
     --font-size-title: 2.488em;
@@ -43,6 +43,10 @@
 }
 
 /* Generic styling */
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-size: var(--font-size-body);
     font-family: 'Poppins', sans-serif;
@@ -84,134 +88,74 @@ ul {
 }
 
 a {
-    color: var(--text-color);
+    color: var(--main-color);
     text-decoration: none;
     font-weight: var(--font-weight-body);
 }
 
-p.subtitle {
-    font-size: var(--font-size-h2);
-}
-
-p.error {
+.error {
     background: #eb4d4b;
     padding: 0.5em;
     color: #fff;
 }
 
 /* Buttons */
-a.btn, 
+.btn,
 form button {
-    transition: var(--anim-speed-fast) var(--easing);
     display: block;
     font-size: var(--font-size-buttons);
-    background: var(--text-color);
+    background: var(--main-color);
     padding: 1em 2em;
-    border: 1px solid var(--text-color);
+    border: 1px solid var(--bg-color);
     margin: 0.5em 0;
     color: #fff;
 }
 
-a.btn:hover, 
+.btn:hover,
 form button:hover {
-    background-color: var(--main-color);
-    color: var(--text-color)!important;
+    background-color: #fcce51;
+    color: var(--bg-color)!important;
 }
 
 /* Forms */
-label,
-input,
-textarea {
-    display: block;
+.login-wrapper {
+    border-radius: 10px;
+    color: var(--text-color);
+    background: #fff;
+    max-width: 20em;
+    margin: 0 auto;
+    padding: 1em;
 }
 
-input,
-textarea {
-    transition: .2s ease-in;
-    position: relative;
-    border: none;
-    border-bottom: 1px solid #cccccc;
-    outline: 0;
-    font-size: 1em;
-    padding: .5em 0;
+.login-wrapper__link {font-weight: var(--font-weight-h3);}
+.login-wrapper__link--normal {color: var(--text-color);}
+.login-wrapper__link--special {color: var(--main-color);}
+
+.form {
+    margin: 0.5em 0;
 }
 
-label {
-    margin: 1em 0;
+.form input {
+    border: 1px solid var(--third-color);
+    border-radius: 3px;
+    padding: 0.1em;
+    font-size: var(--font-size-body);
 }
 
-input:focus,
-textarea:focus {
-    border-bottom: 1px solid #26343B;
+.form--login {
+    padding: 0.5em 0;
+    border-bottom: 1px solid var(--third-color);
 }
+
+    .form--login button {
+        width: 100%;
+        text-align: center;
+    }
 
 /* Header styling */
-body > header {
+#homepage > header {
+    background: transparent;
     position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    padding: 0 0.5em;
-    margin: 0 auto;
-}
-    header img {
-        width: 2rem;
-    }
-
-    header ul {
-        margin: 1em 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        max-width: 69.5em;
-        margin: 1em auto;
-        padding: 0 1em;
-    }
-
-body#homepage {
-    margin: 0;
-    padding: 0;
-}
-
-body#homepage > main {
-    margin-top: 0;
-    padding-top: 0;
-}
-
-    body#homepage > main > section.homepage-banner {
-        background-image: url("/static/media/images/cyclists.min.jpg");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        max-width: 100vw;
-        height: 70vh;
-        padding-top: 25vh;
-        color: var(--bg-color);
-    }
-
-        body#homepage section:first-of-type > * {
-            max-width: 15em;
-            margin: 1rem auto;
-            text-align: center;
-        }
-
-        body#homepage section:first-of-type > a {
-            color: white;
-        }
-
-
-body > main,
-body > section:first-of-type {
-    margin-top: 4em;
-    padding-top: 0.5em;
-}
-
-body > section,
-body > main > section,
-body#homepage > main section:nth-of-type(2) {
-    max-width: 70em;
-    margin: 0em auto;
-    padding: 0 0.5em;
 }
 
 /* Footer styling */
@@ -234,98 +178,127 @@ body > footer {
         color: var(--bg-color);
     }
 
-/* Feed post styling */
-.feed h3 {
-    margin: 0;
+/* User / Bar block styling */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1em;
 }
 
-    .js-enabled .feed__post {
-        opacity: 0;
-        transform: scale(0.9);
-        transition: .5s ease-in;
+    .card {
+        position: relative;
+        border-radius: 10px;
+        width: 100%;
+        overflow: hidden;
+        box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
     }
 
-    .js-enabled .feed__post.is--visible {
-        opacity: 1;
-        transform: scale(1);
-    }
-
-    .feed__post {
-        border-radius: 4px;
-        box-shadow: 2px 2px 7px rgba(0,0,0,0.2);
-        padding: 1em;
-        margin: 1em 0;
-        color: #26343b;
-        background: #fff;
-    }
-
-        .feed__post > footer {
-            display: flex;
+        .card__button {
+            position: absolute;
+            border-radius: 50%;
+            font-size: 0;
+            background-image: url("../path/to/img");
+            box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
         }
 
-        .post__author,
-        .post__meta{
-            font-weight: 300;
-            font-size: .8em;
-            color: #26343b;
-            opacity: 0.8;
+        .card__img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-            .post__author > span {
-                text-transform: capitalize;
-            }
+        .card__meta-block {
+            padding: 1em;
+            position: absolute;
+            bottom: 0.5em;
+            left: 0.5em;
+            right: 0.5em;
+        }
 
-        .post__meta {
-            margin-right: 1em;
+        .card__meta-title {
+            font-weight: var(--font-weight-h3);
         }
 
 /* 404 Page styling */
 
 
-/* Success stories */
-figure,
-blockquote {
-    margin: 0;
+
+
+/* Sign-up styling */
+
+.sign-up__container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('/static/media/images/bg.png');
+  background-position: center;
+  background-size: cover;
 }
 
-.stories {
-    display: grid;
-    grid-template-columns: 100%;
-    grid-gap: 1em;
+.sign-up__section {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  width: calc(25% + 4rem);
+  height: auto;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
 }
 
-@media screen and (min-width: 30em) {
-    .stories {
-        grid-template-columns: repeat(2, 1fr)
-    }
+.sign-up__header {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
-@media screen and (min-width: 60em) {
-    .stories {
-        grid-template-columns: repeat(3, 1fr);
-    }
+.sign-up__header img {
+  height: 6em;
+  width: 6em;
 }
 
-figure.story__img {
-    overflow: hidden;
-    width: 100%;
-    margin-bottom: 0.5em;
+.sign-up__header h1 {
+  text-transform: uppercase;
 }
 
-    figcaption {
-        background: var(--main-color);
-        color: var(--text-color);
-        padding: 0.5em 1em;
-    }
+.button--fullwidth {
+  width: 100%;
 
-    figure > img {
-        width: 100%;
-        height: 15em;
-        object-fit: cover;
-        position: relative;
-    }
+}
 
-blockquote.story__quote {
-    margin-bottom: 2em;
-    font-style: italic;
+.sign-up__form {
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign-up__form label {
+  display: none;
+}
+
+.sign-up__form input {
+  width: 100%;
+  font-size: 1.125rem;
+  padding: .5rem 1rem;
+  text-align: center;
+}
+
+.form__or {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 2px #666 solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+  text-transform: uppercase;
+  color: #666;
 }
