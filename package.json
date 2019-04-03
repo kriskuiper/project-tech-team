@@ -29,6 +29,7 @@
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
+    "follow-redirects": "^1.7.0",
     "mongoose": "^5.4.19",
     "node-fetch": "^2.3.0",
     "slug": "^1.0.0"
