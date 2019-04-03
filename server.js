@@ -14,6 +14,7 @@ const logout = require("./app/controllers/logout");
 const renderLogin = require("./app/controllers/renderLogin");
 const serveNotFound = require("./app/controllers/serveNotFound");
 const filter = require("./app/controllers/filter");
+const userInputCheckboxes = require("./app/controllers/userInputCheckboxes")
 
 // Process environment vars and connect to database
 const uri = process.env.MONGODB_URI;
@@ -43,6 +44,7 @@ app
     .get("/log-in", renderLogin)
     .get("/log-out", logout)
     .get("/filter", filter)
+    .get("/userInputCheckboxes", userInputCheckboxes)
 
     .post("/", createAccount)
     .post("/log-in", login)
@@ -51,10 +53,5 @@ app
     .listen(process.env.PORT || port, listening);
 
 function listening() {
-<<<<<<< HEAD
     console.log(`App is on port ${port}`);
 }
-=======
-    console.log(`App is on port ${port}`); // eslint-disable-line
-}
->>>>>>> 298b3cb3ec0be5c4b9f2300b51576eefe300ecaf
