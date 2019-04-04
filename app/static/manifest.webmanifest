@@ -7,12 +7,12 @@
     "start_url": "/",
     "icons": [
         {
-            "src": "/static/media/images/pwa-images/icon-192.png",
+            "src": "/media/images/pwa-images/icon-192.png",
             "type": "image/png",
             "sizes": "192x192"
         },
         {
-            "src": "/static/media/images/pwa-images/icon-512.png",
+            "src": "/media/images/pwa-images/icon-512.png",
             "type": "image/png",
             "sizes": "512x512"
         }

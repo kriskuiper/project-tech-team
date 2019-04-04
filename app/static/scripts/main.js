@@ -31,7 +31,7 @@ function showPosts(entries) {
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
       navigator.serviceWorker
-          .register("/static/sw.js")
+          .register("/sw.js")
           .then(registration => {
               console.log(`ServiceWorker registration successfull with scope: ${registration.scope}`);
           })
