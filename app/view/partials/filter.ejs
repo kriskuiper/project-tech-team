@@ -1,16 +1,17 @@
 <form action="/users" method="POST">
   <fieldset>
+    <legend>Gender</legend>
     <label for="male">Male</label>
     <input id="male" type="radio" name="gender" value="male">
     <label for="female">Female</label>
     <input id="female" type="radio" name="gender" value="female">
   </fieldset>
-  <!-- <fieldset>
-    <input type="text" name="age" value="min">
-    <input type="text" name="age" value="max">
+  <fieldset>
+    <input type="number" name="age" value="min">
+    <input type="number" name="age" value="max">
   </fieldset>
   <fieldset>
     <input type="checkbox" name="beers" value="">
-  </fieldset>-->
+  </fieldset>
   <input type="submit" name="submit" value="submit">
 </form>

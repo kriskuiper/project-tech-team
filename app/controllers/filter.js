@@ -5,7 +5,6 @@ async function filter(req, res, next) {
     const users = await User.find();
     const { gender } = req.body;
     const filteredUsers = await users.filter(user => user.gender === gender);
-
     res.status(200).render("users");
   } catch(error) {
     next(error);
