@@ -1,13 +1,13 @@
 const CACHE_NAME = "drinkerz-app-cache";
 const urlsToCache = [
-    "/static/index.html",
-    "/static/404.html",
-    "/static/401.html",
-    "/static/scripts/main.js",
-    "/static/styles/main.css",
-    "/static/media/images/pwa-images/logo-192.png",
-    "/static/media/images/pwa-images/logo-512.png",
-    "/static/manifest.webmanifest"
+    "./index.html",
+    "./404.html",
+    "./401.html",
+    "./scripts/main.js",
+    "./styles/main.css",
+    "./media/images/pwa-images/logo-192.png",
+    "./media/images/pwa-images/logo-512.png",
+    "./manifest.webmanifest"
 ];
 
 // Install service worker
