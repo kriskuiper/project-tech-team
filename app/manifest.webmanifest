@@ -1,6 +1,10 @@
 {
-    "short_name": "CycLove",
-    "name": "CycLove, dating app for cyclists",
+    "short_name": "Drinkerz",
+    "name": "Drinkerz, dating app for beer drinking students",
+    "description": "A dating app for beer drinking students, they can like eachother and discover bars nearby",
+    "display": "standalone",
+    "background-color": "#fcbd12",
+    "start_url": "/",
     "icons": [
         {
             "src": "/app/static/media/images/pwa-images/icon-192.png",
@@ -13,9 +17,4 @@
             "sizes": "512x512"
         }
     ],
-    "start_url": "/",
-    "background_color": "#ffec3d",
-    "display": "standalone",
-    "scope": "/",
-    "theme_color": "#ffec3d"
 }
