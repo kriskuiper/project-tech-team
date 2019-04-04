@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/kriskuiper/project-tech#readme",
   "devDependencies": {
-    "eslint": "^5.15.1",
+    "eslint": "^5.16.0",
     "nodemon": "^1.18.10"
   },
   "dependencies": {
