@@ -1,4 +1,4 @@
-const https = require("follow-redirects").https;
+const {https} = require("follow-redirects");
 require("dotenv").config();
 
 const placeDetails = function() {
