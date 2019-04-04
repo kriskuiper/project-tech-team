@@ -5,8 +5,8 @@ const urlsToCache = [
     "./401.html",
     "./scripts/main.js",
     "./styles/main.css",
-    "./media/images/pwa-images/logo-192.png",
-    "./media/images/pwa-images/logo-512.png",
+    "./media/images/pwa-images/icon-192.png",
+    "./media/images/pwa-images/icon-512.png",
     "./manifest.webmanifest"
 ];
 
