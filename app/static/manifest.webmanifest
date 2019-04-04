@@ -4,7 +4,7 @@
     "description": "A dating app for beer drinking students, they can like eachother and discover bars nearby",
     "display": "standalone",
     "background-color": "#fcbd12",
-    "start_url": "/static/index.html",
+    "start_url": "/",
     "icons": [
         {
             "src": "/static/media/images/pwa-images/icon-192.png",

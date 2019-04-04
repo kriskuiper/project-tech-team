@@ -24,14 +24,9 @@ self.addEventListener("install", event => {
 
 // Respond with cache (pre caching)
 self.addEventListener("fetch", event => {
-    console.log("Fetching...");
+    console.log("Fetching..."); // eslint-disable-line
     event.respondWith(
         caches.match(event.request)
-            .then(response => {
-                if (response) {
-                    return response;
-                }
-                return fetch(event.request);
-            })
+            .then(response => response || fetch(event.request))
     );
 });
