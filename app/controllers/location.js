@@ -16,7 +16,7 @@ const radius = 500;
 function placeSearch(latitude, longitude, radius) {
     https.request({
         host: "maps.googleapis.com",
-        path: "/maps/api/place/nearbysearch/json?location=" + latitude + "," + longitude + "&radius=" + radius + "&type=bar&key=" + googleApiKey,
+        path: `/maps/api/place/nearbysearch/json?location=${latitude},${longitude}&radius=${radius}&type=bar&key=${googleApiKey}`,
         method: "GET"
     },
         PlaceResult).end();
@@ -24,12 +24,11 @@ function placeSearch(latitude, longitude, radius) {
 
 //Place retrieved data in an array, and display data in terminal (for now)
 function PlaceResult(response) { 
-    let p;
     let data = "";
     let sdata = "";
     const PD = new placeDetails();
 
-    response.on("data", (chunk) => {
+    response.on("data", chunk => {
         data += chunk;
     });
     response.on("end", () => {
@@ -37,8 +36,8 @@ function PlaceResult(response) {
         if (sdata.status === "OK") {
             console.log("Status: " + sdata.status);
             console.log("Results: " + sdata.results.length);
-            for (p = 0; p < sdata.results.length; p++) {
-                PD.places.push(sdata.results[p]);
+            for (let i = 0; i < sdata.results.length; i++) {
+                PD.places.push(sdata.results[i]);
             }
             for (let i = 0; i < sdata.results.length; i++) {
                 console.log("----------------------------------------------");
