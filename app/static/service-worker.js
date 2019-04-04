@@ -1,6 +1,8 @@
 const CACHE_NAME = "drinkerz-app-cache";
 const urlsToCache = [
-    "/",
+    "/static/index.html",
+    "/static/404.html",
+    "/static/401.html",
     "/static/scripts/main.js",
     "/static/styles/main.css",
     "/static/media/images/pwa-images/logo-192.png",
