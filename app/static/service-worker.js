@@ -24,6 +24,7 @@ self.addEventListener("install", event => {
 
 // Respond with cache (pre caching)
 self.addEventListener("fetch", event => {
+    console.log("Fetching...");
     event.respondWith(
         caches.match(event.request)
             .then(response => {
