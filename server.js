@@ -14,7 +14,7 @@ const logout = require("./app/controllers/logout");
 const renderLogin = require("./app/controllers/renderLogin");
 const serveNotFound = require("./app/controllers/serveNotFound");
 const filter = require("./app/controllers/filter");
-const userInputCheckboxes = require("./app/controllers/userInputCheckboxes")
+const renderFilter = require("./app/controllers/renderFilter");
 
 // Process environment vars and connect to database
 const uri = process.env.MONGODB_URI;
@@ -43,9 +43,9 @@ app
     .get("/create-account", renderCreateAccount)
     .get("/log-in", renderLogin)
     .get("/log-out", logout)
-    .get("/filter", filter)
-    .get("/userInputCheckboxes", userInputCheckboxes)
+    .get("/users", renderFilter)
 
+    .post("/users", filter)
     .post("/", createAccount)
     .post("/log-in", login)
 
