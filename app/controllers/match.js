@@ -1,52 +1,16 @@
 // require list
-//const slug = require("slug");
-//const mongoose = require("mongoose");
+const User = require("../models/User");
+const username = "Logged-in user";
 
-// display the user people that can be matched with
-// items needed from database: User image, name, city
-// for each person in database
+// display the users from the database that are a match with the user
+// items needed from database: User image, name, city, array of liked people
 
-function showUser() {
-    //total users in database
-    const users = 10; //users.length
-    const userDetails = [];
-    let i = 0;
+//This function will get the list of users that are matched with the logged in user
+async function getMatches(req, res) {
+    //gets all the users and their info from the database
+    const users = await User.find();
 
-    for (i = 0; i <= users; i++) {
-        const { name, image, city } = users[i];
-        const userName = name;    
-        const userImage = image;    
-        const userCity = city;    
-        
-        userDetails.push(userName , userImage , userCity);
-    }
+    res.status(200).render("matches", {users: users});
     // Saves the info about the user and sends it to matches.ejs
 }
-module.exports = showUser;
-
-// function addPost(req, res, next) {
-//     try {
-//         const url = slug(req.body.title).toLowerCase();
-//         const { firstName, lastName, bike } = req.session.user;
-//         const newFeedPost = new FeedPost({
-//             _id: new mongoose.Types.ObjectId(),
-//             url: url,
-//             title: req.body.title,
-//             author: `${firstName} ${lastName}`,
-//             contents: req.body.contents,
-//             kms: req.body.kms,
-//             bike: bike,
-//             location: req.body.location,
-//             pictures: []
-//         });
-        
-//         FeedPost.create(newFeedPost);
-        
-//         // When the form is posted, redirect to the users' feed
-//         res.redirect("/my-feed");
-//     } catch(error) {
-//         next(error);
-//     }
-// }
-
-// module.exports = addPost;
+module.exports = getMatches;
