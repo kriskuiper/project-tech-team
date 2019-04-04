@@ -12,7 +12,7 @@ const longitude = 4.907370;
 const radius = 500;
 
 
-//Find places within the specified radius, based on the coordinates provided by the getLocation function.
+//Find places within the specified radius, based on the coordinates provided.
 function placeSearch(latitude, longitude, radius) {
     https.request({
         host: "maps.googleapis.com",
@@ -22,6 +22,7 @@ function placeSearch(latitude, longitude, radius) {
         PlaceResult).end();
 }
 
+//Place retrieved data in an array, and display data in terminal (for now)
 function PlaceResult(response) { 
     let p;
     let data = "";
