@@ -8,12 +8,12 @@
     "start_url": "/",
     "icons": [
         {
-            "src": "/media/images/pwa-images/icon-192.png",
+            "src": "/media/images/icons/icon-192.png",
             "type": "image/png",
             "sizes": "192x192"
         },
         {
-            "src": "/media/images/pwa-images/icon-512.png",
+            "src": "/media/images/icons/icon-512.png",
             "type": "image/png",
             "sizes": "512x512"
         }
