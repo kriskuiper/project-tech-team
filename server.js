@@ -43,9 +43,8 @@ app
     .get("/create-account", renderCreateAccount)
     .get("/log-in", renderLogin)
     .get("/log-out", logout)
-    .get("/users", renderFilter)
+    .get("/users", filter)
 
-    .post("/users", filter)
     .post("/", createAccount)
     .post("/log-in", login)
 
