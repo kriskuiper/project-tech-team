@@ -4,9 +4,9 @@ const User = require("../models/User");
 // display the users from the database that are a match with the user
 // items needed from database: User image, name, city, array of liked people
 
-//This function will get the list of users that are matched with the logged in user
+//This function will add users to the loggedin array users
 async function match(req, res, next) {
-    //gets all the users and their info from the database
+    //gets the personid that will be added to the list
     try {
         const {personid} = req.query;
         const users = await User.find();

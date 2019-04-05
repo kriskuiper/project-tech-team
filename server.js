@@ -13,7 +13,7 @@ const login = require("./app/controllers/login");
 const logout = require("./app/controllers/logout");
 const renderLogin = require("./app/controllers/renderLogin");
 const serveNotFound = require("./app/controllers/serveNotFound");
-const users = require("./app/controllers/totalUsers");
+const renderLikedPersons = require("./app/controllers/renderLikedPersons");
 const match = require("./app/controllers/match");
 const filter = require("./app/controllers/filter");
 const renderFilter = require("./app/controllers/renderFilter");
@@ -47,6 +47,7 @@ app
     .get("/log-out", logout)
     .get("/users", match)
     .get("/filter", renderFilter)
+    .get("/matches", renderLikedPersons)
 
     .post("/users", filter)
     .post("/", createAccount)
