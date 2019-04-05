@@ -13,8 +13,8 @@ const login = require("./app/controllers/login");
 const logout = require("./app/controllers/logout");
 const renderLogin = require("./app/controllers/renderLogin");
 const serveNotFound = require("./app/controllers/serveNotFound");
-const matches = require("./app/controllers/match");
 const users = require("./app/controllers/totalUsers");
+const match = require("./app/controllers/match");
 
 // Process environment vars and connect to database
 const uri = process.env.MONGODB_URI;
@@ -43,7 +43,7 @@ app
     .get("/create-account", renderCreateAccount)
     .get("/log-in", renderLogin)
     .get("/log-out", logout)
-    .get("/matches", matches)
+    .get("/matches", match)
     .get("/users", users)
 
     .post("/", createAccount)

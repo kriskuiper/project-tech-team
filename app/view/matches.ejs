@@ -1,5 +1,5 @@
 <% include partials/head.ejs %>
-    <title>My feed - CycLove</title>
+    <title>Matches - CycLove</title>
 </head>
 <body>
     <header>
@@ -10,7 +10,7 @@
             </ul>
         </nav>
     </header>
-    <h1> Your matches</h1>
+    <h1>Your matches</h1>
     <main>
         <section class="card-grid">
                 <!-- Here will be the matches shown based on the user -->
@@ -20,7 +20,7 @@
                         <!-- Image of the user -->
                         <img src="<%= users[i].image %>" alt="Profile picture from <%= users[i].firstName %>" class="card__img">
                         <!-- Send a like to the array and saves it -->
-                        <form action="User disolves on a like" method="POST">
+                        <form action="/users" method="POST">
                             <button id="like" value="<%= users[i].id %>">Like <%= users[i].firstName %></button>
                         </form>
                         <!-- Name and city the person lives in -->

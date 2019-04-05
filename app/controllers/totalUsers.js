@@ -9,7 +9,7 @@ async function showUser(req, res) {
 
     //gets all the users and their info from the database
     const users = await User.find();
-    res.status(200).render("matches", {users: users});
+    res.status(200).render("users", {users: users});
     // Saves the info about the user and sends it to matches.ejs
 }
 module.exports = showUser;

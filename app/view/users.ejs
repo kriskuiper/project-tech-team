@@ -1,5 +1,9 @@
+<!--
+    https://stackoverflow.com/questions/13143932/submit-html-form-perform-javascript-function-alert-then-redirect
+    https://teamtreehouse.com/community/function-not-defined-onclick  
+-->
 <% include partials/head.ejs %>
-    <title>My feed - CycLove</title>
+    <title>Users - CycLove</title>
 </head>
 <body>
     <header>
@@ -10,7 +14,7 @@
             </ul>
         </nav>
     </header>
-    <h1> Who to match?</h1>
+    <h1>Who to match?</h1>
     <main>
         <section class="card-grid">
                 <!-- Userpage will be the page where all the info is shown -->
@@ -19,15 +23,16 @@
                     <article class="card">
                         <!-- Image of the user -->
                         <img src="<%= users[i].image %>" alt="Profile picture from <%= users[i].firstName %>" class="card__img">
-                        <!-- Send a like to the array and saves it -->
-                        <form action="User disolves on a like" method="POST">
-                            <button id="like" value="<%= users[i].id %>">Like <%= users[i].firstName %></button>
+                        <!-- Sends the user.id to a array -->
+                        <form action="/<%= users[i].id %>" method="POST">
+                            <button type="submit">Like <%= users[i].firstName %></button>
                         </form>
                         <!-- Name and city the person lives in -->
                         <section>
                             <h2><%= users[i].firstName + " " + users[i].lastName %></h2>
                             <p><%= users[i].city %></p>
                         </section>
+
                     </article>
                 </a>
             <% } %>
