@@ -6,9 +6,10 @@ function getUsers() {
 
 async function request(url) {
     try {
+        const {results} = body;
         const response = await fetch(url);
         const body = await response.json();
-        return body.results;
+        return results;
     } catch(error) {
         logError(error);
     }

@@ -7,24 +7,16 @@ const User = require("../models/User");
 //This function will get the list of users that are matched with the logged in user
 async function match(req, res, next) {
     //gets all the users and their info from the database
-    try{
-    const users = await User.find();
-
-    const updateLikedPersons = (error, doc) => {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log("Before: " + doc.likedpersons);
-            doc.likedPersons.push("7872897348739872");
-            doc.save();
-            console.log("After: " + doc.likedpersons);
+    try {
+        const {personid} = req.query;
+        const users = await User.find();
+        if (personid) {
+            // TODO: add real data instead of users[0]
+            users[0].likedpersons.push(personid);
+            users[0].save();
         }
-    };
-    
-    User.findById(users[0]._id, updateLikedPersons);
-
-    // Saves the info about the user and sends it to matches.ejs
-    res.status(200).render("users");
+        // Saves the info about the user and sends it to matches.ejs
+        res.status(200).render("users", {users: users});
     }
     catch(error) {
         next(error);

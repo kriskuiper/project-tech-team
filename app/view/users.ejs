@@ -17,14 +17,15 @@
     <h1>Who to match?</h1>
     <main>
         <section class="card-grid">
-                <!-- Userpage will be the page where all the info is shown -->
-                <% for (let i = 0; i < users.length; i++) { %>
+            <!-- Userpage will be the page where all the info is shown -->
+            <% for (let i = 0; i < users.length  ; i++) { %>
                 <a href="/<%= users[i].id %>">
                     <article class="card">
                         <!-- Image of the user -->
                         <img src="<%= users[i].image %>" alt="Profile picture from <%= users[i].firstName %>" class="card__img">
                         <!-- Sends the user.id to a array -->
-                        <form action="/<%= users[i].id %>" method="POST">
+                        <form action="" method="GET">
+                            <input type="hidden" name="personid" value="<%= users[i].id %>">
                             <button type="submit">Like <%= users[i].firstName %></button>
                         </form>
                         <!-- Name and city the person lives in -->

@@ -15,6 +15,8 @@ const renderLogin = require("./app/controllers/renderLogin");
 const serveNotFound = require("./app/controllers/serveNotFound");
 const users = require("./app/controllers/totalUsers");
 const match = require("./app/controllers/match");
+const filter = require("./app/controllers/filter");
+const renderFilter = require("./app/controllers/renderFilter");
 
 // Process environment vars and connect to database
 const uri = process.env.MONGODB_URI;
@@ -33,19 +35,20 @@ const app = express();
 const port = 8000;
 
 app
-    .use("/static", express.static("app/static"))
+    .use("/", express.static("app/static"))
     .use(bodyParser.urlencoded({extended: true}))
     .use(session(sess))
     .set("view engine", "ejs")
     .set("views", "app/view")
-    
+
     .get("/", serveHome)
     .get("/create-account", renderCreateAccount)
     .get("/log-in", renderLogin)
     .get("/log-out", logout)
-    .get("/matches", match)
-    .get("/users", users)
+    .get("/users", match)
+    .get("/filter", renderFilter)
 
+    .post("/users", filter)
     .post("/", createAccount)
     .post("/log-in", login)
 
@@ -53,5 +56,5 @@ app
     .listen(process.env.PORT || port, listening);
 
 function listening() {
-    console.log(`App is on port ${port}`); // eslint-disable-line
+    console.log(`App is on port ${port}`);
 }
