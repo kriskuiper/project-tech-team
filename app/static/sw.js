@@ -12,11 +12,10 @@ const urlsToCache = [
 
 // Install service worker
 self.addEventListener("install", event => {
-    console.log("[ServiceWorker] Install"); // eslint-disable-line
+    console.log("[ServiceWorker] Caching app shell"); // eslint-disable-line
     event.waitUntil(
         caches.open(CACHE_NAME)
             .then(cache => {
-                console.log("Opened cache"); // eslint-disable-line
                 return cache.addAll(urlsToCache);
             })
     );
@@ -24,7 +23,6 @@ self.addEventListener("install", event => {
 
 // Respond with cache (pre caching)
 self.addEventListener("fetch", event => {
-    console.log("Fetching..."); // eslint-disable-line
     event.respondWith(
         caches.match(event.request)
             .then(response => response || fetch(event.request))
