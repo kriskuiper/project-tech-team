@@ -13,6 +13,11 @@
     <main>
         <section>
           <% include partials/filter.ejs %>
+          <% for (let i = 0; i < users.length; i++) { %>
+            <a href="<%= users[i].id %>">
+              <p><%= users[i].firstName %></p>
+            </a>
+          <% } %>
         </section>
     </main>
     <% include partials/footer.ejs %>
