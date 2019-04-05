@@ -1,0 +1,21 @@
+{
+    "short_name": "Drinkerz",
+    "name": "Drinkerz, dating app for beer drinking students",
+    "description": "A dating app for beer drinking students, they can like eachother and discover bars nearby",
+    "display": "standalone",
+    "background_color": "#fcbd12",
+    "theme_color": "#fff",
+    "start_url": "/",
+    "icons": [
+        {
+            "src": "/media/images/icons/icon-192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/media/images/icons/icon-512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ]
+}
