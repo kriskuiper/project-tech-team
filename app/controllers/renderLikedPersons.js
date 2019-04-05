@@ -8,10 +8,12 @@ const User = require("../models/User");
 async function renderLikedUsers(req, res, next) {
     //gets all the users and their info from the database
     try{
+        //gets the liked users from the database
         const users = await User.find();
         const likeIds = users[0].likedpersons;
         const likedPersons = [];
 
+        //Gets every user id 
         for (let i = 0; i < likeIds.length; i++) {
             likedPersons.push(User.findById(likeIds[i], (err, res) => {
                 if (err) {
@@ -21,7 +23,7 @@ async function renderLikedUsers(req, res, next) {
                 }
             }));
         }
-
+        // When the for-loop is finished this will start
         await Promise.all(likedPersons)
             .then(results => {
                 res.status(200).render("matches", {likedpersons: results});

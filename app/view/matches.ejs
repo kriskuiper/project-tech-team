@@ -20,8 +20,9 @@
                         <!-- Image of the user -->
                         <img src="<%= likedpersons[i].image %>" alt="Profile picture from <%= likedpersons[i].firstName %>" class="card__img">
                         <!-- Send a like to the array and saves it -->
-                        <form action="/users" method="POST">
-                            <button id="like" value="<%= likedpersons[i].id %>">Dislike <%= likedpersons[i].firstName %></button>
+                        <form action="/matches" method="GET">
+                            <input type="hidden" name="currentPerson" value="<%= likedpersons[i].id %>">
+                            <button type="submit">Dislike <%= likedpersons[i].firstName %></button>
                         </form>
                         <!-- Name and city the person lives in -->
                         <section>
