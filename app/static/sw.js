@@ -5,8 +5,8 @@ const urlsToCache = [
     "./401.html",
     "./scripts/main.js",
     "./styles/main.css",
-    "./media/images/pwa-images/icon-192.png",
-    "./media/images/pwa-images/icon-512.png",
+    "./media/images/icons/icon-192.png",
+    "./media/images/icons/icon-512.png",
     "./manifest.webmanifest"
 ];
 
@@ -15,9 +15,7 @@ self.addEventListener("install", event => {
     console.log("[ServiceWorker] Caching app shell"); // eslint-disable-line
     event.waitUntil(
         caches.open(CACHE_NAME)
-            .then(cache => {
-                return cache.addAll(urlsToCache);
-            })
+            .then(cache => cache.addAll(urlsToCache))
     );
 });
 
