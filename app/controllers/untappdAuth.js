@@ -40,8 +40,8 @@ function untappdAuth(req, res) {
               };
           }
       }
-      console.log(data.response.user.user_name);
-      res.redirect("/my-feed")
+      console.log(req.session.user);
+      res.redirect("/")
     })
     .catch(error => console.error('Error:', error))
   })
