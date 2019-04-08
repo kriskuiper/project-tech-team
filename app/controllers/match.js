@@ -2,15 +2,14 @@
 const User = require("../models/User");
 //TODO: add real data instead of users[0]
 //This wil be the list of the liked persons of the logged-in user.
-const {listUser} = "";
 
 async function match(req, res, next) {
     //gets the personid that will be added to the list
     try {
         const {personid} = req.query;
         const users = await User.find();
-        for (let i = 0; i < listUser.length; i++) {
-            if (personid == listUser[i]) {
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].id === req.query.likedId) {
                 console.log("This user is already been liked");
 
             } else {

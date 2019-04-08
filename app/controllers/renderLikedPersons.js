@@ -5,7 +5,9 @@ const User = require("../models/User");
 // items needed from database: User image, name, city, array of liked people
 
 //This function will get the list of users that are matched with the logged in user
-async function renderLikedUsers(req, res, next) {
+async function renderLikedPersons(req, res, next) {
+    const {currentPerson} = req.query;
+
     //gets all the users and their info from the database
     try{
         //gets the liked users from the database
@@ -13,8 +15,13 @@ async function renderLikedUsers(req, res, next) {
         const likeIds = users[0].likedpersons;
         const likedPersons = [];
 
+        
         //Gets every user id 
         for (let i = 0; i < likeIds.length; i++) {
+            if (likeIds[i] === currentPerson) {
+                likeIds.splice(likeIds.indexOf(currentPerson), 1);
+            }
+
             likedPersons.push(User.findById(likeIds[i], (err, res) => {
                 if (err) {
                     next(err);
@@ -28,24 +35,11 @@ async function renderLikedUsers(req, res, next) {
             .then(results => {
                 res.status(200).render("matches", {likedpersons: results});
             });
-
-        // for (let i = 0; i < likeIds.length; i++) {
-        //     await User.findById(likeIds[i], (err, res) => {
-        //         if (err) {
-        //             next(err);
-        //         } else {
-        //             likedPersons.push(res);
-        //         }
-        //     });
-
-
-        // }
-
-        console.log(likedPersons);
         // Saves the info about the user and sends it to matches.ejs
     }
     catch(error) {
         next(error);
     }
 }
-module.exports = renderLikedUsers;
+
+module.exports = renderLikedPersons;

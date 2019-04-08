@@ -22,7 +22,8 @@
                         <!-- Send a like to the array and saves it -->
                         <form action="/matches" method="GET">
                             <input type="hidden" name="currentPerson" value="<%= likedpersons[i].id %>">
-                            <button type="submit">Dislike <%= likedpersons[i].firstName %></button>
+                            <button type="submit"> Remove <%= likedpersons[i].firstName %></button>
+                            
                         </form>
                         <!-- Name and city the person lives in -->
                         <section>
