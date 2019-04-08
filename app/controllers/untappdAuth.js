@@ -53,11 +53,13 @@ function untappdAuth(req, res) {
 
       function createUser() {
 
-        User.findOne({ 'username': req.session.user.user_name }, function (err, data) {
+        User.find({ 'username': req.session.user.user_name }).exec( function (err, user) {
           if (err) return handleError(err);
 
-          if (data === null) {
-
+          if (user.length) {
+            console.log("Name exisits");
+            res.redirect("/")
+          } else {
             const newUser = new User({
                 _id: new mongoose.Types.ObjectId(),
                 username: req.session.user.username,
@@ -68,18 +70,10 @@ function untappdAuth(req, res) {
                 beers: beersArray
             });
 
-          User.create(newUser);
-
-          } else {
-            console.log("User already exists, log-in instead");
+            User.create(newUser);
+            res.redirect("/");
           }
         });
-      }
-
-      if (req.session.password === null) {
-        res.redirect("/set-password")
-      } else {
-        res.redirect("/")
       }
     })
     .catch(error => console.error('Error:', error))
