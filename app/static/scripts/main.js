@@ -3,8 +3,6 @@ if ("querySelector" in document) {
     document.body.classList.add("js-enabled");
 }
 
-console.log("hello");
-
 // Handle feed posts
 const feedPosts = document.querySelectorAll(".feed__post");
 const postObserver = new IntersectionObserver(showPosts);
