@@ -10,7 +10,7 @@
       <ul class="beers__list">
         <% for(let i = 0; i < user.beers.length; i++) { %>
           <li class="list__item">
-            <% fetch('https://api.untappd.com/v4/beer/info/' + user.beers[i] + '?client_id=A0D5D7F766E859E3EF145BD051A3A576D2EA97CF&client_secret=EBF811599C0F5914F7F37349041336C86926AC40').then(response => response.json()).then(function(data) { %>
+            <% fetch('https://api.untappd.com/v4/beer/info/' + user.beers[i] + '?access_token=' + user.token).then(response => response.json()).then(function(data) { %>
               <h3 class="item__title"><%= data.response.beer.beer_name %></h3>
               <img class="item__image" src="<%- data.response.beer.beer_label_hd %>" alt="<%- data.response.beer.beer_name %>">
               <p class="item__description"><%= data.response.beer.beer_description %></p>

@@ -56,6 +56,8 @@ function untappdAuth(req, res) {
         User.findOne({ 'username': req.session.user.user_name }, function (err, data) {
           if (err) return handleError(err);
 
+          console.log(data);
+
           if (data === null) {
 
             const newUser = new User({
@@ -76,9 +78,7 @@ function untappdAuth(req, res) {
         });
       }
 
-      console.log(req.session.user);
-
-      if (req.session.password == null) {
+      if (req.session.password === null) {
         res.redirect("/set-password")
       } else {
         res.redirect("/")
