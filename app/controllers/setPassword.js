@@ -13,7 +13,10 @@ async function setPassword(req, res, next) {
             console.log("error");
           }
           user.password = password;
-          user.save(callback);
+          user.save(function (err) {
+            if (err) return handleError(err);
+            // saved!
+          });
         })
 
         res.redirect("/");
