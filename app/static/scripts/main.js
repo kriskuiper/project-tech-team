@@ -48,7 +48,11 @@ if (navigator.geolocation) {
       position.coords.latitude, 
       position.coords.longitude
     );
-    console.log(location);
+
+    let { lat, long } = location;
+    
+    // set cookie
+    document.cookie = `location=${lat}-${long}`;
   });
 } else {
   console.log("No location available");
