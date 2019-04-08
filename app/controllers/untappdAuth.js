@@ -71,7 +71,7 @@ function untappdAuth(req, res) {
           User.create(newUser);
 
           } else {
-            console.log("User already exists");
+            console.log("User already exists, log-in instead");
           }
         });
       }

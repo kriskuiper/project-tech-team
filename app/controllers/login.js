@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const fetch = require("node-fetch");
 
 async function login(req, res, next) {
   try {
@@ -24,7 +25,8 @@ async function login(req, res, next) {
           beers: data.beers
         };
         res.render("home", {
-          user: req.session.user
+          user: req.session.user,
+          fetch: fetch
         });
       } else {
         const error = "Username or password incorrect";
