@@ -45,17 +45,17 @@ function untappdAuth(req, res) {
 
       function createUser() {
 
-        User.findOne({ 'username': data.response.user.user_name }, function (err, data) {
+        User.findOne({ 'username': req.session.user.user_name }, function (err, data) {
           if (err) return handleError(err);
 
           if (data === null) {
 
             const newUser = new User({
                 _id: new mongoose.Types.ObjectId(),
-                username: data.response.user.user_name.toLowerCase(),
+                username: req.session.user.user_name.toLowerCase(),
                 password: '0000',
-                firstName: data.response.user.first_name,
-                lastName: data.response.user.last_name
+                firstName: req.session.user.first_name,
+                lastName: req.session.user.last_name
             });
 
           User.create(newUser);
