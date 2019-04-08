@@ -33,7 +33,9 @@ function untappdAuth(req, res) {
         let beer_label = data.response.user.recent_brews.items[i].beer.beer_label;
         let beer_description = data.response.user.recent_brews.items[i].beer.beer_description;
         let beer_brewery = data.response.user.recent_brews.items[i].brewery.brewery_name;
-        beersArray.push([beer: {bid: beer_bid, name: beer_name, img: beer_label, description: beer_description, brewery: beer_brewery}]);
+        objectBeer = {beer: {bid: beer_bid, name: beer_name, img: beer_label, description: beer_description, brewery: beer_brewery}};
+
+        beersArray.push(objectBeer);
       }
 
       setSession();
