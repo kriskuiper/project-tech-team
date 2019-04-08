@@ -6,7 +6,7 @@ async function setPassword(req, res, next) {
         const password = req.body;
         console.log(req.session.user.username);
 
-        await User.update({'username': req.session.user.username}, { $set: { 'password': password }});
+        await User.updateOne({'username': req.session.user.username}, { 'password': '0000' });
 
         res.redirect("/");
 
