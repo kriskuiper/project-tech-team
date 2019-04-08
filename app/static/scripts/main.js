@@ -3,6 +3,8 @@ if ("querySelector" in document) {
     document.body.classList.add("js-enabled");
 }
 
+console.log("hello");
+
 // Handle feed posts
 const feedPosts = document.querySelectorAll(".feed__post");
 const postObserver = new IntersectionObserver(showPosts);
@@ -39,4 +41,24 @@ if ("serviceWorker" in navigator) {
               console.log("Failed to register ServiceWorker");
           });
   });
+}
+
+// Get geolocation
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(position => {
+    const location = new GeoLocation(
+      position.coords.latitude, 
+      position.coords.longitude
+    );
+    console.log(location);
+  });
+} else {
+  console.log("No location available");
+}
+
+class GeoLocation {
+  constructor(lat, long) {
+    this.lat = lat;
+    this.long = long;
+  }
 }
