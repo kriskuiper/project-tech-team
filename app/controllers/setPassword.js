@@ -5,19 +5,8 @@ async function setPassword(req, res, next) {
     try {
         const password = req.body;
         console.log(req.session.user.username);
-        // await User.update({'username': req.session.user.username}, { 'password': password });
 
-
-        User.findOne({ 'username': req.session.user.username }, function (err, user) {
-          if (err) {
-            console.log("error");
-          }
-          user.password = password;
-          user.save(function (err) {
-            if (err) return handleError(err);
-            // saved!
-          });
-        })
+        await User.update({'username': req.session.user.username}, { $set: { 'password': password }});
 
         res.redirect("/");
 
