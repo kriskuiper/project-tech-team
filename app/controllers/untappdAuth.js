@@ -32,11 +32,11 @@ function untappdAuth(req, res) {
         beersArray.push(beer_bid);
       }
 
-        User.findOne({ 'username': data.response.user.user_name }, function (err, data) {
+        User.findOne({ 'username': data.response.user.user_name }, function (err, user) {
           if (err) return handleError(err);
 
 
-          if (data.password === password) {
+          if (user.password === null) {
 
             setSession();
 
