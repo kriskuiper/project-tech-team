@@ -1,10 +1,6 @@
 const {https} = require("follow-redirects");
 require("dotenv").config();
 
-const placeDetails = function() {
-    this.places = [];
-};
-
 const barLocations = [];
 
 //Declare loction information
@@ -24,7 +20,7 @@ function placeSearch(latitude, longitude, radius) {
         PlaceResult).end();
 }
 
-//Place retrieved data in an array, and display data in terminal (for now)
+//Place retrieved data in an array.
 function PlaceResult(response) { 
     let data = "";
     let sdata = "";
@@ -34,7 +30,6 @@ function PlaceResult(response) {
     });
     response.on("end", () => {
         sdata = JSON.parse(data);
-        console.log(sdata.status);
         
         if (sdata.status === "OK") {
             for (let i = 0; i < sdata.results.length; i++) {
