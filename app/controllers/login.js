@@ -5,10 +5,14 @@ async function login(req, res, next) {
         const users = await User.find();
         const {username, password} = req.body;
 
-        if (username.toLowerCase() === users[i].username && password === users[i].password) {
+        if (username.toLowerCase() === users.username && password === users.password) {
             req.session.user = {
-                firstName: users[i].firstName,
-                lastName: users[i].lastName
+                firstName: users.firstName,
+                lastName: users.lastName,
+                gender: users.gender,
+                age: users.age,
+                likedpersons: users.likedpersons,
+                beers: users.beers
             };
             res.redirect("/");
         } else {
