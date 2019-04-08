@@ -28,8 +28,8 @@ function untappdAuth(req, res) {
       const beersArray = [];
 
       for (var i = 0; i < data.response.user.recent_brews.count; i++) {
-        // beersArray.push(data.response.user.recent_brews.items.beer[i].bid, data.response.user.recent_brews.items.beer[i].beer_name)
-        console.log(data.response.user.recent_brews.items.beer[i].bid);
+        beersArray.push(data.response.user.recent_brews.items[i].beer.bid: data.response.user.recent_brews.items[i].beer.beer_name)
+        console.log(data.response.user.recent_brews.items[i].beer.bid);
       }
 
       setSession();
