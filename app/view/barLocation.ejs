@@ -13,13 +13,18 @@
     <h1> Bar Locations</h1>
     <main>
         <section class="card-grid">
+            <% if (barLocations) { %>
                 <% for (let i = 0; i < barLocations.length; i++) { %> 
                     <article class="card">
-                        <img src="<%= barImg %>" alt="bar image">
-                        <h3><%= barLocations[i].name %></h3>
-                        <p><%= barLocations[i].vicinity %></p>
+                        <img src="<%= barImages[i].url %>" alt="Impression image of the bar" class="card__image">
+                        <div class="card__meta-block">
+                            <h3 class="card__meta-title"><%= barLocations[i].name %></h3>
+                            <p><%= barLocations[i].vicinity %></p>
+                        </div>
                     </article>
+                <% } %>
             <% } %>
+            <h2>Sorry, we couldn't load any bars right now</h2>
         </section>
     </main>
     <% include partials/footer.ejs %>

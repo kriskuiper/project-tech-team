@@ -44,19 +44,22 @@ function PlaceResult(response) {
 const imageWidth = 480; 
 const imageHeight = 480; 
 const collectionID = 884739;
+let randomImage = Math.floor(Math.random() * 50);
+const barImages = [];
 
-async function renderGalleryItem() {
-    const imgUrl = await fetch(`https://source.unsplash.com/collection/${collectionID}/${imageWidth}x${imageHeight}/`);
-    return imgUrl.url;
-  }
+async function renderBarLocation(req, res) {
 
+    for (let i = 0; i < 20; i++) {
+        const imgUrl = fetch(`https://source.unsplash.com/collection/${collectionID}/${imageWidth}x${imageHeight}/?sig=${randomImage}`);
+        barImages.push(imgUrl);
+    }
 
-
-function renderBarLocation(req, res) {
-    res.status(200).render("barLocation", { barLocations: barLocations, barImg: renderGalleryItem});
+    await Promise.all(barImages)
+        .then(images => {
+            res.status(200).render("barLocation", { barLocations: barLocations, barImages: images});
+        });
 }
 
 placeSearch(latitude, longitude, radius);
-renderGalleryItem();
 
 module.exports = renderBarLocation;

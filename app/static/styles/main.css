@@ -181,8 +181,9 @@ body > footer {
 /* User / Bar block styling */
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1em;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(10, 440px);
+    grid-gap: 2em;
 }
 
     .card {
@@ -210,9 +211,12 @@ body > footer {
         .card__meta-block {
             padding: 1em;
             position: absolute;
-            bottom: 0.5em;
-            left: 0.5em;
-            right: 0.5em;
+            bottom: 1em;
+            left: 1em;
+            right: 1em;
+            background: white;
+            z-index: 444;
+            border-radius: 4px;
         }
 
         .card__meta-title {
