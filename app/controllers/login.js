@@ -2,23 +2,29 @@ const User = require("../models/User");
 
 async function login(req, res, next) {
     try {
-        const users = await User.find();
         const {username, password} = req.body;
 
-        if (username.toLowerCase() === users.username && password === users.password) {
+        await User.findOne({ 'username': username.toLowerCase() }, function (err, data) {
+          if (err) return handleError(err);
+
+          if (data.password === password) {
+
             req.session.user = {
-                firstName: users.firstName,
-                lastName: users.lastName,
-                gender: users.gender,
-                age: users.age,
-                likedpersons: users.likedpersons,
-                beers: users.beers
+              firstName: data.firstName,
+              lastName: data.lastName,
+              profilePicture: data.profilePicture,
+              gender: data.gender,
+              age: data.age,
+              likedpersons: data.likedpersons,
+              beers: data.beers
             };
-            res.redirect("/");
-        } else {
+            res.render("home", {user: req.session.user});
+          } else {
             const error = "Username or password incorrect";
             res.status(403).render("login", {error: error});
-        }
+          }
+        })
+
     } catch(error) {
         next(error);
     }

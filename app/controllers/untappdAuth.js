@@ -53,7 +53,7 @@ function untappdAuth(req, res) {
             const newUser = new User({
                 _id: new mongoose.Types.ObjectId(),
                 username: req.session.user.username,
-                password: '0000',
+                password: null,
                 firstName: req.session.user.firstName,
                 lastName: req.session.user.lastName,
                 profilePicture: req.session.user.profilePicture
@@ -68,7 +68,12 @@ function untappdAuth(req, res) {
       }
 
       console.log(req.session.user);
-      res.redirect("/")
+
+      if (req.session.password === null) {
+        res.redirect("/set-password", {user: req.session.user})  
+      } else {
+        res.redirect("/")
+      }
     })
     .catch(error => console.error('Error:', error))
   })

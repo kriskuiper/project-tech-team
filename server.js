@@ -7,6 +7,8 @@ require("dotenv").config();
 
 // Require controllers
 const serveHome = require("./app/controllers/serveHome");
+const renderSetPassword = require("./app/controllers/renderSetPassword");
+const setPassword = require("./app/controllers/setPassword");
 const renderCreateAccount = require("./app/controllers/renderCreateAccount");
 const createAccount = require("./app/controllers/createAccount");
 const login = require("./app/controllers/login");
@@ -40,12 +42,14 @@ app
 
     .get("/", serveHome)
     .get("/create-account", renderCreateAccount)
+    .get("/set-password", renderSetPassword)
     .get("/log-in", renderLogin)
     .get("/log-out", logout)
     .get("/untappd-authentication", untappdAuth)
 
     .post("/", createAccount)
     .post("/log-in", login)
+    .post("/set-password", setPassword)
 
     .use(serveNotFound)
     .listen(process.env.PORT || port, listening);
