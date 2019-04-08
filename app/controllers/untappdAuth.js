@@ -49,20 +49,17 @@ function untappdAuth(req, res) {
                 firstName: data.response.user.first_name,
                 lastName: data.response.user.last_name,
                 profilePicture: data.response.user.user_avatar_hd,
-                beers: beersArray,
-                token: ACCESS_TOKEN
+                beers: beersArray
               };
           }
       }
 
-      createUser();
-
-      function createUser() {
-
         User.find({ 'username': req.session.user.user_name }).exec( function (err, user) {
           if (err) return handleError(err);
 
-          if (user.length === 0) {
+          console.log(user.length);
+
+          if (user.length == null) {
             console.log("Name exisits");
             res.redirect("/")
           } else {
@@ -80,7 +77,6 @@ function untappdAuth(req, res) {
             res.redirect("/");
           }
         });
-      }
     })
     .catch(error => console.error('Error:', error))
   })

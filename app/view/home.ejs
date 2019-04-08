@@ -11,6 +11,7 @@
         <% for(let i = 0; i < user.beers.length; i++) { %>
           <li class="list__item">
               <h3 class="item__title"><%= user.beers[i].beer.name %></h3>
+              <p><%= user.beers[i].beer.description %></p>
           </li>
         <% } %>
       </ul>
