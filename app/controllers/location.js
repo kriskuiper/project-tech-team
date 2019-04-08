@@ -47,7 +47,7 @@ const collectionID = 884739;
 
 async function renderGalleryItem() {
     const imgUrl = await fetch(`https://source.unsplash.com/collection/${collectionID}/${imageWidth}x${imageHeight}/`);
-    return imgUrl;
+    return imgUrl.url;
   }
 
 
