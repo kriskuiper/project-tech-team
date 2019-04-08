@@ -32,46 +32,55 @@ function untappdAuth(req, res) {
         beersArray.push(beer_bid);
       }
 
-        User.findOne({ 'username': data.response.user.user_name }, function (err, user) {
-          if (err) return handleError(err);
+      setSession();
 
-
-          if (user.password === null) {
-
-            setSession();
-
-            function setSession(error) {
-                if (error) {
-                    next(error);
-                } else {
-                    req.session.user = {
-                      username: data.response.user.user_name,
-                      firstName: data.response.user.first_name,
-                      lastName: data.response.user.last_name,
-                      profilePicture: data.response.user.user_avatar_hd,
-                      beers: beersArray,
-                      token: ACCESS_TOKEN
-                    };
-                }
-            }
+      function setSession(error) {
+          if (error) {
+              next(error);
           } else {
-
-            const newUser = new User({
-                _id: new mongoose.Types.ObjectId(),
+              req.session.user = {
                 username: data.response.user.user_name,
-                password: null,
                 firstName: data.response.user.first_name,
                 lastName: data.response.user.last_name,
                 profilePicture: data.response.user.user_avatar_hd,
+                beers: beersArray,
+                token: ACCESS_TOKEN
+              };
+          }
+      }
+
+      createUser();
+
+      function createUser() {
+
+        User.findOne({ 'username': req.session.user.user_name }, function (err, data) {
+          if (err) return handleError(err);
+
+          if (data === null) {
+
+            const newUser = new User({
+                _id: new mongoose.Types.ObjectId(),
+                username: req.session.user.username,
+                password: null,
+                firstName: req.session.user.firstName,
+                lastName: req.session.user.lastName,
+                profilePicture: req.session.user.profilePicture,
                 beers: beersArray
             });
 
           User.create(newUser);
-          res.redirect("/set-password");
-          }
 
+          } else {
+            console.log("User already exists, log-in instead");
+          }
         });
-      res.redirect("/");
+      }
+
+      if (req.session.password === null) {
+        res.redirect("/set-password")
+      } else {
+        res.redirect("/")
+      }
     })
     .catch(error => console.error('Error:', error))
   })
