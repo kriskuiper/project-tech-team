@@ -1,25 +1,23 @@
-// require list
+//Require list
 const User = require("../models/User");
 
-// display the users from the database that are a match with the user
-// items needed from database: User image, name, city, array of liked people
-
+//Display the users from the database that are a match with the user
 //This function will get the list of users that are matched with the logged in user
 async function renderLikedPersons(req, res, next) {
     const {currentPerson} = req.query;
 
-    //gets all the users and their info from the database
+    //Gets all the users and their info from the database
     try{
-        //gets the liked users from the database
         const users = await User.find();
+        //if the user wants to unmatch a person
         const likeIds = users[0].likedpersons;
+        //TODO: Add user session to users[0]
         users[0].likedpersons = likeIds.filter(id => id != currentPerson);
         users[0].save();
         const likedPersons = [];
  
-        //Gets every user id 
+        //Gets all the users from the database
         for (let i = 0; i < likeIds.length; i++) {
-
             likedPersons.push(User.findById(likeIds[i], (err, res) => {
                 if (err) {
                     next(err);
@@ -28,7 +26,8 @@ async function renderLikedPersons(req, res, next) {
                 }
             }));
         }
-        // When the for-loop is finished this will start
+
+        // When the for-loop is finished the system will show the matches
         await Promise.all(likedPersons)
             .then(results => {
                 res.status(200).render("matches", {likedpersons: results});
@@ -39,5 +38,4 @@ async function renderLikedPersons(req, res, next) {
         next(error);
     }
 }
-
 module.exports = renderLikedPersons;
