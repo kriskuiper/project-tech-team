@@ -62,7 +62,7 @@ function untappdAuth(req, res) {
         User.find({ 'username': req.session.user.user_name }).exec( function (err, user) {
           if (err) return handleError(err);
 
-          if (user.length == 0) {
+          if (user.length === 0) {
             console.log("Name exisits");
             res.redirect("/")
           } else {
