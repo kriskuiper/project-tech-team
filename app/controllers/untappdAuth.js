@@ -1,21 +1,21 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 const session = require("express-session");
+const mongoose = require("mongoose");
 const fetch = require("node-fetch");
+const User = require("../models/User");
+require("dotenv").config();
 
 function untappdAuth(req, res) {
 
   const CODE = req.query.code
-  let CLIENTID = 'A0D5D7F766E859E3EF145BD051A3A576D2EA97CF'
-  let CLIENTSECRET = 'EBF811599C0F5914F7F37349041336C86926AC40'
   let REDIRECT_URL = 'https://untappdtest.herokuapp.com/untappd-authentication'
 
-  fetch('https://untappd.com/oauth/authorize/?client_id=' + CLIENTID + '&client_secret=' + CLIENTSECRET + '&response_type=code&redirect_url=' + REDIRECT_URL + '&code=' + CODE , {
+  fetch('https://untappd.com/oauth/authorize/?client_id=' + process.env.CLIENTID + '&client_secret=' + process.env.CLIENTSECRET + '&response_type=code&redirect_url=' + REDIRECT_URL + '&code=' + CODE , {
     method: 'GET'
     })
   .then(response => response.json())
   .then(function(data) {
-    // req.user.access_token = data.response.access_token
     console.log(data);
 
 
@@ -40,6 +40,32 @@ function untappdAuth(req, res) {
               };
           }
       }
+
+      createUser();
+
+      function createUser() {
+
+        User.findOne({ 'username': data.response.user.user_name }, function (err, data) {
+          if (err) return handleError(err);
+
+          if (data === null) {
+
+            const newUser = new User({
+                _id: new mongoose.Types.ObjectId(),
+                username: data.response.user.user_name.toLowerCase(),
+                password: '0000',
+                firstName: data.response.user.first_name,
+                lastName: data.response.user.last_name
+            });
+
+          User.create(newUser);
+
+          } else {
+            console.log("User already exists");
+          }
+        });
+      }
+
       console.log(req.session.user);
       res.redirect("/")
     })
