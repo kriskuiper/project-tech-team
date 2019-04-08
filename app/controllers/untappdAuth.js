@@ -29,7 +29,11 @@ function untappdAuth(req, res) {
 
       for (var i = 0; i < data.response.user.recent_brews.count; i++) {
         let beer_bid = data.response.user.recent_brews.items[i].beer.bid;
-        beersArray.push(beer_bid);
+        let beer_name = data.response.user.recent_brews.items[i].beer.beer_name;
+        let beer_label = data.response.user.recent_brews.items[i].beer.beer_label;
+        let beer_description = data.response.user.recent_brews.items[i].beer.beer_description;
+        let beer_brewery = data.response.user.recent_brews.items[i].brewery.brewery_name;
+        beersArray.push( beer: {bid: beer_bid, name: beer_name, img: beer_label, description: beer_description, brewery: beer_brewery});
       }
 
       setSession();
