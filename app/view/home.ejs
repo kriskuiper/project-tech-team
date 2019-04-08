@@ -1,10 +1,24 @@
 <% include partials/head.ejs %>
-    <title>My feed - CycLove</title>
+    <title>Home | Drinkerz</title>
 </head>
 <body>
     <section>
         <h1>Hi <%= user.firstName %>!</h1>
-        <p>See what's on your feed</p>
+
+    </section>
+    <section class="beers__container">
+      <ul class="beers__list">
+        <% for (let i = 0; i < user.beers.length; i++) {
+          fetch('https://api.untappd.com/v4/search/v4/beer/info/' + user.beers[i] + '?access_token=' + user.token, {
+          method: 'GET'
+          })
+        .then(response => response.json())
+          %>
+          <li class="list__item">
+            <h3 class="item__title"><%= response.beer.beer_name%></h3>
+          </li>
+        <% }%>
+      </ul>
     </section>
     <% include partials/footer.ejs %>
 </body>
