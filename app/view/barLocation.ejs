@@ -13,13 +13,12 @@
     <h1> Bar Locations</h1>
     <main>
         <section class="card-grid">
-            <% if(barLocations.includes("a") == "true"){ %>
                 <% for (let i = 0; i < barLocations.length; i++) { %> 
                     <article class="card">
-                        <%= barLocations.status[i] %>
+                        <h3><%= barLocations[i].name %></h3>
+                        <h4>Adres</h4>
+                        <p><%= barLocations[i].vicinity %></p>
                     </article>
-            <% }} else{ %>  
-                <p>nope</p>
             <% } %>
         </section>
     </main>

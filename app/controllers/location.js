@@ -34,10 +34,12 @@ function PlaceResult(response) {
     });
     response.on("end", () => {
         sdata = JSON.parse(data);
+        console.log(sdata.status);
+        
         if (sdata.status === "OK") {
             for (let i = 0; i < sdata.results.length; i++) {
                 barLocations.push(sdata.results[i]);
-            }
+            }  
         } 
     });
 }
