@@ -1,4 +1,3 @@
-
 function renderUsers(req, res) {
     res.render("users");
 }

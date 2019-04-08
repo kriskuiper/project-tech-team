@@ -11,7 +11,6 @@ async function login(req, res, next) {
                 req.session.user = {
                     firstName: users[i].firstName,
                     lastName: users[i].lastName,
-                    bike: users[i].bike
                 };
                 res.redirect("/my-feed");
             } else {

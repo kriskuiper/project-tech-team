@@ -2,14 +2,13 @@ const mongoose = require("mongoose");
 const User = require("../models/User");
 
 function createAccount(req, res, next) {
-    const {username, password, firstname, lastname, bike} = req.body;
+    const {username, password, firstname, lastname} = req.body;
     const newUser = new User({
         _id: new mongoose.Types.ObjectId(),
         username: username.toLowerCase(),
         password: password,
         firstName: firstname,
         lastName: lastname,
-        bike: bike,
         posts: [],
         reactions: []
     });
@@ -22,10 +21,9 @@ function createAccount(req, res, next) {
         if (error) {
             next(error);
         } else {
-            req.session.user = { 
-                firstName: newUser.firstName, 
-                lastName: newUser.lastName, 
-                bike: newUser.bike
+            req.session.user = {
+                firstName: newUser.firstName,
+                lastName: newUser.lastName,
             };
             res.redirect("/my-feed");
         }
