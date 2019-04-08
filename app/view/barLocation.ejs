@@ -13,11 +13,14 @@
     <h1> Bar Locations</h1>
     <main>
         <section class="card-grid">
-            <% for (let i = 0; i < barLocations.length; i++) { %> 
-            <article class="card">
-                <%= barLocations.status[i] %>
-            </article>
-           <% }; %>
+            <% if(barLocations.includes("a") == "true"){ %>
+                <% for (let i = 0; i < barLocations.length; i++) { %> 
+                    <article class="card">
+                        <%= barLocations.status[i] %>
+                    </article>
+            <% }} else{ %>  
+                <p>nope</p>
+            <% } %>
         </section>
     </main>
     <% include partials/footer.ejs %>

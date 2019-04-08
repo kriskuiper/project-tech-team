@@ -39,11 +39,6 @@ function PlaceResult(response) {
                 barLocations.push(sdata.results[i]);
             }
         } 
-        else {
-            for (let i = 0; i < sdata.results.length; i++) {
-                barLocations.push(sdata.status[i]);                
-            }
-        }
     });
 }
 
