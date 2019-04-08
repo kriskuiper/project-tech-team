@@ -25,6 +25,11 @@ function untappdAuth(req, res) {
       })
     .then(response => response.json())
     .then(function(data) {
+      const beersArray = [];
+
+      for (var i = 0; i < data.response.user.recent_brews.count; i++) {
+        beersArray.push(data.response.user.recent_brews.items.beer[i].bid, data.response.user.recent_brews.items.beer[i].beer_name)
+      }
 
       setSession();
 
@@ -36,7 +41,8 @@ function untappdAuth(req, res) {
                 username: data.response.user.user_name,
                 firstName: data.response.user.first_name,
                 lastName: data.response.user.last_name,
-                profilePicture: data.response.user.user_avatar_hd
+                profilePicture: data.response.user.user_avatar_hd,
+                beers: beersArray
               };
           }
       }
@@ -56,7 +62,9 @@ function untappdAuth(req, res) {
                 password: null,
                 firstName: req.session.user.firstName,
                 lastName: req.session.user.lastName,
-                profilePicture: req.session.user.profilePicture
+                profilePicture: req.session.user.profilePicture,
+
+
             });
 
           User.create(newUser);
