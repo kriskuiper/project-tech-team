@@ -1,4 +1,5 @@
 const {https} = require("follow-redirects");
+const fetch = require("node-fetch");
 require("dotenv").config();
 
 const barLocations = [];
@@ -39,10 +40,23 @@ function PlaceResult(response) {
     });
 }
 
+//Render image from unsplash
+const imageWidth = 480; 
+const imageHeight = 480; 
+const collectionID = 884739;
+
+async function renderGalleryItem() {
+    const imgUrl = await fetch(`https://source.unsplash.com/collection/${collectionID}/${imageWidth}x${imageHeight}/`);
+    return imgUrl;
+  }
+
+
+
 function renderBarLocation(req, res) {
-    res.status(200).render("barLocation", { barLocations: barLocations });
+    res.status(200).render("barLocation", { barLocations: barLocations, barImg: renderGalleryItem});
 }
 
 placeSearch(latitude, longitude, radius);
+renderGalleryItem();
 
 module.exports = renderBarLocation;
