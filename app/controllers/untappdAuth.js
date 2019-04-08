@@ -69,8 +69,8 @@ function untappdAuth(req, res) {
 
       console.log(req.session.user);
 
-      if (req.session.password === null) {
-        res.redirect("/set-password", {user: req.session.user})  
+      if (req.session.password == null) {
+        res.redirect("/set-password", {user: req.session.user})
       } else {
         res.redirect("/")
       }
