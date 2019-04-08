@@ -52,10 +52,11 @@ function untappdAuth(req, res) {
 
             const newUser = new User({
                 _id: new mongoose.Types.ObjectId(),
-                username: req.session.user.user_name.toLowerCase(),
+                username: req.session.user.username,
                 password: '0000',
-                firstName: req.session.user.first_name,
-                lastName: req.session.user.last_name
+                firstName: req.session.user.firstName,
+                lastName: req.session.user.lastName,
+                profilePicture: req.session.user.profilePicture
             });
 
           User.create(newUser);
