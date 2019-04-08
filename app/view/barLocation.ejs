@@ -1,0 +1,29 @@
+<% include partials/head.ejs %>
+    <title>Bar Locations - CycLove</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/"><img src="/static/media/images/cyclove-logo.svg" alt="Logo CycLove"></a></li>
+                <li><a href="/log-out">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1> Bar Locations</h1>
+    <main>
+        <section class="card-grid">
+            
+            <article class="card">
+                <%= barLocation %>
+            </article>
+            <article class="card">
+                <%= barLocation %>
+            </article>
+            
+            
+        </section>
+    </main>
+    <% include partials/footer.ejs %>
+</body>
+</html>

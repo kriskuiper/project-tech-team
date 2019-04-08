@@ -51,4 +51,13 @@ function PlaceResult(response) {
 }
 
 
-placeSearch(latitude, longitude, radius);
+
+//placeSearch(latitude, longitude, radius);
+const sdata = "test";
+
+
+
+function showBars(req, res) {
+    res.status(200).render("barLocation", {barLocation:sdata});
+}
+module.exports = showBars;
