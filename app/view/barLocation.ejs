@@ -13,15 +13,11 @@
     <h1> Bar Locations</h1>
     <main>
         <section class="card-grid">
-            
+            <% for (let i = 0; i < barLocations.length; i++) { %> 
             <article class="card">
-                <%= barLocation %>
+                
             </article>
-            <article class="card">
-                <%= barLocation %>
-            </article>
-            
-            
+           <% }; %>
         </section>
     </main>
     <% include partials/footer.ejs %>

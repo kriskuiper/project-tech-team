@@ -5,6 +5,8 @@ const placeDetails = function() {
     this.places = [];
 };
 
+const barLocations = [];
+
 //Declare loction information
 const googleApiKey = process.env.GOOGLE_API;
 const latitude = 52.361778;
@@ -26,7 +28,6 @@ function placeSearch(latitude, longitude, radius) {
 function PlaceResult(response) { 
     let data = "";
     let sdata = "";
-    const PD = new placeDetails();
 
     response.on("data", chunk => {
         data += chunk;
@@ -34,30 +35,17 @@ function PlaceResult(response) {
     response.on("end", () => {
         sdata = JSON.parse(data);
         if (sdata.status === "OK") {
-            console.log("Status: " + sdata.status);
-            console.log("Results: " + sdata.results.length);
             for (let i = 0; i < sdata.results.length; i++) {
-                PD.places.push(sdata.results[i]);
+                barLocations.push(sdata.results[i]);
             }
-            for (let i = 0; i < sdata.results.length; i++) {
-                console.log("----------------------------------------------");
-                console.log("Name: " + PD.places[i].name);
-                console.log("adress: " + PD.places[i].vicinity);
-            }
-        } else {
-            console.log(sdata.status);
-        }
+        } 
     });
 }
 
-
-
-//placeSearch(latitude, longitude, radius);
-const sdata = "test";
-
-
-
-function showBars(req, res) {
-    res.status(200).render("barLocation", {barLocation:sdata});
+function renderBarLocation(req, res) {
+    res.status(200).render("barLocation", { barLocations: barLocations });
 }
-module.exports = showBars;
+
+placeSearch(latitude, longitude, radius);
+renderBarLocation();
+module.exports = PlaceResult;
