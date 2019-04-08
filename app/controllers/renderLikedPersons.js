@@ -13,14 +13,12 @@ async function renderLikedPersons(req, res, next) {
         //gets the liked users from the database
         const users = await User.find();
         const likeIds = users[0].likedpersons;
+        users[0].likedpersons = likeIds.filter(id => id != currentPerson);
+        users[0].save();
         const likedPersons = [];
-
-        
+ 
         //Gets every user id 
         for (let i = 0; i < likeIds.length; i++) {
-            if (likeIds[i] === currentPerson) {
-                likeIds.splice(likeIds.indexOf(currentPerson), 1);
-            }
 
             likedPersons.push(User.findById(likeIds[i], (err, res) => {
                 if (err) {
