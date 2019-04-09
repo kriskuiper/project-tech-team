@@ -16,6 +16,8 @@ const logout = require("./app/controllers/logout");
 const renderLogin = require("./app/controllers/renderLogin");
 const serveNotFound = require("./app/controllers/serveNotFound");
 const untappdAuth = require("./app/controllers/untappdAuth");
+const addBeer = require("./app/controllers/addBeer");
+const renderAddBeer = require("./app/controllers/renderAddBeer");
 
 // Process environment vars and connect to database
 const uri = process.env.MONGODB_URI;
@@ -46,10 +48,12 @@ app
     .get("/log-in", renderLogin)
     .get("/log-out", logout)
     .get("/untappd-authentication", untappdAuth)
+    .get("/add-beer", renderAddBeer)
 
     .post("/", createAccount)
     .post("/log-in", login)
     .post("/set-password", setPassword)
+    .post("/add-beer", addBeer)
 
     .use(serveNotFound)
     .listen(process.env.PORT || port, listening);

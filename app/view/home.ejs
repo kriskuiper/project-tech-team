@@ -22,6 +22,18 @@
       <% } %>
     </ul>
   </section>
+
+  <section>
+    <form id="beer__search" class="beer__search" onsubmit="beerSearch(event)">
+      <input type="text" name="derp" id="searchName" value="">
+      <button type="submit" name="button">search</button>
+    </form>
+
+    <ul id="beer_results">
+
+    </ul>
+  </section>
+
   <% include partials/footer.ejs %>
 </body>
 
