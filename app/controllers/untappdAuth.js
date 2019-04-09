@@ -32,6 +32,8 @@ function untappdAuth(req, res) {
             if (err) return handleError(err);
 
             if (user.length > 0) {
+// Login
+
               console.log("Name exisits");
 
               setSession();
@@ -58,6 +60,9 @@ function untappdAuth(req, res) {
               }
               res.redirect("/")
             } else {
+
+              // Sign-up
+
               const beersArray = [];
 
               for (var i = 0; i < data.response.user.recent_brews.count; i++) {
@@ -95,6 +100,29 @@ function untappdAuth(req, res) {
                 },
                 prefered_gender: null
               });
+
+              setSession();
+
+              function setSession(error) {
+                if (error) {
+                  next(error);
+                } else {
+                  req.session.user = {
+                    username: data.response.user.user_name,
+                    firstName: data.response.user.first_name,
+                    lastName: data.response.user.last_name,
+                    profilePicture: data.response.user.user_avatar_hd,
+                    beers: beersArray,
+                    age: null,
+                    gender: null,
+                    prefered_age: {
+                      min: null,
+                      max: null
+                    },
+                    prefered_gender: null
+                  };
+                }
+              }
 
               User.create(newUser);
               if (req.session.password == null) {
