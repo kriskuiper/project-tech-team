@@ -33,26 +33,24 @@ async function setPassword(req, res, next) {
     updateUser()
 
     function updateUser() {
-      User.find({
-        'username': req.session.user.username
-      }).exec(function(err, user) {
-        if (err) return handleError(err);
-        console.log(user.length);
 
-        if (user.length > 0) {
-          user.update({}, {
-            $set: {
-              age: req.body.age,
-              gender: req.body.gender,
-              prefered_age: {
-                min: req.body.age_min,
-                max: req.body.age_max
-              },
-              prefered_gender: req.body.prefered_gender
-            }, {upsert: true}
-          })
+      User.findOneAndUpdate({
+        'username': req.session.user.username
+      }, {
+        $set: {
+          age: req.body.age,
+          gender: req.body.gender,
+          prefered_age: {
+            min: req.body.age_min,
+            max: req.body.age_max
+          },
+          prefered_gender: req.body.prefered_gender
         }
-      })
+      },
+      {upsert:true}, function(err, doc){
+          if (err) return res.send(500, { error: err });
+          return res.send("succesfully saved");
+      });
     }
 
     res.redirect("/");
