@@ -13,7 +13,9 @@ const userSchema = new Schema({
     likedpersons: Array,
     beers: Object,
     age: Number,
-    prefered_age: {min: Number, max: Number},
+    prefered_age: Object,
+    min: Number,
+    max: Number,
     prefered_gender: String,
 });
 
