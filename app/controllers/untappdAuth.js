@@ -88,7 +88,14 @@ function untappdAuth(req, res) {
                 firstName: req.session.user.firstName,
                 lastName: req.session.user.lastName,
                 profilePicture: req.session.user.profilePicture,
-                beers: beersArray
+                beers: beersArray,
+                age: null,
+                gender: null,
+                prefered_age: {
+                  min: null,
+                  max: null
+                },
+                prefered_gender: null
               });
 
               User.create(newUser);
