@@ -4,7 +4,7 @@ require("dotenv").config();
 
 const barLocations = [];
 
-//Declare loction information
+//set search information (API key and radius) for google place search.
 const googleApiKey = process.env.GOOGLE_API;
 const radius = 500;
 
@@ -38,7 +38,7 @@ function PlaceResult(response) {
     });
 }
 
-//Render image from unsplash
+//set specifications for unsplash picture.
 const imageWidth = 480; 
 const imageHeight = 480; 
 const collectionID = 884739;
@@ -46,12 +46,14 @@ let randomImage = Math.floor(Math.random() * 50);
 const barImages = [];
 
 async function renderBarLocation(req, res) {
+    //Get location of the user, to search nearby bars with google places api.
     const { location } = req.cookies;
     const geoLocationArr = location.split("-");
     const [ lat, long ] = geoLocationArr;
 
     placeSearch(lat, long, radius);
 
+    //Fetch images from unsplash using provided specifications.
     for (let i = 0; i < 20; i++) {
         const imgUrl = fetch(`https://source.unsplash.com/collection/${collectionID}/${imageWidth}x${imageHeight}/?sig=${randomImage}`);
         barImages.push(imgUrl);
