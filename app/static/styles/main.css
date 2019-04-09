@@ -219,4 +219,8 @@ body > footer {
             font-weight: var(--font-weight-h3);
         }
 
+        .card__hidden {
+            background: #fcbd12 !important;
+        }
+
 /* 404 Page styling */
