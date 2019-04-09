@@ -27,7 +27,7 @@ function untappdAuth(req, res) {
         .then(function(data) {
 
           User.find({
-            'username': req.session.user.username
+            'username': data.response.user.user_name
           }).exec(function(err, user) {
             if (err) return handleError(err);
 
