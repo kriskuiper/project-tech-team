@@ -75,7 +75,10 @@ function untappdAuth(req, res) {
             });
 
             User.create(newUser);
-            res.redirect("/");
+            if (req.session.password == null) {
+            res.redirect("/set-password")
+          } else {
+            res.redirect("/")
           }
         });
     })
