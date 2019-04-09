@@ -26,7 +26,7 @@ function untappdAuth(req, res) {
         .then(response => response.json())
         .then(function(data) {
 
-        User.findOne({
+        User.find({
             'username': data.response.user.user_name
           }).exec(function(err, user) {
             if (err) return handleError(err);
@@ -36,8 +36,8 @@ function untappdAuth(req, res) {
               // Login
 
               console.log("Name exisits");
-              console.log(user);
-              console.log(user.username);
+              console.log(user[0]);
+              console.log(user[0].username);
 
               setSession();
 
@@ -46,14 +46,18 @@ function untappdAuth(req, res) {
                   next(error);
                 } else {
                   req.session.user = {
-                    username: user.username,
-                    firstName: user.firstName,
-                    lastName: user.lastName,
-                    profilePicture: user.profilePicture,
-                    beers: user.beers,
-                    age: user.age,
-                    gender: user.gender,
-                    prefered_gender: user.prefered_gender
+                    username: user[0].username,
+                    firstName: user[0].firstName,
+                    lastName: user[0].lastName,
+                    profilePicture: user[0].profilePicture,
+                    beers: user[0].beers,
+                    age: user[0].age,
+                    gender: user[0].gender,
+                    prefered_age: {
+                      min: user[0].prefered_age.min,
+                      max: user[0].prefered_age.max
+                    },
+                    prefered_gender: user[0].prefered_gender
                   };
                 }
               }
