@@ -14,6 +14,7 @@ const login = require("./app/controllers/login");
 const logout = require("./app/controllers/logout");
 const renderLogin = require("./app/controllers/renderLogin");
 const serveNotFound = require("./app/controllers/serveNotFound");
+const barLocation = require("./app/controllers/location");
 const filter = require("./app/controllers/filter");
 const renderFilter = require("./app/controllers/renderFilter");
 const geoLocation = require("./app/controllers/geoLocation");
@@ -46,6 +47,7 @@ app
     .get("/create-account", renderCreateAccount)
     .get("/log-in", renderLogin)
     .get("/log-out", logout)
+    .get("/barLocation", barLocation)
     .get("/users", renderFilter)
     .get("/geoLocation", geoLocation)
 
