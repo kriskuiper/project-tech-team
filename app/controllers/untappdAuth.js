@@ -80,7 +80,7 @@ function untappdAuth(req, res) {
           } else {
             res.redirect("/")
           }
-        });
+        };
     })
     .catch(error => console.error('Error:', error))
   })
