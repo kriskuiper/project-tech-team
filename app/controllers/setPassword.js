@@ -34,7 +34,7 @@ async function setPassword(req, res, next) {
 
     function updateUser() {
 
-      User.findOneAndUpdate({
+      User.updateMany({
         'username': req.session.user.username
       }, {
         $set: {
@@ -47,10 +47,15 @@ async function setPassword(req, res, next) {
           prefered_gender: req.body.prefered_gender
         }
       },
-      {upsert:true}, function(err, doc){
-          if (err) return res.send(500, { error: err });
-          return res.send("succesfully saved");
-      });
+      {upsert:true}, done)
+
+      function done(err, data) {
+      if (err) {
+        next(err)
+      } else {
+        res.redirect('/');
+      }
+    }
     }
 
     res.redirect("/");
