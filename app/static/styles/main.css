@@ -100,7 +100,7 @@ a {
 }
 
 /* Buttons */
-.btn, 
+.btn,
 form button {
     display: block;
     font-size: var(--font-size-buttons);
@@ -111,7 +111,7 @@ form button {
     color: #fff;
 }
 
-.btn:hover, 
+.btn:hover,
 form button:hover {
     background-color: #fcce51;
     color: var(--bg-color)!important;
@@ -218,5 +218,57 @@ body > footer {
         .card__meta-title {
             font-weight: var(--font-weight-h3);
         }
+
+nav {
+  position: fixed;
+  bottom: 0;
+}
+.nav__inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0;
+  background-color: #ffffff;
+  margin: 0;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (min-width: 30em) {
+  .nav__inner {
+
+  }
+}
+
+  .nav__item {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+    .item__link {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 100%;
+      width: 100%;
+      font-size: 0.6em;
+      text-align: center;
+      padding-top: 1rem;
+      padding-bottom: 0.2rem;
+    }
+
+    .item__link.active {
+      font-weight: 600;
+    }
+
+      .item__link > img {
+        display: block;
+        transform: scale(1.2);
+        margin-bottom: 8px;
+      }
+
 
 /* 404 Page styling */
