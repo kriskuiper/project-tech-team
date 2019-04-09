@@ -1,7 +1,7 @@
 const User = require("../models/User");
 const fetch = require("node-fetch");
 
-async function setPassword(req, res, next) {
+async function addBeer(req, res, next) {
   try {
       const beersArray = req.session.user.beers
 
@@ -43,4 +43,4 @@ async function setPassword(req, res, next) {
   }
 }
 
-module.exports = login;
+module.exports = addBeer;
