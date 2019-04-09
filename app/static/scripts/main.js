@@ -39,8 +39,9 @@ function beerSearch(event) {
       let Beers = data.response.beers.items
       document.getElementById("beer__search").classList.add("active");
       for (let i = 0; i < Beers.length; i++) {
-        // console.log('<li onClick="addBeer(' + Beers[i].beer.bid + ')">' + Beers[i].beer.beer_name + '</li>');
-        document.getElementById('beer_results').innerHTML +=
+        document.getElementById('beer_results')removeChild();
+        const listElement = document.getElementById('beer_results').createElement("li");
+        listElement.innerHTML +=
 
           '<form action="/add-beer" method="post"><img src="' + Beers[i].beer.beer_label + '"><input class="beer__name invisible" name="beerImg" value="' + Beers[i].beer.beer_label + '"><input class="beer__bid invisible" name="beerBid" value="' + Beers[i].beer.bid + '"><input class="beer__name invisible" name="beerName" value="' + Beers[i].beer.beer_name + '"><h3>' + Beers[i].beer.beer_name + '</h3><input class="beer__description invisible" name="beerDescription" value="' + Beers[i].beer.beer_description + '"><p>' + Beers[i].beer.beer_description + '</p><input class="brewery_name invisible" name="brewery" value="' + Beers[i].brewery.brewery_name + '"><p>' + Beers[i].brewery.brewery_name + '</p><button type="submit" name="button">Add</button></form>'
 
