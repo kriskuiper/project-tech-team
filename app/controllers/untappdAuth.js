@@ -76,15 +76,16 @@ function untappdAuth(req, res) {
 
             User.create(newUser);
             if (req.session.password == null) {
-            res.redirect("/set-password")
-          } else {
-            res.redirect("/")
-          }
-        }
+        res.redirect("/set-password")
+      } else {
+        res.redirect("/")
+      }
+    }
+        });
     })
     .catch(error => console.error('Error:', error))
   })
   .catch(error => console.error('Error:', error))
-})
+}
 
 module.exports = untappdAuth;
