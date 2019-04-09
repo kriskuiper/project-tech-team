@@ -3,6 +3,7 @@ const express = require("express");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const fetch = require("node-fetch");
 require("dotenv").config();
 
 // Require controllers
