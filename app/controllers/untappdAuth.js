@@ -54,10 +54,6 @@ function untappdAuth(req, res) {
                     beers: user.beers,
                     age: user.age,
                     gender: user.gender,
-                    prefered_age: {
-                      min: user.prefered_age.min,
-                      max: user.prefered_age.max
-                    },
                     prefered_gender: user.prefered_gender
                   };
                 }
