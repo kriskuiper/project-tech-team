@@ -21,20 +21,30 @@ async function setPassword(req, res, next) {
 
     function updateUser() {
 
-      User.findOneAndUpdate({
-        'username': req.session.user.username
-      }, {
-          age: req.body.age
-      },
-      {upsert:true}, done)
+    //   User.findOneAndUpdate({
+    //     'username': req.session.user.username
+    //   }, {
+    //       age: req.body.age
+    //   },
+    //   {upsert:true}, done)
+    //
+    //   function done(err, data) {
+    //   if (err) {
+    //     next(err)
+    //   } else {
+    //     res.redirect('/');
+    //   }
+    // }
 
-      function done(err, data) {
-      if (err) {
-        next(err)
-      } else {
-        res.redirect('/');
-      }
+
+    User.findOneAndUpdate({'username': req.session.user.username}, {$set:{age: req.body.age}}, {new: true}, (err, doc) => {
+    if (err) {
+        console.log("Something wrong when updating data!");
     }
+
+    console.log(doc);
+    });
+
     }
 
     pushVariables()
