@@ -80,11 +80,11 @@ function untappdAuth(req, res) {
           } else {
             res.redirect("/")
           }
-        };
+        }
     })
     .catch(error => console.error('Error:', error))
   })
   .catch(error => console.error('Error:', error))
-}
+})
 
 module.exports = untappdAuth;
