@@ -17,6 +17,8 @@ async function setPassword(req, res, next) {
         'prefered_gender': req.body.prefered_gender
       });
 
+      pushVariables()
+
       function pushVariables() {
         req.session.user.push({
           age: req.body.age,
@@ -28,6 +30,8 @@ async function setPassword(req, res, next) {
           prefered_gender: req.body.prefered_gender
         });
       }
+
+      updateUser()
 
       function updateUser() {
         User.find({
@@ -46,7 +50,7 @@ async function setPassword(req, res, next) {
                     },
                     prefered_gender: req.body.prefered_gender
                   }
-                }
+                })
               })
             }
 
