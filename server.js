@@ -3,6 +3,7 @@ const express = require("express");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
 // Require controllers
@@ -15,6 +16,7 @@ const renderLogin = require("./app/controllers/renderLogin");
 const serveNotFound = require("./app/controllers/serveNotFound");
 const filter = require("./app/controllers/filter");
 const renderFilter = require("./app/controllers/renderFilter");
+const geoLocation = require("./app/controllers/geoLocation");
 
 // Process environment vars and connect to database
 const uri = process.env.MONGODB_URI;
@@ -35,6 +37,7 @@ const port = 8000;
 app
     .use("/", express.static("app/static"))
     .use(bodyParser.urlencoded({extended: true}))
+    .use(cookieParser())
     .use(session(sess))
     .set("view engine", "ejs")
     .set("views", "app/view")
@@ -44,6 +47,7 @@ app
     .get("/log-in", renderLogin)
     .get("/log-out", logout)
     .get("/users", renderFilter)
+    .get("/geoLocation", geoLocation)
 
     .post("/users", filter)
     .post("/", createAccount)
