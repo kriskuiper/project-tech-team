@@ -302,3 +302,12 @@ body > footer {
   text-transform: uppercase;
   color: #666;
 }
+
+
+
+.prefered__age {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+}

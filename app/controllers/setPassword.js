@@ -2,15 +2,40 @@ const mongoose = require("mongoose");
 const User = require("../models/User");
 
 async function setPassword(req, res, next) {
-    try {
+  try {
 
-        await User.updateMany({'username': req.session.user.username}, { 'password': req.body.password, 'age': req.body.age, 'gender': req.body.gender });
+    await User.updateMany({
+      'username': req.session.user.username
+    }, {
+      'password': req.body.password,
+      'age': req.body.age,
+      'gender': req.body.gender,
+      'prefered_age': {min: req.body.age_min,
+                       max: req.body.age_max},
+      'prefered_gender': req.body.prefered_gender
+    });
 
-        res.redirect("/");
+    setSession();
 
-    } catch(error) {
+    function setSession(error) {
+      if (error) {
         next(error);
+      } else {
+        req.session.user = {
+          age: req.body.age,
+          gender: req.body.gender,
+          prefered_age: {min: req.body.age_min,
+                        max: req.body.age_max},
+          prefered_gender: req.body.prefered_gender
+        };
+      }
     }
+
+    res.redirect("/");
+
+  } catch (error) {
+    next(error);
+  }
 }
 
 module.exports = setPassword;
