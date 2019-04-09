@@ -26,29 +26,6 @@ function untappdAuth(req, res) {
         .then(response => response.json())
         .then(function(data) {
 
-          setSession();
-
-          function setSession(error) {
-            if (error) {
-              next(error);
-            } else {
-              req.session.user = {
-                username: data.response.user.user_name,
-                firstName: data.response.user.first_name,
-                lastName: data.response.user.last_name,
-                profilePicture: data.response.user.user_avatar_hd,
-                beers: beersArray,
-                age: null,
-                gender: null,
-                prefered_age: {
-                  min: null,
-                  max: null
-                },
-                prefered_gender: null
-              };
-            }
-          }
-
           if (req.session.user.beers.length > 5) {
             const beersArray = req.session.user.beers;
 
@@ -73,6 +50,29 @@ function untappdAuth(req, res) {
               };
 
               beersArray.push(objectBeer);
+            }
+          }
+
+          setSession();
+
+          function setSession(error) {
+            if (error) {
+              next(error);
+            } else {
+              req.session.user = {
+                username: data.response.user.user_name,
+                firstName: data.response.user.first_name,
+                lastName: data.response.user.last_name,
+                profilePicture: data.response.user.user_avatar_hd,
+                beers: beersArray,
+                age: null,
+                gender: null,
+                prefered_age: {
+                  min: null,
+                  max: null
+                },
+                prefered_gender: null
+              };
             }
           }
 
