@@ -3,25 +3,25 @@ const fetch = require("node-fetch");
 
 async function addBeer(req, res, next) {
   try {
-      const beersArray = req.session.user.beers
+    const beersArray = req.session.user.beers
 
-      let beer_bid = req.body.beerBid;
-      let beer_name = req.body.beerName;
-      let beer_label = req.body.beerImg;
-      let beer_description = req.body.beerDescription;
-      let beer_brewery = req.body.brewery;
+    let beer_bid = req.body.beerBid;
+    let beer_name = req.body.beerName;
+    let beer_label = req.body.beerImg;
+    let beer_description = req.body.beerDescription;
+    let beer_brewery = req.body.brewery;
 
-      objectBeer = {
-        beer: {
-          bid: beer_bid,
-          name: beer_name,
-          img: beer_label,
-          description: beer_description,
-          brewery: beer_brewery
-        }
-      };
+    objectBeer = {
+      beer: {
+        bid: beer_bid,
+        name: beer_name,
+        img: beer_label,
+        description: beer_description,
+        brewery: beer_brewery
+      }
+    };
 
-      beersArray.push(objectBeer);
+    beersArray.push(objectBeer);
 
     await User.updateMany({
       'username': req.session.user.username
