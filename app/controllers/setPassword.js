@@ -53,6 +53,7 @@ async function setPassword(req, res, next) {
                 })
               }
             })
+          }
 
             res.redirect("/");
 
