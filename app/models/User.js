@@ -11,7 +11,10 @@ const userSchema = new Schema({
     lastName: String,
     gender: String,
     likedpersons: Array,
-    beers: Object
+    beers: Object,
+    age: Number,
+    prefered_age: Object,
+    prefered_gender: String,
 });
 
 module.exports = mongoose.model("User", userSchema);
