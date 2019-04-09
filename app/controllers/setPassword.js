@@ -51,8 +51,8 @@ async function setPassword(req, res, next) {
                     prefered_gender: req.body.prefered_gender
                   }
                 })
-              })
-            }
+              }
+            })
 
             res.redirect("/");
 
