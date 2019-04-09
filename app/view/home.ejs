@@ -1,21 +1,28 @@
 <% include partials/head.ejs %>
-    <title>Home | Drinkerz</title>
+<title>Home | Drinkerz</title>
 </head>
-<body>
-    <section>
-        <h1>Hi <%= user.firstName %>!</h1>
 
-    </section>
-    <section class="beers__container">
-      <ul class="beers__list">
-        <% for(let i = 0; i < user.beers.length; i++) { %>
-          <li class="list__item">
-              <h3 class="item__title"><%= user.beers[i].beer.name %></h3>
-              <p><%= user.beers[i].beer.description %></p>
-          </li>
-        <% } %>
-      </ul>
-    </section>
-    <% include partials/footer.ejs %>
+<body>
+  <section>
+    <h1>Hi
+      <%= user.firstName %>!</h1>
+
+  </section>
+  <section class="beers__container">
+    <ul class="beers__list">
+      <% for(let i = 0; i < user.beers.length; i++) { %>
+      <li class="list__item">
+        <h3 class="item__title">
+          <%= user.beers[i].beer.name %>
+        </h3>
+        <p>
+          <%= user.beers[i].beer.description %>
+        </p>
+      </li>
+      <% } %>
+    </ul>
+  </section>
+  <% include partials/footer.ejs %>
 </body>
+
 </html>

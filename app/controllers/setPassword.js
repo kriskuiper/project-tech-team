@@ -26,8 +26,6 @@ async function setPassword(req, res, next) {
       req.session.user.prefered_age.min = req.body.age_min;
       req.session.user.prefered_age.max = req.body.age_max;
       req.session.user.prefered_gender = req.body.prefered_gender;
-
-      console.log(req.session.user);
     }
 
     res.redirect("/");
