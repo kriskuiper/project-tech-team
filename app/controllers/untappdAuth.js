@@ -37,7 +37,7 @@ function untappdAuth(req, res) {
 
               console.log("Name exisits");
               console.log(user);
-              console.log(user.prefered_age);
+              console.log(user.age);
 
               setSession();
 
