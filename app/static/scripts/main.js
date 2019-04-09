@@ -1,3 +1,4 @@
+const fetch = require("node-fetch");
 require("dotenv").config();
 
 // Cutting the mustard technique
