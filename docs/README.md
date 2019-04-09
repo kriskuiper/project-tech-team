@@ -1,7 +1,7 @@
 # Drinkerz, serious about dating
 ![Screenshot of the project]()
 
-(Project name) is a web-app where students from Amsterdam can meet other (single) students by meeting eachother at a café. The user can create an account and log in. (More features described here)
+Drinkerz is a web-app where students from Amsterdam can meet other (single) students by meeting eachother at a café. The user can create an account and log in. (More features described here)
 
 ## Features we want to workout (Have to make decisions about what (not) to do)
 - Filter gender / favo beer ([Chazz](https://github.com/chazzers))
