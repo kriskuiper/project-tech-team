@@ -26,7 +26,7 @@ function untappdAuth(req, res) {
         .then(response => response.json())
         .then(function(data) {
 
-        User.find({
+        User.findOne({
             'username': data.response.user.user_name
           }).exec(function(err, user) {
             if (err) return handleError(err);
@@ -37,7 +37,7 @@ function untappdAuth(req, res) {
 
               console.log("Name exisits");
               console.log(user);
-              console.log(user[0].username);
+              console.log(user.username);
 
               setSession();
 
