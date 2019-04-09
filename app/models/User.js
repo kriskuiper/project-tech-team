@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-const ObjectId = mongoose.ObjectId;
-const Schema = mongoose.Schema;
+const {ObjectId, Schema} = mongoose;
 
 const userSchema = new Schema({
     _id: ObjectId,
@@ -11,6 +10,7 @@ const userSchema = new Schema({
     profilePicture: String,
     location: String,
     gender: String,
+    age: Number,
     likedpersons: Array,
     beers: Object
 });

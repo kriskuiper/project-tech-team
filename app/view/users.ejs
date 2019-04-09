@@ -12,11 +12,7 @@
     </header>
     <main>
         <section>
-            <h1>Log in to your account</h1>
-            <% if (error) { %>
-                <p class="error"><%= error %></p>
-            <% } %>
-            <% include partials/login-form.ejs %>
+          <% include partials/filter.ejs %>
         </section>
     </main>
     <% include partials/footer.ejs %>

@@ -19,12 +19,13 @@
   },
   "homepage": "https://github.com/kriskuiper/project-tech#readme",
   "devDependencies": {
-    "eslint": "^5.15.1",
+    "eslint": "^5.16.0",
     "nodemon": "^1.18.10"
   },
   "dependencies": {
     "array-find": "^1.0.0",
     "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.4",
     "dotenv": "^7.0.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",

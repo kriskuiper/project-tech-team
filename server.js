@@ -3,6 +3,7 @@ const express = require("express");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
 // Require controllers
@@ -14,6 +15,9 @@ const logout = require("./app/controllers/logout");
 const renderLogin = require("./app/controllers/renderLogin");
 const serveNotFound = require("./app/controllers/serveNotFound");
 const barLocation = require("./app/controllers/location");
+const filter = require("./app/controllers/filter");
+const renderFilter = require("./app/controllers/renderFilter");
+const geoLocation = require("./app/controllers/geoLocation");
 
 // Process environment vars and connect to database
 const uri = process.env.MONGODB_URI;
@@ -32,18 +36,22 @@ const app = express();
 const port = 8000;
 
 app
-    .use("/static", express.static("app/static"))
+    .use("/", express.static("app/static"))
     .use(bodyParser.urlencoded({extended: true}))
+    .use(cookieParser())
     .use(session(sess))
     .set("view engine", "ejs")
     .set("views", "app/view")
-    
+
     .get("/", serveHome)
     .get("/create-account", renderCreateAccount)
     .get("/log-in", renderLogin)
     .get("/log-out", logout)
     .get("/barLocation", barLocation)
+    .get("/users", renderFilter)
+    .get("/geoLocation", geoLocation)
 
+    .post("/users", filter)
     .post("/", createAccount)
     .post("/log-in", login)
 
@@ -51,5 +59,5 @@ app
     .listen(process.env.PORT || port, listening);
 
 function listening() {
-    console.log(`App is on port ${port}`); // eslint-disable-line
+    console.log(`App is on port ${port}`);
 }
