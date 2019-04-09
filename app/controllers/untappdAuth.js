@@ -26,32 +26,40 @@ function untappdAuth(req, res) {
         .then(response => response.json())
         .then(function(data) {
 
-          if (req.session.user.beers.length > 5) {
-            const beersArray = req.session.user.beers;
+          User.find({
+            'username': data.response.user.user_name
+          }).exec(function(err, user) {
+            if (err) return handleError(err);
 
-          } else {
+            if (user.beers.length > 0) {
+              console.log("beers already exists");
+              const beersArray = user.beers
 
-            const beersArray = [];
+            } else {
 
-            for (var i = 0; i < data.response.user.recent_brews.count; i++) {
-              let beer_bid = data.response.user.recent_brews.items[i].beer.bid;
-              let beer_name = data.response.user.recent_brews.items[i].beer.beer_name;
-              let beer_label = data.response.user.recent_brews.items[i].beer.beer_label;
-              let beer_description = data.response.user.recent_brews.items[i].beer.beer_description;
-              let beer_brewery = data.response.user.recent_brews.items[i].brewery.brewery_name;
-              objectBeer = {
-                beer: {
-                  bid: beer_bid,
-                  name: beer_name,
-                  img: beer_label,
-                  description: beer_description,
-                  brewery: beer_brewery
-                }
-              };
+              const beersArray = [];
 
-              beersArray.push(objectBeer);
+              for (var i = 0; i < data.response.user.recent_brews.count; i++) {
+                let beer_bid = data.response.user.recent_brews.items[i].beer.bid;
+                let beer_name = data.response.user.recent_brews.items[i].beer.beer_name;
+                let beer_label = data.response.user.recent_brews.items[i].beer.beer_label;
+                let beer_description = data.response.user.recent_brews.items[i].beer.beer_description;
+                let beer_brewery = data.response.user.recent_brews.items[i].brewery.brewery_name;
+                objectBeer = {
+                  beer: {
+                    bid: beer_bid,
+                    name: beer_name,
+                    img: beer_label,
+                    description: beer_description,
+                    brewery: beer_brewery
+                  }
+                };
+
+                beersArray.push(objectBeer);
+              }
+
             }
-          }
+          })
 
           setSession();
 
