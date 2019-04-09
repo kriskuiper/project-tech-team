@@ -57,7 +57,14 @@ function untappdAuth(req, res) {
                 firstName: data.response.user.first_name,
                 lastName: data.response.user.last_name,
                 profilePicture: data.response.user.user_avatar_hd,
-                beers: beersArray
+                beers: beersArray,
+                age: null,
+                gender: null,
+                prefered_age: {
+                  min: null,
+                  max: null
+                },
+                prefered_gender: null
               };
             }
           }

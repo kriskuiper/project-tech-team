@@ -21,9 +21,7 @@ async function setPassword(req, res, next) {
 
     function pushVariables() {
 
-      req.session.user['age' = req.body.age,
-      'gender' = req.body.gender,
-      'prefered_gender' = req.body.prefered_gender]
+      req.session.user['age'] = req.body.age;
     }
 
     updateUser()
@@ -33,6 +31,7 @@ async function setPassword(req, res, next) {
         'username': req.session.user.username
       }).exec(function(err, user) {
         if (err) return handleError(err);
+        console.log(user.length);
 
         if (user.length > 0) {
           user.updateMany({}, {
