@@ -27,7 +27,7 @@ function untappdAuth(req, res) {
         .then(function(data) {
 
           if (user.beers.length > 5) {
-            
+            const beersArray = user.beers;
 
           } else {
 
