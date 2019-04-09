@@ -59,7 +59,7 @@ function untappdAuth(req, res) {
 
           console.log(user.length);
 
-          if (user.length == null) {
+          if (user.length > 0) {
             console.log("Name exisits");
             res.redirect("/")
           } else {
