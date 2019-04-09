@@ -6,8 +6,6 @@ const barLocations = [];
 
 //Declare loction information
 const googleApiKey = process.env.GOOGLE_API;
-const latitude = 52.361778;
-const longitude = 4.907370;
 const radius = 500;
 
 
@@ -48,6 +46,11 @@ let randomImage = Math.floor(Math.random() * 50);
 const barImages = [];
 
 async function renderBarLocation(req, res) {
+    const { location } = req.cookies;
+    const geoLocationArr = location.split("-");
+    const [ lat, long ] = geoLocationArr;
+
+    placeSearch(lat, long, radius);
 
     for (let i = 0; i < 20; i++) {
         const imgUrl = fetch(`https://source.unsplash.com/collection/${collectionID}/${imageWidth}x${imageHeight}/?sig=${randomImage}`);
@@ -59,7 +62,5 @@ async function renderBarLocation(req, res) {
             res.status(200).render("barLocation", { barLocations: barLocations, barImages: images});
         });
 }
-
-placeSearch(latitude, longitude, radius);
 
 module.exports = renderBarLocation;
