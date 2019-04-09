@@ -32,7 +32,8 @@ function untappdAuth(req, res) {
             if (err) return handleError(err);
 
             if (user.length > 0) {
-// Login
+
+              // Login
 
               console.log("Name exisits");
 
@@ -43,18 +44,18 @@ function untappdAuth(req, res) {
                   next(error);
                 } else {
                   req.session.user = {
-                    username: data.response.user.user_name,
-                    firstName: data.response.user.first_name,
-                    lastName: data.response.user.last_name,
-                    profilePicture: data.response.user.user_avatar_hd,
+                    username: user.username,
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    profilePicture: user.profilePicture,
                     beers: user.beers,
-                    age: null,
-                    gender: null,
+                    age: user.age,
+                    gender: user.gender,
                     prefered_age: {
-                      min: null,
-                      max: null
+                      min: user.prefered_age.min,
+                      max: user.prefered_age.max
                     },
-                    prefered_gender: null
+                    prefered_gender: user.prefered_gender
                   };
                 }
               }
@@ -84,23 +85,6 @@ function untappdAuth(req, res) {
                 beersArray.push(objectBeer);
               }
 
-              const newUser = new User({
-                _id: new mongoose.Types.ObjectId(),
-                username: req.session.user.username,
-                password: null,
-                firstName: req.session.user.firstName,
-                lastName: req.session.user.lastName,
-                profilePicture: req.session.user.profilePicture,
-                beers: beersArray,
-                age: null,
-                gender: null,
-                prefered_age: {
-                  min: null,
-                  max: null
-                },
-                prefered_gender: null
-              });
-
               setSession();
 
               function setSession(error) {
@@ -123,6 +107,23 @@ function untappdAuth(req, res) {
                   };
                 }
               }
+
+              const newUser = new User({
+                _id: new mongoose.Types.ObjectId(),
+                username: req.session.user.username,
+                password: null,
+                firstName: req.session.user.firstName,
+                lastName: req.session.user.lastName,
+                profilePicture: req.session.user.profilePicture,
+                beers: beersArray,
+                age: null,
+                gender: null,
+                prefered_age: {
+                  min: null,
+                  max: null
+                },
+                prefered_gender: null
+              });
 
               User.create(newUser);
               if (req.session.password == null) {
