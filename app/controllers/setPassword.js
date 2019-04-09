@@ -24,15 +24,7 @@ async function setPassword(req, res, next) {
       User.findOneAndUpdate({
         'username': req.session.user.username
       }, {
-        $set: {
-          age: req.body.age,
-          gender: req.body.gender,
-          prefered_age: {
-            min: req.body.age_min,
-            max: req.body.age_max
-          },
-          prefered_gender: req.body.prefered_gender
-        }
+          age: req.body.age
       },
       {upsert:true}, done)
 
