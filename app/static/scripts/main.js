@@ -38,9 +38,11 @@ function beerSearch(event) {
     .then(function(data) {
       let Beers = data.response.beers.items
       document.getElementById("beer__search").classList.add("active");
+      const listElement = document.getElementById('beer_results');
+      const childs = listElement.querySelectorAll(':scope > *');
+      listElement.removeChild(childs);
+
       for (let i = 0; i < Beers.length; i++) {
-        const listElement = document.getElementById('beer_results');
-        listElement.querySelectorAll(':scope > *')
         listElement.createElement("li");
         listElement.innerHTML +=
 
