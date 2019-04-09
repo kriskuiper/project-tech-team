@@ -17,24 +17,11 @@ async function setPassword(req, res, next) {
       'prefered_gender': req.body.prefered_gender
     });
 
-    pushVariables()
-
-    function pushVariables() {
-
-      req.session.user.age = req.body.age;
-      req.session.user.gender = req.body.gender;
-      req.session.user.prefered_age.min = req.body.age_min;
-      req.session.user.prefered_age.max = req.body.age_max;
-      req.session.user.prefered_gender = req.body.prefered_gender;
-
-      console.log(req.session.user);
-    }
-
     updateUser()
 
     function updateUser() {
 
-      User.updateMany({
+      User.findOneAndUpdate({
         'username': req.session.user.username
       }, {
         $set: {
@@ -56,6 +43,19 @@ async function setPassword(req, res, next) {
         res.redirect('/');
       }
     }
+    }
+
+    pushVariables()
+
+    function pushVariables() {
+
+      req.session.user.age = req.body.age;
+      req.session.user.gender = req.body.gender;
+      req.session.user.prefered_age.min = req.body.age_min;
+      req.session.user.prefered_age.max = req.body.age_max;
+      req.session.user.prefered_gender = req.body.prefered_gender;
+
+      console.log(req.session.user);
     }
 
     res.redirect("/");
