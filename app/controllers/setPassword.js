@@ -15,19 +15,13 @@ async function setPassword(req, res, next) {
       'prefered_gender': req.body.prefered_gender
     });
 
-    setSession();
-
-    function setSession(error) {
-      if (error) {
-        next(error);
-      } else {
-        req.session.user = {
+        req.session.user.push({
           age: req.body.age,
           gender: req.body.gender,
           prefered_age: {min: req.body.age_min,
                         max: req.body.age_max},
           prefered_gender: req.body.prefered_gender
-        };
+        });
       }
     }
 
