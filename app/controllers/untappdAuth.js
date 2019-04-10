@@ -29,15 +29,12 @@ async function untappdAuth(req, res) {
     createUser(authenticationKey);
 
     async function createUser(key) {
-      console.log(key);
-
+      
       const ACCESS_TOKEN = key.response.access_token
       const userFetch = await fetch('https://api.untappd.com/v4/user/info?access_token=' + ACCESS_TOKEN, {
         method: 'GET'
       });
       const userInJSON = await userFetch.json();
-
-      console.log(userInJSON);
 
       const user = await User.find({
         'username': userInJSON.response.user.user_name
