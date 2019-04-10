@@ -7,6 +7,7 @@ async function serveHome(req, res, user) {
   } else {
     const beerValue = req.body.beerName;
     console.log(req.body + " is search value");
+    console.log(req.body.beerName + " is search value");
 
     if (beerValue) {
 
