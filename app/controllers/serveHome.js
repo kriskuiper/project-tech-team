@@ -6,7 +6,7 @@ async function serveHome(req, res, user) {
     res.status(200).sendFile(path.join(__dirname, "../static/index.html"));
   } else {
     const beerValue = req.body.beerName;
-    console.log(beerValue + " is search value");
+    console.log(req.body + " is search value");
 
     if (beerValue) {
 
