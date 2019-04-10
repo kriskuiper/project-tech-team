@@ -44,7 +44,7 @@ app
     .set("view engine", "ejs")
     .set("views", "app/view")
 
-    .get("/home", serveHome)
+    .get("/", serveHome)
     .get("/create-account", renderCreateAccount)
     .get("/set-password", renderSetPassword)
     .get("/log-in", renderLogin)
@@ -53,7 +53,7 @@ app
     .get("/add-beer", renderAddBeer)
 
     .post("/", createAccount)
-    .post("/home", searchBeerHome)
+    .post("/searchBeer", searchBeerHome)
     .post("/log-in", login)
     .post("/set-password", setPassword)
     .post("/add-beer", addBeer)

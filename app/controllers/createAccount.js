@@ -27,7 +27,7 @@ function createAccount(req, res, next) {
                 lastName: newUser.lastName,
                 bike: newUser.bike
             };
-            res.redirect("/home");
+            res.redirect("/");
         }
     }
 }

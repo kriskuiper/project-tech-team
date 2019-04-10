@@ -64,7 +64,7 @@ async function untappdAuth(req, res) {
             };
           }
         }
-        res.redirect("/home")
+        res.redirect("/")
       } else {
 
         // Sign-up
@@ -134,7 +134,7 @@ async function untappdAuth(req, res) {
         if (req.session.password == null) {
           res.redirect("/set-password")
         } else {
-          res.redirect("/home")
+          res.redirect("/")
         }
       }
     }
