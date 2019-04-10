@@ -11,6 +11,5 @@ async function serveHome(req, res, user) {
       });
     }
   }
-}
 
 module.exports = serveHome;
