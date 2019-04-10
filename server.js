@@ -53,7 +53,7 @@ app
     .get("/add-beer", renderAddBeer)
 
     .post("/", createAccount)
-    .post("/searchBeer", searchBeerHome)
+    .post("/search-beer", searchBeerHome)
     .post("/log-in", login)
     .post("/set-password", setPassword)
     .post("/add-beer", addBeer)
