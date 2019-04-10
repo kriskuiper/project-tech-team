@@ -13,7 +13,7 @@ async function serveHome(req, res, user) {
         '&client_id=' + process.env.CLIENTID +
         '&client_secret=' + process.env.CLIENTSECRET
       );
-      const beerObjects = beerResults.json();
+      const beerObjects = await beerResults.json();
 
       console.log(beerObjects);
 
