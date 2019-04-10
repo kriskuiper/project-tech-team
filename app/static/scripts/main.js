@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 // Cutting the mustard technique
 if ("querySelector" in document) {
   document.body.classList.add("js-enabled");
@@ -28,10 +31,8 @@ function showPosts(entries) {
 }
 
 function beerSearch(event) {
-  const CLIENTID = 'A0D5D7F766E859E3EF145BD051A3A576D2EA97CF'
-  const CLIENTSECRET = 'EBF811599C0F5914F7F37349041336C86926AC40'
 
-  fetch('https://api.untappd.com/v4/search/beer?q=' + document.getElementById("searchName").value + '&client_id=' + CLIENTID + '&client_secret=' + CLIENTSECRET, {
+  fetch('https://api.untappd.com/v4/search/beer?q=' + document.getElementById("searchName").value + '&client_id=' + dotenv.CLIENTID + '&client_secret=' + dotenv.CLIENTSECRET, {
       method: 'GET'
     })
     .then(response => response.json())
