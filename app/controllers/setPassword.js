@@ -10,11 +10,11 @@ async function setPassword(req, res, next) {
       'password': req.body.password,
       'age': req.body.age,
       'gender': req.body.gender,
-      'prefered_age': {
+      'preferred_age': {
         min: req.body.age_min,
         max: req.body.age_max
       },
-      'prefered_gender': req.body.prefered_gender
+      'preferred_gender': req.body.preferred_gender
     });
 
     pushVariables()
@@ -23,9 +23,9 @@ async function setPassword(req, res, next) {
 
       req.session.user.age = req.body.age;
       req.session.user.gender = req.body.gender;
-      req.session.user.prefered_age.min = req.body.age_min;
-      req.session.user.prefered_age.max = req.body.age_max;
-      req.session.user.prefered_gender = req.body.prefered_gender;
+      req.session.user.preferred_age.min = req.body.age_min;
+      req.session.user.preferred_age.max = req.body.age_max;
+      req.session.user.preferred_gender = req.body.preferred_gender;
     }
 
     res.redirect("/");

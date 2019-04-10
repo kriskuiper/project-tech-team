@@ -59,11 +59,11 @@ async function untappdAuth(req, res) {
               beers: user[0].beers,
               age: user[0].age,
               gender: user[0].gender,
-              prefered_age: {
-                min: user[0].prefered_age.min,
-                max: user[0].prefered_age.max
+              preferred_age: {
+                min: user[0].preferred_age.min,
+                max: user[0].preferred_age.max
               },
-              prefered_gender: user[0].prefered_gender
+              preferred_gender: user[0].preferred_gender
             };
           }
         }
@@ -107,11 +107,11 @@ async function untappdAuth(req, res) {
               beers: beersArray,
               age: null,
               gender: null,
-              prefered_age: {
+              preferred_age: {
                 min: null,
                 max: null
               },
-              prefered_gender: null
+              preferred_gender: null
             };
           }
         }
@@ -126,11 +126,11 @@ async function untappdAuth(req, res) {
           beers: beersArray,
           age: null,
           gender: null,
-          prefered_age: {
+          preferred_age: {
             min: null,
             max: null
           },
-          prefered_gender: null
+          preferred_gender: null
         });
 
         User.create(newUser);

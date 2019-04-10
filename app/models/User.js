@@ -13,8 +13,8 @@ const userSchema = new Schema({
   likedpersons: Array,
   beers: Object,
   age: Number,
-  prefered_age: Object,
-  prefered_gender: String,
+  preferred_age: Object,
+  preferred_gender: String,
 });
 
 module.exports = mongoose.model("User", userSchema);
