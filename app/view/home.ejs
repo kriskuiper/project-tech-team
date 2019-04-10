@@ -31,7 +31,7 @@
     <% if (beerResults) { %>
       <% for (let i = 0; i < beerResults.length; i++) { %>
         <article>
-          <h2><%= beerResults[i].beer.beer_name %></h2>
+          <h2><%= beerResults.beer[i].beer_name %></h2>
         </article>
       <% } %>
     <% } %>
