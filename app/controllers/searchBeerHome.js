@@ -1,5 +1,6 @@
 const User = require("../models/User");
 const fetch = require("node-fetch");
+require("dotenv").config();
 
 async function searchBeerHome(req, res, next) {
   try {
