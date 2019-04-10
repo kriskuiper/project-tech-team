@@ -15,6 +15,10 @@ async function serveHome(req, res, user) {
       );
       const beerObjects = beerResults.json();
 
+      console.log(beerObjects);
+
+      console.log(beerObjects.response.beers.items[1].beer.beer_name);
+
       res.status(200).render("home", {
         user: req.session.user,
         beerResults: beerObjects
