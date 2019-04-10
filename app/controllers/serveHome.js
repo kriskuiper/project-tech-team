@@ -5,7 +5,7 @@ async function serveHome(req, res, user) {
     if (!req.session.user) {
         res.status(200).sendFile(path.join(__dirname, "../static/index.html"));
     } else {
-        const { beerValue } = req.body;
+        const beerValue = req.body;
 
         if (beerValue) {
 
