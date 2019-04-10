@@ -37,8 +37,10 @@ async function untappdAuth(req, res) {
       });
       const userInJSON = await userFetch.json();
 
+      console.log(userInJSON);
+
       const user = await User.find({
-        'username': userFetch.response.user.user_name
+        'username': userInJSON.response.user.user_name
       });
 
       if (user.length > 0) {
