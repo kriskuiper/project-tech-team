@@ -19,6 +19,7 @@ const serveNotFound = require("./app/controllers/serveNotFound");
 const untappdAuth = require("./app/controllers/untappdAuth");
 const addBeer = require("./app/controllers/addBeer");
 const renderAddBeer = require("./app/controllers/renderAddBeer");
+const searchBeerHome = require("./app/controllers/searchBeerHome");
 
 // Process environment vars and connect to database
 const uri = process.env.MONGODB_URI;
@@ -43,7 +44,7 @@ app
     .set("view engine", "ejs")
     .set("views", "app/view")
 
-    .get("/", serveHome)
+    .get("/home", serveHome)
     .get("/create-account", renderCreateAccount)
     .get("/set-password", renderSetPassword)
     .get("/log-in", renderLogin)
@@ -52,6 +53,7 @@ app
     .get("/add-beer", renderAddBeer)
 
     .post("/", createAccount)
+    .post("/home", searchBeerHome)
     .post("/log-in", login)
     .post("/set-password", setPassword)
     .post("/add-beer", addBeer)

@@ -29,7 +29,7 @@ async function untappdAuth(req, res) {
     createUser(authenticationKey);
 
     async function createUser(key) {
-      
+
       const ACCESS_TOKEN = key.response.access_token
       const userFetch = await fetch('https://api.untappd.com/v4/user/info?access_token=' + ACCESS_TOKEN, {
         method: 'GET'
@@ -64,7 +64,7 @@ async function untappdAuth(req, res) {
             };
           }
         }
-        res.redirect("/")
+        res.redirect("/home")
       } else {
 
         // Sign-up
@@ -134,7 +134,7 @@ async function untappdAuth(req, res) {
         if (req.session.password == null) {
           res.redirect("/set-password")
         } else {
-          res.redirect("/")
+          res.redirect("/home")
         }
       }
     }
