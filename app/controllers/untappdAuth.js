@@ -135,7 +135,7 @@ async function untappdAuth(req, res) {
       }
     }
   }
-}
 } catch (error => console.error('Error:', error))
+}
 
 module.exports = untappdAuth;
