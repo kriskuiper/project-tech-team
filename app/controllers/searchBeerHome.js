@@ -23,7 +23,7 @@ async function searchBeerHome(req, res, next) {
       user: req.session.user,
       beerResults: beerList
     });
-
+}
   } catch (error) {
     next(error);
   }
