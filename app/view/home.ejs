@@ -29,7 +29,7 @@
       <button type="submit" name="button">search</button>
     </form>
     <% if (beerResults) { %>
-      <% for (let i = 0; i < beerResults.length) { %>
+      <% for (let i = 0; i < beerResults.length; i++) { %>
         <article>
             <img src="<%= beerResults[i] %>" alt="">
         </article>
