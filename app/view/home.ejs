@@ -24,11 +24,17 @@
   </section>
 
   <section>
-    <form action="/home" method="POST">
-      <input type="text" name="beerName">
-      <button type="submit" name="button">Search</button>
+    <form id="beer__search" action="/" class="beer__search" method="post">
+      <input type="text" name="beerName" id="searchName">
+      <button type="submit" name="button">search</button>
     </form>
-
+    <% if (beerResults) { %>
+      <% for (let i = 0; i < beerResults.length; i++) { %>
+        <article>
+          <h2><%= beerResults[i].beer.beer_name %></h2>
+        </article>
+      <% } %>
+    <% } %>
   </section>
 
   <% include partials/footer.ejs %>
