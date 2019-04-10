@@ -139,8 +139,8 @@ async function untappdAuth(req, res) {
         }
       }
     }
-  } catch {
-    console.log("error");
+  } catch(error) {
+    console.error('Error:', error)
   }
 }
 
