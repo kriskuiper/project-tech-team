@@ -11,7 +11,7 @@ async function untappdAuth(req, res) {
   try {
 
     const CODE = req.query.code
-    let REDIRECT_URL = 'https://untappdtest.herokuapp.com/untappd-authentication'
+    const REDIRECT_URL = process.env.REDIRECT_URL
 
     const key = await fetch('https://untappd.com/oauth/authorize/?client_id=' +
       process.env.CLIENTID +
