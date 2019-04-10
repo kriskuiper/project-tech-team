@@ -15,11 +15,11 @@ async function serveHome(req, res, user) {
       );
       const beerObjects = await beerResults.json();
 
-      console.log(beerObjects.response.beers);
+      console.log(beerObjects.response.beers.items);
 
       res.status(200).render("home", {
         user: req.session.user,
-        beerResults: beerObjects.response.beers
+        beerResults: beerObjects.response.beers.items
       });
 
     } else {
