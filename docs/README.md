@@ -26,7 +26,7 @@ Drinkerz is a web-app where students from Amsterdam can meet other (single) stud
 ### Prequisites
 
 - Install MongoDB
-- Have a MongoDB database up and running, preferrably on the cloud by using something like [Atlas]() or [MLab]()
+- Have a MongoDB database up and running, preferrably on the cloud by using something like [Atlas](https://www.mongodb.com/cloud/atlas) or [MLab](https://mlab.com/)
 - Have a configured `.env` file:
 
 ```
