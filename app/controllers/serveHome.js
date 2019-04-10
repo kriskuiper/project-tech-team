@@ -15,7 +15,7 @@ async function serveHome(req, res, user) {
       );
       const beerObjects = await beerResults.json();
 
-      console.log(beerObjects.response.beers.items[1]);
+      console.log(beerObjects.response.beers.items[1].beer.beer_name);
 
       // console.log(beerObjects.beers.items[1].beer.beer_name);
 
