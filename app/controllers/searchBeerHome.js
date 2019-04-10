@@ -17,7 +17,7 @@ async function searchBeerHome(req, res, next) {
       const beerObjects = await beerResults.json();
       const beerList = beerObjects.response.beers.items;
 
-      console.log(beerObjects.response.beers.items);
+      console.log(beerObjects.response.beers.items[0].beer.beer_name);
 
     res.status(200).render("home", {
       user: req.session.user,
