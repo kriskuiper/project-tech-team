@@ -9,7 +9,7 @@ async function serveHome(req, res, user) {
 
     if (beerValue) {
 
-      const beerResults = await fetch('https://api.untappd.com/v4/search/beer?q=' + beerValue +
+      const beerResults = await fetch('https://api.untappd.com/v4/search/beer?q=' + beerValue.value +
         '&client_id=' + process.env.CLIENTID +
         '&client_secret=' + process.env.CLIENTSECRET
       );
