@@ -5,7 +5,7 @@ async function serveHome(req, res, user) {
   if (!req.session.user) {
     res.status(200).sendFile(path.join(__dirname, "../static/index.html"));
   } else {
-    const beerValue = req.body;
+    const beerValue = req.body.beerName;
 
     if (beerValue) {
 
@@ -14,14 +14,13 @@ async function serveHome(req, res, user) {
         '&client_secret=' + process.env.CLIENTSECRET
       );
       const beerObjects = await beerResults.json();
+      const beerList = beerObjects.response.beers.items;
 
       console.log(beerObjects.response.beers.items[1].beer.beer_name);
 
-      // console.log(beerObjects.beers.items[1].beer.beer_name);
-
       res.status(200).render("home", {
         user: req.session.user,
-        beerResults: beerObjects
+        beerResults: beerList
       });
 
     } else {
