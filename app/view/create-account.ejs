@@ -1,28 +1,27 @@
 <% include partials/head.ejs %>
-    <title>Sign-up | Drinkerz</title>
+<title>Sign-up | Drinkerz</title>
 </head>
-<body>
-    <main class="sign-up__container">
-        <section class="sign-up__section">
-          <figure class="sign-up__header">
-            <img src="/static/media/images/logo.png" alt="logo Drinkerz">
-            <h1 class="sign-up__title">Drinkerz</h1>
-          </figure>
 
-            <% include partials/sign-up-form.ejs %>
-        </section>
-    </main>
-    <% include partials/footer.ejs %>
+<body>
+  <main class="sign-up__container">
+    <section class="sign-up__section">
+      <figure class="sign-up__header">
+        <img src="/static/media/images/logo.png" alt="logo Drinkerz">
+        <h1 class="sign-up__title">Drinkerz</h1>
+      </figure>
+
+      <% include partials/sign-up-form.ejs %>
+    </section>
+  </main>
+  <% include partials/footer.ejs %>
 </body>
+
 </html>
 
 <script type="text/javascript">
   document.getElementById("untappdConnect").addEventListener("click", untappdConnect);
 
   function untappdConnect() {
-    const CLIENTID = 'A0D5D7F766E859E3EF145BD051A3A576D2EA97CF'
-    let REDIRECT_URL = 'https://untappdtest.herokuapp.com/untappd-authentication'
-
-    window.location.href = 'https://untappd.com/oauth/authenticate/?client_id=' + CLIENTID + '&response_type=code&redirect_url=' + REDIRECT_URL;
+    window.location.href = '<%- authLink %>';
   }
 </script>

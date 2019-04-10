@@ -1,18 +1,22 @@
 <% include partials/head.ejs %>
-    <title>Log in - Drinkerz</title>
+<title>Log in - Drinkerz</title>
 </head>
+
 <body>
-    <main>
-        <section>
-            <h1>Drinkerz</h1>
-            <% if (error) { %>
-                <p class="error"><%= error %></p>
-            <% } %>
-            <% include partials/login-form.ejs %>
-        </section>
-    </main>
-    <% include partials/footer.ejs %>
+  <main>
+    <section>
+      <h1>Drinkerz</h1>
+      <% if (error) { %>
+      <p class="error">
+        <%= error %>
+      </p>
+      <% } %>
+      <% include partials/login-form.ejs %>
+    </section>
+  </main>
+  <% include partials/footer.ejs %>
 </body>
+
 </html>
 
 <script type="text/javascript">
