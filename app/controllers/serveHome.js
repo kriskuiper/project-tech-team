@@ -21,7 +21,7 @@ async function serveHome(req, res, user) {
 
       res.status(200).render("home", {
         user: req.session.user,
-        beerResults: beerObjects
+        beerResults: beerObjects.response.beers.items
       });
 
     } else {
