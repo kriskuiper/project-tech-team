@@ -29,9 +29,9 @@
       <button type="submit" name="button">search</button>
     </form>
     <% if (beerResults) { %>
-      <% for (let i = 0; i < beerResults.beers.length; i++) { %>
+      <% for (let i = 0; i < beerResults.length; i++) { %>
         <article>
-          <h2><%= beerResults.beers.items.beer.beer_name %></h2>
+          <h2><%= beerResults %></h2>
         </article>
       <% } %>
     <% } %>

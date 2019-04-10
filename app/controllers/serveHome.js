@@ -19,7 +19,7 @@ async function serveHome(req, res, user) {
 
       res.status(200).render("home", {
         user: req.session.user,
-        beerResults: beerResults.response
+        beerResults: beerObjects
       });
 
     } else {
