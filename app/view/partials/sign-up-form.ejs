@@ -1,9 +1,39 @@
 <button class="btn button--fullwidth" type="button" name="button" id="untappdConnect" onclick="">Connect with Untappd</button>
 <span class="form__or">or</span>
 <form class="sign-up__form" action="/" method="POST">
+
     <label>Username</label>
     <input type="text" name="username" placeholder="username">
+
     <label>Password</label>
     <input type="password" name="password" placeholder="password">
+
+    <label>Firstname</label>
+    <input type="text" name="firstname" placeholder="firstname">
+
+    <label>Lastname</label>
+    <input type="text" name="lastname" placeholder="lastname">
+
+    <label>Gender</label>
+    <input type="radio" name="gender" value="male"> Male<br>
+    <input type="radio" name="gender" value="female"> Female<br>
+    <input type="radio" name="gender" value="other"> Other
+
+    <label>Age</label>
+    <input type="text" name="age" placeholder="age">
+
+    <p>preferred matches</p>
+
+    <fieldset class="preferred__age">
+      <label>Set age range</label>
+      <input type="text" name="age_min" placeholder="20">
+      <p>till</p>
+      <input type="text" name="age_max" placeholder="30">
+    </fieldset>
+
+    <label>Likes</label>
+    <input type="radio" name="preferred_gender" value="male"> Male<br>
+    <input type="radio" name="preferred_gender" value="female"> Female<br>
+    <input type="radio" name="preferred_gender" value="both"> both
     <button class="button--fullwidth" type="submit">Sign up</button>
 </form>

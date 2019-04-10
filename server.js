@@ -15,7 +15,7 @@ const createAccount = require("./app/controllers/createAccount");
 const login = require("./app/controllers/login");
 const logout = require("./app/controllers/logout");
 const renderLogin = require("./app/controllers/renderLogin");
-const serveNotFound = require("./app/controllers/serveNotFound");
+const serverNotFound = require("./app/controllers/serveNotFound");
 const untappdAuth = require("./app/controllers/untappdAuth");
 const addBeer = require("./app/controllers/addBeer");
 const renderAddBeer = require("./app/controllers/renderAddBeer");
@@ -58,7 +58,7 @@ app
     .post("/set-password", setPassword)
     .post("/add-beer", addBeer)
 
-    .use(serveNotFound)
+    .use(serverNotFound)
     .listen(process.env.PORT || port, listening);
 
 function listening() {
