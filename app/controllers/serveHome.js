@@ -6,6 +6,7 @@ async function serveHome(req, res, user) {
     res.status(200).sendFile(path.join(__dirname, "../static/index.html"));
   } else {
     const beerValue = req.body.beerName;
+    console.log(beerValue.value + " is search value");
 
     if (beerValue) {
 
@@ -16,7 +17,7 @@ async function serveHome(req, res, user) {
       const beerObjects = await beerResults.json();
       const beerList = beerObjects.response.beers.items;
 
-      console.log(beerObjects.response.beers.items[1].beer.beer_name);
+      console.log(beerObjects.response.beers.items);
 
       res.status(200).render("home", {
         user: req.session.user,
