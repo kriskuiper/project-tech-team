@@ -32,6 +32,17 @@
       <% for (let i = 0; i < beerResults.length; i++) { %>
         <article>
           <h2><%= beerResults[i].beer.beer_name %></h2>
+          <img src="<%- beerResults[i].beer.beer_label %>" alt="<%- beerResults[i].beer.beer_name %>">
+          <p><%= beerResults[i].beer.beer_description %></p>
+
+          <form action="/add-beer" method="post">
+            <input class="invisible" type="text" name="beerName" value="<%- beerResults[i].beer.beer_name %>">
+            <input class="invisible" type="text" name="beerBid" value="<%- beerResults[i].beer.bid %>">
+            <input class="invisible" type="text" name="beerDescription" value="<%- beerResults[i].beer.beer_description %>">
+            <input class="invisible" type="text" name="beerImg" value="<%- beerResults[i].beer.beer_label %>">
+            <input class="invisible" type="text" name="brewery" value="<%- beerResults[i].brewery.brewery_name %>">
+            <button type="submit" name="button">Add <%- beerResults[i].beer.beer_name %></button>
+          </form>
         </article>
       <% } %>
     <% } %>

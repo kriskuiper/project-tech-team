@@ -311,3 +311,7 @@ body > footer {
   align-items: center;
   justify-content: space-evenly;
 }
+
+.invisible {
+  display: none;
+}

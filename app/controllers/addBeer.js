@@ -36,7 +36,7 @@ async function addBeer(req, res, next) {
       req.session.user.beers = beersArray;
     }
 
-    res.redirect("/");
+    res.redirect("/home");
 
   } catch (error) {
     next(error);
