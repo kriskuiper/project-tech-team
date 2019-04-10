@@ -5,7 +5,8 @@ async function serveHome(req, res, user) {
     if (!req.session.user) {
         res.status(200).sendFile(path.join(__dirname, "../static/index.html"));
     } else {
-        const { beerValue } = req.body;
+        const { beerValue } = req.body.beerName;
+                console.log(beerValue);
 
         if (beerValue) {
           const beerResults = await fetch('https://api.untappd.com/v4/search/beer?q=' + beerValue
