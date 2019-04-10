@@ -5,11 +5,11 @@ async function addBeer(req, res, next) {
   try {
     const beersArray = req.session.user.beers
 
-    let beer_bid = req.body.beerBid;
-    let beer_name = req.body.beerName;
-    let beer_label = req.body.beerImg;
-    let beer_description = req.body.beerDescription;
-    let beer_brewery = req.body.brewery;
+    const beer_bid = req.body.beerBid;
+    const beer_name = req.body.beerName;
+    const beer_label = req.body.beerImg;
+    const beer_description = req.body.beerDescription;
+    const beer_brewery = req.body.brewery;
 
     objectBeer = {
       beer: {

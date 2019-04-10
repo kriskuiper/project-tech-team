@@ -6,139 +6,136 @@ const fetch = require("node-fetch");
 const User = require("../models/User");
 require("dotenv").config();
 
-function untappdAuth(req, res) {
+async function untappdAuth(req, res) {
+
+  try {
 
   const CODE = req.query.code
   let REDIRECT_URL = 'https://untappdtest.herokuapp.com/untappd-authentication'
 
-  fetch('https://untappd.com/oauth/authorize/?client_id=' + process.env.CLIENTID + '&client_secret=' + process.env.CLIENTSECRET + '&response_type=code&redirect_url=' + REDIRECT_URL + '&code=' + CODE, {
-      method: 'GET'
-    })
-    .then(response => response.json())
-    .then(function(data) {
-      console.log(data);
+  const key = await fetch('https://untappd.com/oauth/authorize/?client_id='
+        + process.env.CLIENTID
+        + '&client_secret='
+        + process.env.CLIENTSECRET
+        + '&response_type=code&redirect_url='
+        + REDIRECT_URL + '&code='
+        + CODE, { method: 'GET' }
+      );
 
+  const authenticationKey = await key.json();
 
-      const ACCESS_TOKEN = data.response.access_token
-      fetch('https://api.untappd.com/v4/user/info?access_token=' + ACCESS_TOKEN, {
-          method: 'GET'
-        })
-        .then(response => response.json())
-        .then(function(data) {
+  createUser(authenticationKey);
 
-          User.find({
-            'username': data.response.user.user_name
-          }).exec(function(err, user) {
-            if (err) return handleError(err);
+  async function createUser(key) {
+      console.log(key);
 
-            if (user.length > 0) {
+      const ACCESS_TOKEN = key.response.access_token
+      const user = await fetch('https://api.untappd.com/v4/user/info?access_token=' + ACCESS_TOKEN, { method: 'GET' });
+      const userInJSON = await user.json();
 
-              // Login
+      const user = await User.find({
+          'username': user.response.user.user_name
+      });
 
-              console.log("Name exisits");
-              console.log(user[0]);
-              console.log(user[0].username);
+    if (user.length > 0) {
+      // Login
+      setLoginSession();
 
-              setSession();
+      function setLoginSession(error) {
+        if (error) {
+          next(error);
+        } else {
+          req.session.user = {
+            username: user[0].username,
+            firstName: user[0].firstName,
+            lastName: user[0].lastName,
+            profilePicture: user[0].profilePicture,
+            beers: user[0].beers,
+            age: user[0].age,
+            gender: user[0].gender,
+            prefered_age: {
+              min: user[0].prefered_age.min,
+              max: user[0].prefered_age.max
+            },
+            prefered_gender: user[0].prefered_gender
+          };
+        }
+      }
+      res.redirect("/")
+    } else {
 
-              function setSession(error) {
-                if (error) {
-                  next(error);
-                } else {
-                  req.session.user = {
-                    username: user[0].username,
-                    firstName: user[0].firstName,
-                    lastName: user[0].lastName,
-                    profilePicture: user[0].profilePicture,
-                    beers: user[0].beers,
-                    age: user[0].age,
-                    gender: user[0].gender,
-                    prefered_age: {
-                      min: user[0].prefered_age.min,
-                      max: user[0].prefered_age.max
-                    },
-                    prefered_gender: user[0].prefered_gender
-                  };
-                }
-              }
-              res.redirect("/")
-            } else {
+      // Sign-up
 
-              // Sign-up
+      const beersArray = [];
 
-              const beersArray = [];
+      for (var i = 0; i < data.response.user.recent_brews.count; i++) {
+        const beer_bid = data.response.user.recent_brews.items[i].beer.bid;
+        const beer_name = data.response.user.recent_brews.items[i].beer.beer_name;
+        const beer_label = data.response.user.recent_brews.items[i].beer.beer_label;
+        const beer_description = data.response.user.recent_brews.items[i].beer.beer_description;
+        const beer_brewery = data.response.user.recent_brews.items[i].brewery.brewery_name;
+        objectBeer = {
+          beer: {
+            bid: beer_bid,
+            name: beer_name,
+            img: beer_label,
+            description: beer_description,
+            brewery: beer_brewery
+          }
+        };
 
-              for (var i = 0; i < data.response.user.recent_brews.count; i++) {
-                let beer_bid = data.response.user.recent_brews.items[i].beer.bid;
-                let beer_name = data.response.user.recent_brews.items[i].beer.beer_name;
-                let beer_label = data.response.user.recent_brews.items[i].beer.beer_label;
-                let beer_description = data.response.user.recent_brews.items[i].beer.beer_description;
-                let beer_brewery = data.response.user.recent_brews.items[i].brewery.brewery_name;
-                objectBeer = {
-                  beer: {
-                    bid: beer_bid,
-                    name: beer_name,
-                    img: beer_label,
-                    description: beer_description,
-                    brewery: beer_brewery
-                  }
-                };
+        beersArray.push(objectBeer);
+      }
 
-                beersArray.push(objectBeer);
-              }
+      setCreateSession();
 
-              setSession();
+      function setCreateSession(error) {
+        if (error) {
+          next(error);
+        } else {
+          req.session.user = {
+            username: data.response.user.user_name,
+            firstName: data.response.user.first_name,
+            lastName: data.response.user.last_name,
+            profilePicture: data.response.user.user_avatar_hd,
+            beers: beersArray,
+            age: null,
+            gender: null,
+            prefered_age: {
+              min: null,
+              max: null
+            },
+            prefered_gender: null
+          };
+        }
+      }
 
-              function setSession(error) {
-                if (error) {
-                  next(error);
-                } else {
-                  req.session.user = {
-                    username: data.response.user.user_name,
-                    firstName: data.response.user.first_name,
-                    lastName: data.response.user.last_name,
-                    profilePicture: data.response.user.user_avatar_hd,
-                    beers: beersArray,
-                    age: null,
-                    gender: null,
-                    prefered_age: {
-                      min: null,
-                      max: null
-                    },
-                    prefered_gender: null
-                  };
-                }
-              }
+      const newUser = new User({
+        _id: new mongoose.Types.ObjectId(),
+        username: req.session.user.username,
+        password: null,
+        firstName: req.session.user.firstName,
+        lastName: req.session.user.lastName,
+        profilePicture: req.session.user.profilePicture,
+        beers: beersArray,
+        age: null,
+        gender: null,
+        prefered_age: {
+          min: null,
+          max: null
+        },
+        prefered_gender: null
+      });
 
-              const newUser = new User({
-                _id: new mongoose.Types.ObjectId(),
-                username: req.session.user.username,
-                password: null,
-                firstName: req.session.user.firstName,
-                lastName: req.session.user.lastName,
-                profilePicture: req.session.user.profilePicture,
-                beers: beersArray,
-                age: null,
-                gender: null,
-                prefered_age: {
-                  min: null,
-                  max: null
-                },
-                prefered_gender: null
-              });
-
-              User.create(newUser);
-              if (req.session.password == null) {
-                res.redirect("/set-password")
-              } else {
-                res.redirect("/")
-              }
-            }
-          });
-        })
-        .catch(error => console.error('Error:', error))
-    })
-    .catch(error => console.error('Error:', error))
+      User.create(newUser);
+      if (req.session.password == null) {
+        res.redirect("/set-password")
+      } else {
+        res.redirect("/")
+      }
+    }
+  }
 }
+} catch (error => console.error('Error:', error))
 
 module.exports = untappdAuth;

@@ -28,8 +28,8 @@ function showPosts(entries) {
 }
 
 function beerSearch(event) {
-  let CLIENTID = 'A0D5D7F766E859E3EF145BD051A3A576D2EA97CF'
-  let CLIENTSECRET = 'EBF811599C0F5914F7F37349041336C86926AC40'
+  const CLIENTID = 'A0D5D7F766E859E3EF145BD051A3A576D2EA97CF'
+  const CLIENTSECRET = 'EBF811599C0F5914F7F37349041336C86926AC40'
 
   fetch('https://api.untappd.com/v4/search/beer?q=' + document.getElementById("searchName").value + '&client_id=' + CLIENTID + '&client_secret=' + CLIENTSECRET, {
       method: 'GET'
