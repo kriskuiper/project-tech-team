@@ -40,3 +40,29 @@ if ("serviceWorker" in navigator) {
           });
   });
 }
+
+// Get geolocation
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(position => {
+
+    const location = new GeoLocation(
+      position.coords.latitude, 
+      position.coords.longitude
+    );
+
+    
+    let { lat, long } = location;
+    
+    // set cookie
+    document.cookie = `location=${lat}-${long}`;
+  });
+} else {
+  document.cookie = `location=52.361778-4.907370`;
+}
+
+class GeoLocation {
+  constructor(lat, long) {
+    this.lat = lat;
+    this.long = long;
+  }
+}

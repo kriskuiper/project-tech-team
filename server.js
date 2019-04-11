@@ -3,6 +3,7 @@ const express = require("express");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
 require("dotenv").config();
 
 // Require controllers
@@ -15,7 +16,7 @@ const renderLogin = require("./app/controllers/renderLogin");
 const serveNotFound = require("./app/controllers/serveNotFound");
 const renderLikedPersons = require("./app/controllers/renderLikedPersons");
 const match = require("./app/controllers/match");
-const filter = require("./app/controllers/filter");
+const barLocation = require("./app/controllers/location");
 const renderFilter = require("./app/controllers/renderFilter");
 
 // Process environment vars and connect to database
@@ -37,6 +38,7 @@ const port = 8000;
 app
     .use("/", express.static("app/static"))
     .use(bodyParser.urlencoded({extended: true}))
+    .use(cookieParser())
     .use(session(sess))
     .set("view engine", "ejs")
     .set("views", "app/view")
@@ -48,8 +50,8 @@ app
     .get("/users", match)
     .get("/filter", renderFilter)
     .get("/matches", renderLikedPersons)
+    .get("/barLocation", barLocation)
 
-    .post("/users", filter)
     .post("/", createAccount)
     .post("/log-in", login)
 

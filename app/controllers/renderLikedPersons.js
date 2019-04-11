@@ -1,5 +1,4 @@
 //Require list
-//const _array = require("lodash/array");
 const User = require("../models/User");
 
 //Display the users from the database that are a match with the user
@@ -18,7 +17,6 @@ async function renderLikedPersons(req, res, next) {
         users[0].save();
         }
 
-        //Maak array aan, verwijder het object uit de array en sla het op
         for (let i = 0; i < users[0].likedpersons.length; i++) {
             likedObjects.push(User.findById(users[0].likedpersons[i], (err, res) => {
                 if (err) {
@@ -27,13 +25,10 @@ async function renderLikedPersons(req, res, next) {
                     return res;
                 }
             }));
-           
-            //likedObjects.save();
         }
 
         await Promise.all(likedObjects)
             .then(results =>  {
-                console.log(results);
                 res.status(200).render("matches", { likedpersons: results });
             });
     }
