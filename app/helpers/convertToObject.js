@@ -1,4 +1,5 @@
 const User = require("../models/User");
+const _array = require("lodash/array");
 
 function convertToObject(arr, arrToPush) {
     for (let i = 0; i < arr.length; i++) {

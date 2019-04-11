@@ -10,20 +10,26 @@ async function renderMatches(req, res, next) {
     const likedObjects = [];
 
     try {
-        const users = await User.find();
+      const loggedInUser = await User.findOne({
+        "username": req.session.user.username
+      });
+
+      console.log(loggedInUser);
 
         if (currentPerson) {
-            const filteredLikedPersons = users[0].likedpersons.filter(likedperson => likedperson != currentPerson);
-            users[0].likedpersons = filteredLikedPersons;
-            users[0].save();
+            const filteredLikedPersons = loggedInUser.likedpersons.filter(likedperson => likedperson != currentPerson);
+            loggedInUser.likedpersons = filteredLikedPersons;
+            loggedInUser.save();
         }
 
-        convertToObject(users[0].likedpersons, likedObjects);
-        
-        for (let i = 0; i < 430; i++) {
-            const imageUrl = fetch ("https://source.unsplash.com/collection/181462/480x480");
-            peopleImages.push(imageUrl);
-        }
+        console.log(loggedInUser.likedpersons);
+
+        convertToObject(loggedInUser.likedpersons, likedObjects);
+
+        // for (let i = 0; i < 430; i++) {
+        //     const imageUrl = fetch ("https://source.unsplash.com/collection/181462/480x480");
+        //     peopleImages.push(imageUrl);
+        // }
 
         const promisedUsers = await Promise.all(likedObjects);
 

@@ -89,7 +89,7 @@ async function untappdAuth(req, res) {
 
         function setCreateSession(error) {
           if (error) {
-            next(error);  
+            next(error);
           } else {
             req.session.user = {
               username: userInJSON.response.user.user_name,
