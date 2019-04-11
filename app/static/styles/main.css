@@ -100,7 +100,11 @@ a {
 }
 
 /* Buttons */
+<<<<<<< HEAD
+.btn,
+=======
 .btn, 
+>>>>>>> development
 form button {
     display: block;
     font-size: var(--font-size-buttons);
@@ -111,7 +115,11 @@ form button {
     color: #fff;
 }
 
+<<<<<<< HEAD
+.btn:hover,
+=======
 .btn:hover, 
+>>>>>>> development
 form button:hover {
     background-color: #fcce51;
     color: var(--bg-color)!important;
@@ -181,9 +189,14 @@ body > footer {
 /* User / Bar block styling */
 .card-grid {
     display: grid;
+<<<<<<< HEAD
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1em;
+=======
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(10, 440px);
     grid-gap: 2em;
+>>>>>>> development
 }
 
     .card {
@@ -194,14 +207,22 @@ body > footer {
         box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
     }
 
+<<<<<<< HEAD
+        .card__button {
+=======
         .card .card__button {
             height: 2em;
             width: 2em;
+>>>>>>> development
             position: absolute;
             border-radius: 50%;
             font-size: 0;
             background-image: url("../path/to/img");
+<<<<<<< HEAD
+            box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
+=======
             box-shadow: 0px px 5px rgba(0, 0, 0, 0.2);
+>>>>>>> development
         }
 
         .card__img {
@@ -213,15 +234,123 @@ body > footer {
         .card__meta-block {
             padding: 1em;
             position: absolute;
+<<<<<<< HEAD
+            bottom: 0.5em;
+            left: 0.5em;
+            right: 0.5em;
+        }
+
+        .card__meta-title {
+            font-weight: var(--font-weight-h3);
+=======
             bottom: 1em;
             left: 1em;
             right: 1em;
             background: white;
             z-index: 444;
             border-radius: 4px;
+>>>>>>> development
         }
 
         .card__meta-title {
             font-weight: var(--font-weight-h3);
         }
 /* 404 Page styling */
+<<<<<<< HEAD
+
+
+
+
+/* Sign-up styling */
+
+.sign-up__container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('/static/media/images/bg.png');
+  background-position: center;
+  background-size: cover;
+}
+
+.sign-up__section {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  width: calc(25% + 4rem);
+  height: auto;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.sign-up__header {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.sign-up__header img {
+  height: 6em;
+  width: 6em;
+}
+
+.sign-up__header h1 {
+  text-transform: uppercase;
+}
+
+.button--fullwidth {
+  width: 100%;
+
+}
+
+.sign-up__form {
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign-up__form label {
+  display: none;
+}
+
+.sign-up__form input {
+  width: 100%;
+  font-size: 1.125rem;
+  padding: .5rem 1rem;
+  text-align: center;
+}
+
+.form__or {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 2px #666 solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+  text-transform: uppercase;
+  color: #666;
+}
+
+
+
+.preferred__age {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.invisible {
+  display: none;
+}
+=======
+>>>>>>> development

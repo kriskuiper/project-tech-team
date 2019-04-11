@@ -8,15 +8,21 @@ require("dotenv").config();
 
 // Require controllers
 const serveHome = require("./app/controllers/serveHome");
+const renderSetPassword = require("./app/controllers/renderSetPassword");
+const setPassword = require("./app/controllers/setPassword");
 const renderCreateAccount = require("./app/controllers/renderCreateAccount");
 const createAccount = require("./app/controllers/createAccount");
 const login = require("./app/controllers/login");
 const logout = require("./app/controllers/logout");
 const renderLogin = require("./app/controllers/renderLogin");
-const serveNotFound = require("./app/controllers/serveNotFound");
+const untappdAuth = require("./app/controllers/untappdAuth");
+const addBeer = require("./app/controllers/addBeer");
 const renderMatches = require("./app/controllers/renderMatches");
 const renderUsers = require("./app/controllers/renderUsers");
 const renderBars = require("./app/controllers/renderBars");
+const renderAddBeer = require("./app/controllers/renderAddBeer");
+const searchBeerHome = require("./app/controllers/searchBeerHome");
+const serveNotFound = require("./app/controllers/serveNotFound");
 
 // Process environment vars and connect to database
 const uri = process.env.MONGODB_URI;
@@ -44,16 +50,22 @@ app
 
     .get("/", serveHome)
     .get("/create-account", renderCreateAccount)
+    .get("/set-password", renderSetPassword)
     .get("/log-in", renderLogin)
     .get("/log-out", logout)
+    .get("/untappd-authentication", untappdAuth)
+    .get("/add-beer", renderAddBeer)
     .get("/users", renderUsers)
     .get("/matches", renderMatches)
     .get("/bars", renderBars)
 
+    .post("/search-beer", searchBeerHome)
     .post("/", createAccount)
     .post("/log-in", login)
+    .post("/set-password", setPassword)
+    .post("/add-beer", addBeer)
 
-    .use(serveNotFound)
+    .use(serverNotFound)
     .listen(process.env.PORT || port, listening);
 
 function listening() {

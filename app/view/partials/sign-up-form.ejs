@@ -1,18 +1,47 @@
-<form action="/" method="POST">
+<button class="btn button--fullwidth" type="button" name="button" id="untappdConnect" onclick="">Connect with Untappd</button>
+<span class="form__or">or</span>
+<form class="sign-up__form" action="/" method="POST">
+
     <label>Username
-        <input type="text" name="username">
+    <input type="text" name="username" placeholder="username">
     </label>
+
     <label>Password
-        <input type="password" name="password">
+    <input type="password" name="password" placeholder="password">
     </label>
-    <label>First name
-        <input type="text" name="firstname">
+
+    <label>Firstname
+    <input type="text" name="firstname" placeholder="firstname">
     </label>
-    <label>Last name
-        <input type="text" name="lastname">
+
+    <label>Lastname
+    <input type="text" name="lastname" placeholder="lastname">
     </label>
-    <label>Your bike
-        <input type="text" name="bike">
+
+    <label>Gender
+    <input type="radio" name="gender" value="male"> Male<br>
+    <input type="radio" name="gender" value="female"> Female<br>
+    <input type="radio" name="gender" value="other"> Other
     </label>
-    <button type="submit">Sign up</button>
+
+    <label>Age
+    <input type="text" name="age" placeholder="age">
+    </label>
+
+    <p>preferred matches</p>
+
+    <fieldset class="preferred__age">
+      <label>Set age range
+      <input type="text" name="age_min" placeholder="20">
+      <p>till</p>
+      <input type="text" name="age_max" placeholder="30">
+      </label>
+    </fieldset>
+
+    <label>Likes
+    <input type="radio" name="preferred_gender" value="male"> Male<br>
+    <input type="radio" name="preferred_gender" value="female"> Female<br>
+    <input type="radio" name="preferred_gender" value="both"> both
+    </label>
+    <button class="button--fullwidth" type="submit">Sign up</button>
 </form>
