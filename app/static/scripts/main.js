@@ -17,13 +17,13 @@ if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(position => {
 
     const location = new GeoLocation(
-      position.coords.latitude, 
+      position.coords.latitude,
       position.coords.longitude
     );
 
-    
+
     let { lat, long } = location;
-    
+
     // set cookie
     document.cookie = `location=${lat}-${long}`;
   });

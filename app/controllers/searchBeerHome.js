@@ -6,9 +6,8 @@ async function searchBeerHome(req, res, next) {
   try {
 
     const beerValue = req.body.beerName;
-    console.log(req.body.beerName + " is search value");
 
-    if (beerValue) {
+    if (beerValue.length > 1) {
 
       const beerResults = await fetch('https://api.untappd.com/v4/search/beer?q=' + beerValue +
         '&client_id=' + process.env.CLIENTID +

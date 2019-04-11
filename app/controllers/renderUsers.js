@@ -1,11 +1,9 @@
 const _array = require("lodash/array");
-const fetch = require("node-fetch");
 
 const User = require("../models/User");
 const convertToObject = require("../helpers/convertToObject");
 
 async function renderUsers(req, res, next) {
-    // const { likedpersons } = loggedInPerson;
     const { personid, min, max, gender } = req.query;
     const notLikedUsers = [];
     const userImages = [];
@@ -18,7 +16,6 @@ async function renderUsers(req, res, next) {
         const extractIds = users.map(user => user.id);
 
         if (personid) {
-            // TODO: add real data instead of users[0]
             loggedInUser.likedpersons.push(personid);
             loggedInUser.save();
         }
@@ -29,10 +26,10 @@ async function renderUsers(req, res, next) {
 
         convertToObject(extractIds, notLikedUsers);
 
-        // for (let i = 0; i < 430; i++) {
-        //     const imageUrl = fetch ("https://source.unsplash.com/collection/181462/480x480");
-        //     userImages.push(imageUrl);
-        // }
+        for (let i = 0; i < 430; i++) {
+            const imageUrl = fetch ("https://source.unsplash.com/collection/181462/480x480");
+            userImages.push(imageUrl);
+        }
 
         const promisedUsers = await Promise.all(notLikedUsers);
         const filteredUsers = promisedUsers.filter(user => user.age >= min && user.age <= max && user.gender === gender);

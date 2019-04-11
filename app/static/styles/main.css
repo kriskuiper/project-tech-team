@@ -1,3 +1,4 @@
+
 /* Define custom properties */
 :root {
     /* Colors */
@@ -48,6 +49,7 @@
 }
 
 body {
+    min-height: 100vh;
     font-size: var(--font-size-body);
     font-family: 'Poppins', sans-serif;
     color: var(--text-color);
@@ -222,6 +224,79 @@ body > footer {
             font-weight: var(--font-weight-h3);
         }
 
+nav {
+  position: fixed;
+  bottom: 0;
+}
+
+.nav__inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0;
+  background-color: #ffffff;
+  margin: 0;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+  .nav__item {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+    .item__link {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 100%;
+      width: 100%;
+      font-size: 0.6em;
+      text-align: center;
+      padding-top: 1rem;
+      padding-bottom: 0.2rem;
+    }
+
+    .item__link.active {
+      font-weight: 600;
+    }
+
+      .item__link > img {
+        display: block;
+        transform: scale(1.2);
+        margin-bottom: 8px;
+      }
+
+  @media screen and (min-width: 30em) {
+        nav{
+          bottom: auto;
+          top: 0;
+        }
+          .nav__inner{
+            bottom: auto;
+            top: 0;
+          }
+
+          .nav__inner li a img{
+              display: none;
+          }
+
+          .nav__item{
+            justify-content: flex-start;
+            align-items: flex-start;
+          }
+
+          .nav__inner .item__link{
+            font-size:1em;
+            width: auto;
+          }
+      }
+
+/* 404 Page styling */
+
 /* Filter Styling */
 .filter__part {
     border: none;
@@ -345,4 +420,83 @@ body > footer {
 
 .invisible {
   display: none;
+}
+
+
+/* CSS Styling home page (index.html) */
+
+.homepage-banner {
+  padding-top: 10rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: 80vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../media/images/bg.png');
+  background-position: center;
+  background-size: cover;
+}
+
+.homepage-banner div {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 30rem;
+  height: auto;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+.success__story h2{
+  margin: 2rem 0;
+}
+
+
+.stories {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 1rem;
+  padding: 0 2rem 2rem;
+}
+
+@media screen and (min-width: 30rem) {
+  .stories {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 60rem) {
+  .stories {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.success__story {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+}
+
+.story__img{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+}
+
+.story__img img{
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  object-position: center;
 }
