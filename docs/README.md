@@ -17,8 +17,17 @@ Drinkerz is a web-app where students from Amsterdam can meet other (single) stud
 ## Packages
 | Name             | Purpose                          |
 |------------------|----------------------------------|
-|[`express`](https://www.npmjs.com/package/express)         | Used for building the server     |
+|[`array-find`](https://www.npmjs.com/package/array-find) | Used for finding array elements and executing a callback for each element
+|[`body-parser`](https://www.npmjs.com/package/body-parser) | Parse incoming request bodies in a middleware before your handlers
+|[`cookie=parser`](https://www.npmjs.com/package/cookie-parser) | Used to read cookies from client side into the server side
+|[`dotenv`](https://www.npmjs.com/package/dotenv) | Load data from the .env file, Storing configuration in the environment separate from code
+|[`ejs`](https://www.npmjs.com/package/ejs) | Embedded JavaScript templates
+|[`express`](https://www.npmjs.com/package/express)         | Used for building the server     
 |[`express-session`](https://www.npmjs.com/package/express-session) | Used for saving data in sessions
+|[`follow-redirects`](https://www.npmjs.com/package/follow-redirects) | provides request and get methods that behave identically to those found on the native http and https modules, with the exception that they will seamlessly follow redirects
+|[`mongoose`](https://www.npmjs.com/package/mongoose) |  MongoDB object modeling tool designed to work in an asynchronous environment 
+|[`node-fetch`](https://www.npmjs.com/package/node-fetch) | Used to hhtps request an api directly
+|[`slug`](https://www.npmjs.com/package/slug) | slugifies every string, even when it contains unicode
 
 ## Installation
 ### Prequisites
