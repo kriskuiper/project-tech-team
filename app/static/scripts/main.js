@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-// Cutting the mustard technique
-if ("querySelector" in document) {
-  document.body.classList.add("js-enabled");
-=======
 // Register serviceworker
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
@@ -15,7 +10,6 @@ if ("serviceWorker" in navigator) {
               console.log("Failed to register ServiceWorker");
           });
   });
->>>>>>> development
 }
 
 // Get geolocation
