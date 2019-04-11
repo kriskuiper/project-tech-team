@@ -66,12 +66,12 @@ async function untappdAuth(req, res) {
 
         const beersArray = [];
 
-        for (var i = 0; i < data.response.user.recent_brews.count; i++) {
-          const beer_bid = data.response.user.recent_brews.items[i].beer.bid;
-          const beer_name = data.response.user.recent_brews.items[i].beer.beer_name;
-          const beer_label = data.response.user.recent_brews.items[i].beer.beer_label;
-          const beer_description = data.response.user.recent_brews.items[i].beer.beer_description;
-          const beer_brewery = data.response.user.recent_brews.items[i].brewery.brewery_name;
+        for (var i = 0; i < userInJSON.response.user.recent_brews.count; i++) {
+          const beer_bid = userInJSON.response.user.recent_brews.items[i].beer.bid;
+          const beer_name = userInJSON.response.user.recent_brews.items[i].beer.beer_name;
+          const beer_label = userInJSON.response.user.recent_brews.items[i].beer.beer_label;
+          const beer_description = userInJSON.response.user.recent_brews.items[i].beer.beer_description;
+          const beer_brewery = userInJSON.response.user.recent_brews.items[i].brewery.brewery_name;
           objectBeer = {
             beer: {
               bid: beer_bid,
@@ -92,10 +92,10 @@ async function untappdAuth(req, res) {
             next(error);
           } else {
             req.session.user = {
-              username: data.response.user.user_name,
-              firstName: data.response.user.first_name,
-              lastName: data.response.user.last_name,
-              profilePicture: data.response.user.user_avatar_hd,
+              username: userInJSON.response.user.user_name,
+              firstName: userInJSON.response.user.first_name,
+              lastName: userInJSON.response.user.last_name,
+              profilePicture: userInJSON.response.user.user_avatar_hd,
               beers: beersArray,
               age: null,
               gender: null
