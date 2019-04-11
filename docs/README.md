@@ -4,16 +4,16 @@
 
 Drinkerz is a web-app where students from Amsterdam can meet other (single) students by meeting eachother at a café. The user can create an account and log in. (More features described here)
 
-## Features we want to workout (Have to make decisions about what (not) to do)
+## Features we worked on
 - Filter gender / favo beer ([Chazz](https://github.com/chazzers))
-- Bars nearby ([Aron](https://github.com/aronsmit2))
-- Login with Untappd ([Rick](https://github.com/root-ish))
+- Bars nearby (Google api) ([Aron](https://github.com/aronsmit2))
+- Login with Untappd (Untappd api) ([Rick](https://github.com/root-ish))
 - Last visited (checked in) bar ([Kris](https://github.com/kriskuiper))
 - Make it a PWA ([Kris](https://github.com/kriskuiper))
 - Liking other users ([Mark](https://github.com/markschuttehva))
 - ~~Login, To use the website~~
 - ~~Register, To make a account and use the website~~
-- Password hash, To make sure their passwork is kept safe in a database ([Somebody]())
+- ~~Password hash, To make sure their passwork is kept safe in a database~~ ([Somebody]())
 
 ## Packages
 | Name             | Purpose                          |
