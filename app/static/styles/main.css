@@ -194,12 +194,14 @@ body > footer {
         box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
     }
 
-        .card__button {
+        .card .card__button {
+            height: 2em;
+            width: 2em;
             position: absolute;
             border-radius: 50%;
             font-size: 0;
             background-image: url("../path/to/img");
-            box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px px 5px rgba(0, 0, 0, 0.2);
         }
 
         .card__img {

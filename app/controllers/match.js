@@ -1,5 +1,5 @@
 const _array = require("lodash/array");
-
+const fetch = require("node-fetch");
 //Require list
 const User = require("../models/User");
 //This wil be the list of the liked persons of the logged-in user.
@@ -30,6 +30,12 @@ async function match(req, res, next) {
 
         const unlikedUsers = [];
 
+        //images
+        const imageWidth = 480;
+        const imageHeight = 480;
+        const collectionId = 181462;
+        const peopleImages = [];
+
         for (let i = 0; i < extractIds.length; i++) {
             unlikedUsers.push(User.findById(extractIds[i], (err, res) => {
                 if (err) {
@@ -40,12 +46,20 @@ async function match(req, res, next) {
             }));
         }
 
-        // When the for-loop is finished the system will show the matches
-        await Promise.all(unlikedUsers)
-            .then(results => {
-                res.status(200).render("users", {users: results});
-            });
+        for (let i = 0; i < 430; i++) {
+            const imageUrl = fetch (`https://source.unsplash.com/collection/${collectionId}/${imageWidth}x${imageHeight}`);
+            peopleImages.push(imageUrl);
         }
+
+        // When the for-loop is finished the system will show the matches
+        const promisedUsers = await Promise.all(unlikedUsers);
+        await Promise.all(peopleImages)
+            .then(userImages => {
+                console.log(userImages);
+                res.status(200).render("users", {users: promisedUsers, peopleImages: userImages});
+            });
+
+    }
     catch(error) {
         next(error);
     }

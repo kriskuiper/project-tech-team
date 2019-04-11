@@ -18,11 +18,11 @@
                 <a href="/<%= users[i].id %>" id="link" class="">
                     <article class="card">
                         <!-- Image of the user -->
-                        <img src="<%= users[i].image %>" alt="Profile picture from <%= users[i].firstName %>" class="card__img">
+                        <img src="<%= peopleImages[i].url %>" alt="Profile picture from <%= users[i].firstName %>" class="card__img">
                         <!-- Sends the user.id to a array -->
                         <form action="" method="GET">
                             <input type="hidden" name="personid" value="<%= users[i].id %>">
-                            <button type="submit" id="add">Like <%= users[i].firstName %></button>
+                            <button type="submit" id="add" class="">Like <%= users[i].firstName %></button>
                         </form>
                         <!-- Name and city the person lives in -->
                         <section>
