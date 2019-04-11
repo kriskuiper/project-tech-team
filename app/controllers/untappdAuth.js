@@ -55,12 +55,7 @@ async function untappdAuth(req, res) {
               profilePicture: user[0].profilePicture,
               beers: user[0].beers,
               age: user[0].age,
-              gender: user[0].gender,
-              preferred_age: {
-                min: user[0].preferred_age.min,
-                max: user[0].preferred_age.max
-              },
-              preferred_gender: user[0].preferred_gender
+              gender: user[0].gender
             };
           }
         }
@@ -103,12 +98,7 @@ async function untappdAuth(req, res) {
               profilePicture: data.response.user.user_avatar_hd,
               beers: beersArray,
               age: null,
-              gender: null,
-              preferred_age: {
-                min: null,
-                max: null
-              },
-              preferred_gender: null
+              gender: null
             };
           }
         }
@@ -122,12 +112,7 @@ async function untappdAuth(req, res) {
           profilePicture: req.session.user.profilePicture,
           beers: beersArray,
           age: null,
-          gender: null,
-          preferred_age: {
-            min: null,
-            max: null
-          },
-          preferred_gender: null
+          gender: null
         });
 
         User.create(newUser);
