@@ -65,7 +65,7 @@ app
     .post("/set-password", setPassword)
     .post("/add-beer", addBeer)
 
-    .use(serverNotFound)
+    .use(serveNotFound)
     .listen(process.env.PORT || port, listening);
 
 function listening() {
