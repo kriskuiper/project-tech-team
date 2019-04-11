@@ -14,10 +14,9 @@ const login = require("./app/controllers/login");
 const logout = require("./app/controllers/logout");
 const renderLogin = require("./app/controllers/renderLogin");
 const serveNotFound = require("./app/controllers/serveNotFound");
-const renderLikedPersons = require("./app/controllers/renderLikedPersons");
-const match = require("./app/controllers/match");
-const barLocation = require("./app/controllers/location");
-const renderFilter = require("./app/controllers/renderFilter");
+const renderMatches = require("./app/controllers/renderMatches");
+const renderUsers = require("./app/controllers/renderUsers");
+const renderBars = require("./app/controllers/renderBars");
 
 // Process environment vars and connect to database
 const uri = process.env.MONGODB_URI;
@@ -47,10 +46,9 @@ app
     .get("/create-account", renderCreateAccount)
     .get("/log-in", renderLogin)
     .get("/log-out", logout)
-    .get("/users", match)
-    .get("/filter", renderFilter)
-    .get("/matches", renderLikedPersons)
-    .get("/barLocation", barLocation)
+    .get("/users", renderUsers)
+    .get("/matches", renderMatches)
+    .get("/bars", renderBars)
 
     .post("/", createAccount)
     .post("/log-in", login)
