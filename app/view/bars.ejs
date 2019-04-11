@@ -13,7 +13,7 @@
     <h1> Bar Locations</h1>
     <main>
         <section class="card-grid">
-            <% if (barLocations) { %>
+            <% if (barLocations.length > 0) { %>
                 <% for (let i = 0; i < barLocations.length; i++) { %> 
                     <article class="card">
                         <img src="<%= barImages[i].url %>" alt="Impression image of the bar" class="card__image">
@@ -23,8 +23,9 @@
                         </div>
                     </article>
                 <% } %>
+            <% } else { %>
+                <h2>Sorry, we couldn't load any bars right now</h2>
             <% } %>
-            <h2>Sorry, we couldn't load any bars right now</h2>
         </section>
     </main>
     <% include partials/footer.ejs %>
