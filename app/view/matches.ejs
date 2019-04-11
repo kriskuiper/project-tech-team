@@ -18,7 +18,7 @@
                 <a href="/<%= likedpersons[i].id %>">
                     <article class="card">
                         <!-- Image of the user -->
-                        <img src="<%= likedpersons[i].image %>" alt="Profile picture from <%= likedpersons[i].firstName %>" class="card__img">
+                        <img src="<%= peopleImages[i].url %>" alt="Profile picture from <%= likedpersons[i].firstName %>" class="card__img">
                         <!-- Send a like to the array and saves it -->
                         <form action="/matches" method="GET">
                             <input type="hidden" name="currentPerson" value="<%= likedpersons[i].id %>">

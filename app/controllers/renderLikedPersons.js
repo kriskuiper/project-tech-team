@@ -1,5 +1,6 @@
 //Require list
 const User = require("../models/User");
+const fetch = require("node-fetch");
 
 //Display the users from the database that are a match with the user
 //This function will get the list of users that are matched with the logged in 
@@ -9,6 +10,12 @@ async function renderLikedPersons(req, res, next) {
 
     //Gets all the users and their info from the database
     try{
+        //images
+        const imageWidth = 480;
+        const imageHeight = 480;
+        const collectionId = 181462;
+        const peopleImages = [];
+
         const users = await User.find();
         const likedObjects = [];
         if (currentPerson) {
@@ -26,10 +33,18 @@ async function renderLikedPersons(req, res, next) {
                 }
             }));
         }
+        
+        for (let i = 0; i < 430; i++) {
+            const imageUrl = fetch (`https://source.unsplash.com/collection/${collectionId}/${imageWidth}x${imageHeight}`);
+            peopleImages.push(imageUrl);
+        }
 
-        await Promise.all(likedObjects)
-            .then(results =>  {
-                res.status(200).render("matches", { likedpersons: results });
+
+        const promisedUsers = await Promise.all(likedObjects);
+        await Promise.all(peopleImages)
+            .then(userImages => {
+                console.log(userImages);
+                res.status(200).render("users", {users: promisedUsers, peopleImages: userImages});
             });
     }
     catch(error) {
