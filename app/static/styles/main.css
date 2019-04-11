@@ -302,18 +302,18 @@ nav {
 
 /* Sign-up styling */
 
-.sign-up__container {
+.form__container {
   height: 100vh;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url('/static/media/images/bg.png');
+  background-image: url('../media/images/bg.png');
   background-position: center;
   background-size: cover;
 }
 
-.sign-up__section {
+.form__section {
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -325,7 +325,7 @@ nav {
   border-radius: 10px;
 }
 
-.sign-up__header {
+.form__header {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
@@ -333,12 +333,12 @@ nav {
   width: 100%;
 }
 
-.sign-up__header img {
+.form__header img {
   height: 6em;
   width: 6em;
 }
 
-.sign-up__header h1 {
+.form__header h1 {
   text-transform: uppercase;
 }
 
@@ -347,7 +347,7 @@ nav {
 
 }
 
-.sign-up__form {
+.form__form {
   width: 100%;
   display: flex;
   flex-flow: column;
@@ -355,11 +355,13 @@ nav {
   justify-content: center;
 }
 
-.sign-up__form label {
-  display: none;
+.form__form label {
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
-.sign-up__form input {
+.form__form input {
   width: 100%;
   font-size: 1.125rem;
   padding: .5rem 1rem;
