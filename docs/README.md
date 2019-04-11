@@ -27,7 +27,7 @@ Drinkerz is a web-app where students from Amsterdam can meet other (single) stud
 |[`follow-redirects`](https://www.npmjs.com/package/follow-redirects) | Used to rqeuest data from Google API in `bar locations`
 |[`mongoose`](https://www.npmjs.com/package/mongoose) |  Used to model our Mongodb database
 |[`node-fetch`](https://www.npmjs.com/package/node-fetch) | Used to hhtps request an api directly in `bar locations` and `untappd login`
-|[`slug`](https://www.npmjs.com/package/slug) | slugifies every string, even when it contains unicode
+|[`slug`](https://www.npmjs.com/package/slug) | used to change an url to all lowercase in `add beers`
 
 ## Installation
 ### Prequisites
