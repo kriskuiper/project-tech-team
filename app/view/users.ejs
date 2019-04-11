@@ -1,4 +1,5 @@
 <% include partials/head.ejs %>
+<meta content="width=device-width, initial-scale=1" name="viewport" />
     <title>Users - Drinkerz</title>
 </head>
 <body>
@@ -18,7 +19,7 @@
                         <!-- Sends the user.id to a array -->
                         <form action="" method="GET">
                             <input type="hidden" name="personid" value="<%= users[i].id %>">
-                            <button type="submit" id="add" class="">Like <%= users[i].firstName %></button>
+                            <button type="submit" id="add" class="">Like</button>
                         </form>
                         <!-- Name and city the person lives in -->
                         <section>
