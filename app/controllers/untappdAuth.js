@@ -57,6 +57,7 @@ async function untappdAuth(req, res) {
               age: user[0].age,
               gender: user[0].gender
             };
+            console.log(req.session.user);
           }
         }
         res.redirect("/")
