@@ -22,7 +22,7 @@ async function addBeer(req, res, next) {
 
     beersArray.push(objectBeer);
 
-    User.updateMany({
+    await User.updateMany({
       'username': req.session.user.username
     }, {
       'beers': beersArray
