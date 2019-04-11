@@ -309,10 +309,18 @@ nav {
 }
 
 /* Filter Styling */
+.filter--activator {
+  font-size: 1em;
+  padding: 1em;
+  outline: none;
+  background: transparent;
+  border: none;
+}
+
 .filter__part {
-    border: none;
-    padding: 0;
-    margin: 2em 0;
+  border: none;
+  padding: 0;
+  margin-bottom: 2em;
 }
 
     .filter__part > legend {
@@ -322,9 +330,26 @@ nav {
     }
     
 .filter {
-    background: var(--main-color);
-    padding: 2em;
-    margin: 1em 0;
+  background: var(--main-color);
+  padding: 2em;
+  margin: 1em 0;
+}
+
+.js-enabled .filter {
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.6s ease-out;
+  transform: rotateX(90deg);
+  transform-origin: top;
+}
+
+.js-enabled .filter.is--open {
+  transform: rotateX(0deg);
+  opacity: 1;
+  padding: 1em;
+  height: auto;
 }
 /* 404 Page styling */
 .error__container {
