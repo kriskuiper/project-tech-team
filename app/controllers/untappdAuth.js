@@ -40,8 +40,6 @@ async function untappdAuth(req, res) {
         'username': userInJSON.response.user.user_name
       });
 
-      console.log(user.length);
-
       if (user.length > 0) {
         // Login
         setLoginSession();
@@ -65,7 +63,6 @@ async function untappdAuth(req, res) {
       } else {
 
         // Sign-up
-
         const beersArray = [];
 
         for (var i = 0; i < userInJSON.response.user.recent_brews.count; i++) {
