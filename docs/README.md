@@ -41,7 +41,7 @@ SESSION_SECRET=your_session_secret
 ```
 
 ### Datamodel
-![Image of the datamodel]()
+![Image of the datamodel](https://github.com/kriskuiper/project-tech-team/blob/development/assets/sitemap-drinkerz.png?raw=true)
 
 ### 1. Clone this repository
 Clone this repository by running `git clone`:
