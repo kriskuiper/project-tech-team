@@ -1,3 +1,4 @@
+
 /* Define custom properties */
 :root {
     /* Colors */
@@ -223,6 +224,7 @@ nav {
   position: fixed;
   bottom: 0;
 }
+
 .nav__inner {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -234,12 +236,6 @@ nav {
   background-color: #ffffff;
   margin: 0;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-}
-
-@media screen and (min-width: 30em) {
-  .nav__inner {
-
-  }
 }
 
   .nav__item {
@@ -270,5 +266,29 @@ nav {
         margin-bottom: 8px;
       }
 
+  @media screen and (min-width: 30em) {
+        nav{
+          bottom: auto;
+          top: 0;
+        }
+          .nav__inner{
+            bottom: auto;
+            top: 0;
+          }
+
+          .nav__inner li a img{
+              display: none;
+          }
+
+          .nav__item{
+            justify-content: flex-start;
+            align-items: flex-start;
+          }
+
+          .nav__inner .item__link{
+            font-size:1em;
+            width: auto;
+          }
+      }
 
 /* 404 Page styling */
