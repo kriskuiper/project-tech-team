@@ -11,7 +11,9 @@ async function setPassword(req, res, next) {
       'gender': req.body.gender,
     });
 
-    pushVariables()
+    console.log("From setPassword: " + req.session.user);
+
+    pushVariables();
 
     function pushVariables() {
       req.session.user.age = req.body.age;

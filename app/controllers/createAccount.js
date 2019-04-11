@@ -34,6 +34,7 @@ function createAccount(req, res, next) {
               age: age,
               gender: gender
             };
+            console.log("From createAccount: " + req.session.user);
           res.redirect("/");
         }
     }
