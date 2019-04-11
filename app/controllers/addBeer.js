@@ -24,6 +24,12 @@ function addPost(req, res, next) {
     } catch(error) {
         next(error);
     }
+
+    res.redirect("/");
+
+  } catch (error) {
+    next(error);
+  }
 }
 
-module.exports = addPost;
+module.exports = addBeer;

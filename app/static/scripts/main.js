@@ -1,42 +1,39 @@
-// Cutting the mustard technique
-if ("querySelector" in document) {
-    document.body.classList.add("js-enabled");
+// Register serviceworker
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+      navigator.serviceWorker
+          .register("/sw.js")
+          .then(registration => {
+              console.log(`ServiceWorker registration successfull with scope: ${registration.scope}`);
+          })
+          .catch(() => {
+              console.log("Failed to register ServiceWorker");
+          });
+  });
 }
 
-// Handle feed posts
-const feedPosts = document.querySelectorAll(".feed__post");
-const postObserver = new IntersectionObserver(showPosts);
+// Get geolocation
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(position => {
 
-// Observe the feed posts
-feedPosts.forEach(observeFeedPost);
+    const location = new GeoLocation(
+      position.coords.latitude,
+      position.coords.longitude
+    );
 
-function observeFeedPost(feedPost) {
-  postObserver.observe(feedPost);
+
+    let { lat, long } = location;
+
+    // set cookie
+    document.cookie = `location=${lat}-${long}`;
+  });
+} else {
+  document.cookie = "location=52.361778-4.907370";
 }
 
-// Callback for the intersection observer, add the is--visible class to an entry if it is intersecting with the IU
-function showPosts(entries) {
-  entries.forEach(showPost);
-
-  function showPost(entry) {
-    const entryClass = entry.target.classList;
-
-    if (entry.isIntersecting) {
-      entryClass.add("is--visible");
-    }
+class GeoLocation {
+  constructor(lat, long) {
+    this.lat = lat;
+    this.long = long;
   }
 }
-
-// Register serviceworker
-// if ("serviceWorker" in navigator) {
-//   window.addEventListener("load", () => {
-//       navigator.serviceWorker
-//           .register("/sw.js")
-//           .then(registration => {
-//               console.log(`ServiceWorker registration successfull with scope: ${registration.scope}`);
-//           })
-//           .catch(() => {
-//               console.log("Failed to register ServiceWorker");
-//           });
-//   });
-// }

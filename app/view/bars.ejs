@@ -1,0 +1,28 @@
+<% include partials/head.ejs %>
+    <title>Bar Locations - Drinkerz</title>
+</head>
+<body>
+    <header>
+        <% include partials/navigation.ejs%>
+    </header>
+    <h1> Bar Locations</h1>
+    <main>
+        <section class="card-grid">
+            <% if (barLocations.length > 0) { %>
+                <% for (let i = 0; i < barLocations.length; i++) { %> 
+                    <article class="card">
+                        <img src="<%= barImages[i].url %>" alt="Impression image of the bar" class="card__image">
+                        <div class="card__meta-block">
+                            <h3 class="card__meta-title"><%= barLocations[i].name %></h3>
+                            <p><%= barLocations[i].vicinity %></p>
+                        </div>
+                    </article>
+                <% } %>
+            <% } else { %>
+                <h2>Sorry, we couldn't load any bars right now</h2>
+            <% } %>
+        </section>
+    </main>
+    <% include partials/footer.ejs %>
+</body>
+</html>

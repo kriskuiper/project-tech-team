@@ -1,28 +1,31 @@
-<form action="/" method="POST">
+<button class="btn button--fullwidth" type="button" name="button" id="untappdConnect" onclick="">Connect with Untappd</button>
+<span class="form__or">or</span>
+<form class="sign-up__form" action="/" method="POST">
+
     <label>Username
-        <input type="text" name="username">
+    <input type="text" name="username" placeholder="username">
     </label>
+
     <label>Password
-        <input type="password" name="password">
+    <input type="password" name="password" placeholder="password">
     </label>
-    <label>First name
-        <input type="text" name="firstname">
+
+    <label>Firstname
+    <input type="text" name="firstname" placeholder="firstname">
     </label>
-    <label>Last name
-        <input type="text" name="lastname">
+
+    <label>Lastname
+    <input type="text" name="lastname" placeholder="lastname">
     </label>
-    <label>age
-        <input type="number" name="age">
+
+    <label>Gender
+    <input type="radio" name="gender" value="male"> Male<br>
+    <input type="radio" name="gender" value="female"> Female<br>
+    <input type="radio" name="gender" value="other"> Other
     </label>
-    <label>gender
-        <input type="radio" name="male">
-        <input type="radio" name="female" value="">
+
+    <label>Age
+    <input type="text" name="age" placeholder="age">
     </label>
-    <label>Bier
-        <input type="checkbox" name="bier1">
-    </label>
-    <label>Locatie
-        <input type="text" name="locatie">
-    </label>
-    <button type="submit">Sign up</button>
+    <button class="button--fullwidth" type="submit">Sign up</button>
 </form>

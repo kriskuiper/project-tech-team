@@ -7,12 +7,11 @@ const userSchema = new Schema({
     password: String,
     firstName: String,
     lastName: String,
-    profilePicture: String,
-    location: String,
     gender: String,
     age: Number,
     likedpersons: Array,
-    beers: Object
+    beers: Object,
+    profilePicture: String
 });
 
 module.exports = mongoose.model("User", userSchema);

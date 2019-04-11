@@ -1,19 +1,31 @@
 <% include partials/head.ejs %>
-    <title>Log in - Drinkerz</title>
+<title>Log in - Drinkerz</title>
 </head>
+
 <body>
-    <header>
-      <% include partials/navigation.ejs %>
-    </header>
-    <main>
-        <section>
-            <h1>Log in to your account</h1>
-            <% if (error) { %>
-                <p class="error"><%= error %></p>
-            <% } %>
-            <% include partials/login-form.ejs %>
-        </section>
-    </main>
-    <% include partials/footer.ejs %>
+  <header>
+      <% include partials/navigation.ejs%>
+  </header>
+  <main>
+    <section>
+      <h1>Drinkerz</h1>
+      <% if (error) { %>
+      <p class="error">
+        <%= error %>
+      </p>
+      <% } %>
+      <% include partials/login-form.ejs %>
+    </section>
+  </main>
+  <% include partials/footer.ejs %>
+  <script type="text/javascript">
+    document.getElementById("untappdConnect").addEventListener("click", untappdConnect);
+
+    function untappdConnect() {
+
+      window.location.href = '<%- authLink %>';
+    }
+  </script>
 </body>
+
 </html>
