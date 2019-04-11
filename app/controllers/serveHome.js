@@ -4,6 +4,7 @@ const fetch = require("node-fetch");
 async function serveHome(req, res) {
   if (!req.session.user) {
     res.status(200).sendFile(path.join(__dirname, "../static/index.html"));
+    console.log("No user specified");
   } else {
     const beerResults = '';
     console.log(req.session.user);

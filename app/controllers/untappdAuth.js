@@ -1,6 +1,6 @@
-const express = require("express");
-const bodyParser = require('body-parser');
-const session = require("express-session");
+// const express = require("express");
+// const bodyParser = require('body-parser');
+// const session = require("express-session");
 const mongoose = require("mongoose");
 const fetch = require("node-fetch");
 const User = require("../models/User");
@@ -39,6 +39,8 @@ async function untappdAuth(req, res) {
       const user = await User.find({
         'username': userInJSON.response.user.user_name
       });
+
+      console.log(user.length);
 
       if (user.length > 0) {
         // Login
