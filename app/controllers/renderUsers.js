@@ -1,27 +1,27 @@
 const _array = require("lodash/array");
-const fetch = require("node-fetch");
 
 const User = require("../models/User");
 const convertToObject = require("../helpers/convertToObject");
 
 async function renderUsers(req, res, next) {
-    // const { likedpersons } = loggedInPerson;
     const { personid, min, max, gender } = req.query;
     const notLikedUsers = [];
     const userImages = [];
 
     try {
+        const loggedInUser = await User.findOne({
+            "username": req.session.user.username
+        });
         const users = await User.find();
         const extractIds = users.map(user => user.id);
 
         if (personid) {
-            // TODO: add real data instead of users[0]
-            users[0].likedpersons.push(personid);
-            users[0].save();
+            loggedInUser.likedpersons.push(personid);
+            loggedInUser.save();
         }
-
-        for (let i = 0; i < users[0].likedpersons.length; i++) {
-            _array.pull(extractIds, users[0].likedpersons[i]);
+        
+        for (let i = 0; i < loggedInUser.likedpersons.length; i++) {
+            _array.pull(extractIds, loggedInUser.likedpersons[i]);
         }
 
         convertToObject(extractIds, notLikedUsers);
@@ -47,4 +47,4 @@ async function renderUsers(req, res, next) {
         next(error);
     }
 }
-module.exports = renderUsers; 
+module.exports = renderUsers;

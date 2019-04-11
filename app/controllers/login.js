@@ -7,11 +7,10 @@ async function login(req, res, next) {
       username,
       password
     } = req.body;
-
     await User.findOne({
       "username": username.toLowerCase()
     }, (err, data) => {
-      if (err) return handleError(err);
+      if (err) console.log(err);
 
       if (data.password === password) {
 
@@ -25,7 +24,7 @@ async function login(req, res, next) {
           likedpersons: data.likedpersons,
           beers: data.beers
         };
-        res.redirect("/")
+        res.redirect("/users");
       } else {
         const error = "Username or password incorrect";
         res.status(403).render("login", {
