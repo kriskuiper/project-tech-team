@@ -295,8 +295,28 @@ nav {
       }
 
 /* 404 Page styling */
+.error__container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('/static/media/images/bg.png');
+  background-position: center;
+  background-size: cover;
+}
 
-
+.error__section {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  width: calc(30% + 10rem);
+  height: auto;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+}
 
 
 /* Sign-up styling */
