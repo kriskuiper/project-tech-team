@@ -55,6 +55,7 @@ body {
     color: var(--text-color);
     background-color: var(--bg-color);
     margin: 0;
+    min-height: 100vh;
 }
 
 /* Typography */
@@ -180,6 +181,15 @@ body > footer {
         color: var(--bg-color);
     }
 
+main{
+  padding-top: 3em;
+}
+
+main section h1,h2,h3,h4,p{
+  padding-left: 1rem;
+}
+
+
 /* User / Bar block styling */
 .card-grid {
     display: grid;
@@ -224,6 +234,9 @@ body > footer {
             font-weight: var(--font-weight-h3);
         }
 
+
+/*nav------ */
+
 nav {
   position: fixed;
   bottom: 0;
@@ -231,7 +244,7 @@ nav {
 
 .nav__inner {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   position: fixed;
   bottom: 0;
   left: 0;
@@ -240,6 +253,10 @@ nav {
   background-color: #ffffff;
   margin: 0;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+#logo{
+  display: none;
 }
 
   .nav__item {
@@ -270,29 +287,45 @@ nav {
         margin-bottom: 8px;
       }
 
+
   @media screen and (min-width: 30em) {
         nav{
           bottom: auto;
           top: 0;
         }
           .nav__inner{
+            grid-template-columns: repeat(6, 1fr);
             bottom: auto;
             top: 0;
+            padding: 0 0 0.5rem 1rem;
+            align-items: center;
           }
 
           .nav__inner li a img{
               display: none;
+              align-items: center;
           }
 
           .nav__item{
             justify-content: flex-start;
-            align-items: flex-start;
+            align-items: center;
           }
 
           .nav__inner .item__link{
             font-size:1em;
             width: auto;
           }
+
+          .nav__inner #logo img{
+            display: block;
+            width: 2em;
+          }
+
+          .nav__inner #logo{
+            display: block;
+          }
+
+
       }
 
 /* bars (no data) styling */
