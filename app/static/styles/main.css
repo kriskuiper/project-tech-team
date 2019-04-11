@@ -294,6 +294,19 @@ nav {
           }
       }
 
+/* bars (no data) styling */
+.bars__section {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  width: calc(30% + 10rem);
+  height: auto;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
 /* 404 Page styling */
 .error__container {
   height: 100vh;
