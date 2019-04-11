@@ -6,14 +6,14 @@ Drinkerz is a web-app where students from Amsterdam can meet other (single) stud
 
 ## Features we want to workout (Have to make decisions about what (not) to do)
 - Filter gender / favo beer ([Chazz](https://github.com/chazzers))
-- Bars nearby ([Aron](https://github.com/aronsmit2))
-- Login with Untappd ([Rick](https://github.com/root-ish))
+- Bars nearby (Google api) ([Aron](https://github.com/aronsmit2))
+- Login with Untappd (Untappd api) ([Rick](https://github.com/root-ish))
 - Last visited (checked in) bar ([Kris](https://github.com/kriskuiper))
 - Make it a PWA ([Kris](https://github.com/kriskuiper))
 - Liking other users ([Mark](https://github.com/markschuttehva))
 - ~~Login, To use the website~~
 - ~~Register, To make a account and use the website~~
-- Password hash, To make sure their passwork is kept safe in a database ([Somebody]())
+- ~~Password hash, To make sure their passwork is kept safe in a database~~ ([Somebody]())
 
 ## Packages
 | Name             | Purpose                          |
@@ -25,7 +25,6 @@ Drinkerz is a web-app where students from Amsterdam can meet other (single) stud
 |[`ejs`](https://www.npmjs.com/package/ejs) | Our templatting language
 |[`express`](https://www.npmjs.com/package/express)         | Used for building the server     
 |[`express-session`](https://www.npmjs.com/package/express-session) | Used for saving data in sessions
-|[`follow-redirects`](https://www.npmjs.com/package/follow-redirects) | Used to rqeuest data from Google API in `bar locations`
 |[`mongoose`](https://www.npmjs.com/package/mongoose) |  Used to model our Mongodb database
 |[`node-fetch`](https://www.npmjs.com/package/node-fetch) | Used to hhtps request an api directly in `bar locations` and `untappd login`
 |[`slug`](https://www.npmjs.com/package/slug) | used to change an url to all lowercase in `add beers`
@@ -40,7 +39,7 @@ MONGODB_URI=your_mongodb_uri
 SESSION_SECRET=your_session_secret
 ```
 
-### Datamodel
+### Sitemap
 ![Image of the datamodel](https://github.com/kriskuiper/project-tech-team/blob/development/assets/sitemap-drinkerz.png?raw=true)
 
 ### 1. Clone this repository
