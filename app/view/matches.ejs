@@ -1,0 +1,40 @@
+<% include partials/head.ejs %>
+    <title>Matches - Drinkerz</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/"><img src="/static/media/images/cyclove-logo.svg" alt="Logo CycLove"></a></li>
+                <li><a href="/log-out">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Your matches</h1>
+    <main>
+        <section class="card-grid">
+                <!-- Here will be the matches shown based on the user -->
+                <% for (let i = 0; i < matches.length; i++) { %>
+                <a href="/<%= matches[i].id %>">
+                    <article class="card">
+                        <!-- Image of the user -->
+                        <img src="<%= peopleImages[i].url %>" alt="Profile picture from <%= matches[i].firstName %>" class="card__img">
+                        <!-- Send a like to the array and saves it -->
+                        <form action="/matches" method="GET">
+                            <input type="hidden" name="currentPerson" value="<%= matches[i].id %>">
+                            <button type="submit"> Remove <%= matches[i].firstName %></button>
+                            
+                        </form>
+                        <!-- Name and city the person lives in -->
+                        <section>
+                            <h2><%= matches[i].firstName + " " + matches[i].lastName %></h2>
+                            <p><%= matches[i].city %></p>
+                        </section>
+                    </article>
+                </a>
+            <% } %>
+        </section>
+    </main>
+    <% include partials/footer.ejs %>
+</body>
+</html>

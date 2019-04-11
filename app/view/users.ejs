@@ -1,0 +1,40 @@
+<% include partials/head.ejs %>
+    <title>Users - Drinkerz</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/"><img src="/static/media/images/cyclove-logo.svg" alt="Logo CycLove"></a></li>
+                <li><a href="/log-out">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>Who to match?</h1>
+    <main>
+        <% include partials/filter.ejs %>
+        <section class="card-grid">
+            <!-- Userpage will be the page where all the info is shown -->
+            <% for (let i = 0; i < users.length; i++) { %>
+                <a href="/<%= users[i].id %>" id="link" class="">
+                    <article class="card">
+                        <!-- Image of the user -->
+                        <img src="<%= userImages[i].url %>" alt="Profile picture from <%= users[i].firstName %>" class="card__img">
+                        <!-- Sends the user.id to a array -->
+                        <form action="" method="GET">
+                            <input type="hidden" name="personid" value="<%= users[i].id %>">
+                            <button type="submit" id="add" class="">Like <%= users[i].firstName %></button>
+                        </form>
+                        <!-- Name and city the person lives in -->
+                        <section>
+                            <h2><%= users[i].firstName + " " + users[i].lastName %></h2>
+                            <p><%= users[i].city %></p>
+                        </section>
+                    </article>
+                </a>
+            <% } %>
+        </section>
+    </main>
+    <% include partials/footer.ejs %>
+</body>
+</html>

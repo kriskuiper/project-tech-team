@@ -15,15 +15,14 @@
     </section>
   </main>
   <% include partials/footer.ejs %>
+  <script type="text/javascript">
+    document.getElementById("untappdConnect").addEventListener("click", untappdConnect);
+
+    function untappdConnect() {
+
+      window.location.href = '<%- authLink %>';
+    }
+  </script>
 </body>
 
 </html>
-
-<script type="text/javascript">
-  document.getElementById("untappdConnect").addEventListener("click", untappdConnect);
-
-  function untappdConnect() {
-
-    window.location.href = '<%- authLink %>';
-  }
-</script>
