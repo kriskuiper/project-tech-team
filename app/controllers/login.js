@@ -24,10 +24,7 @@ async function login(req, res, next) {
           likedpersons: data.likedpersons,
           beers: data.beers
         };
-        res.render("home", {
-          user: req.session.user,
-          beerResults: ""
-        });
+        res.redirect("/")
       } else {
         const error = "Username or password incorrect";
         res.status(403).render("login", {
