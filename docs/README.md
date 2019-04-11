@@ -40,7 +40,7 @@ MONGODB_URI=your_mongodb_uri
 SESSION_SECRET=your_session_secret
 ```
 
-### Datamodel
+### Sitemap
 ![Image of the datamodel](https://github.com/kriskuiper/project-tech-team/blob/development/assets/sitemap-drinkerz.png?raw=true)
 
 ### 1. Clone this repository
