@@ -1,9 +1,8 @@
 const path = require("path");
 
 function serveHome(req, res) {
-  console.log("HALKFHKHKAHEALHEK");
   if (!req.session.user) {
-    res.status(200).sendFile(path.join(__dirname, "../static/index.html"));
+    res.status(200).sendFile(path.join(__dirname, "../static/pages/index.html"));
   } else {
     const beerResults = "";
       res.status(200).render("home", {

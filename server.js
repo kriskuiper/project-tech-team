@@ -41,7 +41,7 @@ const app = express();
 const port = 8000;
 
 app
-    .use("/static", express.static("app/static"))
+    .use("/", express.static("app/static"))
     .use(bodyParser.urlencoded({extended: true}))
     .use(cookieParser())
     .use(session(sess))
