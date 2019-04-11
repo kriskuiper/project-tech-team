@@ -1,13 +1,11 @@
 const path = require("path");
 const fetch = require("node-fetch");
 
-async function serveHome(req, res, user) {
+async function serveHome(req, res) {
   if (!req.session.user) {
     res.status(200).sendFile(path.join(__dirname, "../static/index.html"));
-    console.log(req.session.user);
   } else {
-    console.log(req.session.user);
-    beerResults = '';
+    const beerResults = '';
 
       res.status(200).render("home", {
         user: req.session.user,
