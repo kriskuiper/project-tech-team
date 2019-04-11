@@ -189,6 +189,7 @@ body > footer {
 
     .card {
         position: relative;
+        padding: 0;
         border-radius: 10px;
         width: 100%;
         overflow: hidden;
