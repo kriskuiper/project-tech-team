@@ -8,6 +8,7 @@ require("dotenv").config();
 
 // Require controllers
 const serveHome = require("./app/controllers/serveHome");
+const renderProfile = require("./app/controllers/renderProfile");
 const renderSetPassword = require("./app/controllers/renderSetPassword");
 const setPassword = require("./app/controllers/setPassword");
 const renderCreateAccount = require("./app/controllers/renderCreateAccount");
@@ -49,6 +50,7 @@ app
     .set("views", "app/view")
 
     .get("/", serveHome)
+    .get("/my-profile", renderProfile)
     .get("/create-account", renderCreateAccount)
     .get("/set-password", renderSetPassword)
     .get("/log-in", renderLogin)

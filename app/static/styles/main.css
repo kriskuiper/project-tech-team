@@ -221,10 +221,39 @@ body > footer {
         .card__meta-title {
             font-weight: var(--font-weight-h3);
         }
-/* 404 Page styling */
 
+/* Filter Styling */
+.filter__part {
+    border: none;
+    padding: 0;
+    margin: 2em 0;
+}
 
+    .filter__part > legend {
+        margin: 0;
+        display: block;
+        font-weight: 600;
+    }
+    
+.filter {
+    background: var(--main-color);
+    padding: 2em;
+    margin: 1em 0;
+}
 
+.filter button {
+    background: var(--bg-color);
+    border: var(--third-color);
+    color: var(--third-color);
+}
+
+.filter input {
+    margin: 0.5rem 0;
+}
+
+.filter label {
+    margin-top: 2rem;
+}
 
 /* Sign-up styling */
 
