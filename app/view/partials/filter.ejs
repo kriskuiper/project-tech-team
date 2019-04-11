@@ -1,12 +1,12 @@
-<form action="/users" method="GET">
-  <fieldset>
-    <legend>Gender</legend>
+<form action="/users" method="GET" class="form filter">
+  <fieldset class="filter__part">
+    <legend class="part__title">Gender</legend>
     <label for="male">Male</label>
     <input id="male" type="radio" name="gender" value="male">
     <label for="female">Female</label>
     <input id="female" type="radio" name="gender" value="female">
   </fieldset>
-  <fieldset>
+  <fieldset class="filter__part">
     <legend>Preferred age</legend>
     <input type="number" name="min" value="1">
     <input type="number" name="max" value="99">

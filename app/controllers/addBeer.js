@@ -4,7 +4,6 @@ const fetch = require("node-fetch");
 async function addBeer(req, res, next) {
   try {
     const beersArray = req.session.user.beers;
-
     const beer_bid = req.body.beerBid;
     const beer_name = req.body.beerName;
     const beer_label = req.body.beerImg;
@@ -29,12 +28,7 @@ async function addBeer(req, res, next) {
       'beers': beersArray
     });
 
-    pushVariables()
-
-    function pushVariables() {
-
-      req.session.user.beers = beersArray;
-    }
+    req.session.user.beers = beersArray;
 
     res.redirect("/");
 
