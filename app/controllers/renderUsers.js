@@ -19,7 +19,7 @@ async function renderUsers(req, res, next) {
             users[0].likedpersons.push(personid);
             users[0].save();
         }
-        
+
         for (let i = 0; i < users[0].likedpersons.length; i++) {
             _array.pull(extractIds, users[0].likedpersons[i]);
         }
@@ -47,4 +47,4 @@ async function renderUsers(req, res, next) {
         next(error);
     }
 }
-module.exports = renderUsers;
+module.exports = renderUsers; 
