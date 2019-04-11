@@ -22,18 +22,13 @@ async function addBeer(req, res, next) {
 
     beersArray.push(objectBeer);
 
-    await User.updateMany({
+    User.updateMany({
       'username': req.session.user.username
     }, {
       'beers': beersArray
-    });    
+    });
 
-    pushVariables()
-
-    function pushVariables() {
-
-      req.session.user.beers = beersArray;
-    }
+    req.session.user.beers = beersArray;
 
     res.redirect("/");
 
