@@ -1,5 +1,5 @@
 const _array = require("lodash/array");
-
+const fetch = require("node-fetch");
 const User = require("../models/User");
 const convertToObject = require("../helpers/convertToObject");
 
