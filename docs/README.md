@@ -1,4 +1,5 @@
 # Drinkerz, serious about dating
+![our logo](https://github.com/kriskuiper/project-tech-team/blob/update/readme/app/static/media/images/icons/apple-touch-icon-180x180.png?raw=true)
 ![Screenshot of the project]()
 
 Drinkerz is a web-app where students from Amsterdam can meet other (single) students by meeting eachother at a café. The user can create an account and log in. (More features described here)
