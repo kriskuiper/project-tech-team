@@ -19,7 +19,7 @@ Drinkerz is a web-app where students from Amsterdam can meet other (single) stud
 |------------------|----------------------------------|
 |[`array-find`](https://www.npmjs.com/package/array-find) | Used for finding array elements and executing a callback for each element
 |[`body-parser`](https://www.npmjs.com/package/body-parser) | Parse incoming request bodies in a middleware before your handlers
-|[`cookie=parser`](https://www.npmjs.com/package/cookie-parser) | Used to read cookies from client side into the server side
+|[`cookie-parser`](https://www.npmjs.com/package/cookie-parser) | Used to read cookies from client side into the server side
 |[`dotenv`](https://www.npmjs.com/package/dotenv) | Load data from the .env file, Storing configuration in the environment separate from code
 |[`ejs`](https://www.npmjs.com/package/ejs) | Embedded JavaScript templates
 |[`express`](https://www.npmjs.com/package/express)         | Used for building the server     
