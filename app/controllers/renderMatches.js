@@ -6,24 +6,25 @@ const convertToObject = require("../helpers/convertToObject");
 
 async function renderMatches(req, res, next) {
     const {currentPerson} = req.query;
+    const loggedInUser = await User.findOne({
+        "username": req.session.user.username
+    });
     const peopleImages = [];
     const likedObjects = [];
 
     try {
-        const users = await User.find();
-
         if (currentPerson) {
-            const filteredLikedPersons = users[0].likedpersons.filter(likedperson => likedperson != currentPerson);
-            users[0].likedpersons = filteredLikedPersons;
-            users[0].save();
+            const filteredLikedPersons = loggedInUser.likedpersons.filter(likedperson => likedperson != currentPerson);
+            loggedInUser.likedpersons = filteredLikedPersons;
+            loggedInUser.save();
         }
 
-        convertToObject(users[0].likedpersons, likedObjects);
+        convertToObject(loggedInUser.likedpersons, likedObjects);
         
-        for (let i = 0; i < 430; i++) {
-            const imageUrl = fetch ("https://source.unsplash.com/collection/181462/480x480");
-            peopleImages.push(imageUrl);
-        }
+        // for (let i = 0; i < 430; i++) {
+        //     const imageUrl = fetch ("https://source.unsplash.com/collection/181462/480x480");
+        //     peopleImages.push(imageUrl);
+        // }
 
         const promisedUsers = await Promise.all(likedObjects);
 
