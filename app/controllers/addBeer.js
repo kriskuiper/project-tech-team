@@ -3,7 +3,7 @@ const fetch = require("node-fetch");
 
 async function addBeer(req, res, next) {
   try {
-    const beersArray = req.session.user.beers
+    const beersArray = req.session.user.beers;
 
     const beer_bid = req.body.beerBid;
     const beer_name = req.body.beerName;
