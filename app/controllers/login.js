@@ -26,7 +26,7 @@ async function login(req, res, next) {
         };
         res.render("home", {
           user: req.session.user,
-          fetch: fetch
+          beerResults: ""
         });
       } else {
         const error = "Username or password incorrect";

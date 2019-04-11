@@ -1,28 +1,39 @@
-const slug = require("slug");
-const mongoose = require("mongoose");
-const FeedPost = require("../models/FeedPost");
+const User = require("../models/User");
+const fetch = require("node-fetch");
 
+async function addBeer(req, res, next) {
+  try {
+    const beersArray = req.session.user.beers;
 
-function addPost(req, res, next) {
-    try {
-        const url = slug(req.body.title).toLowerCase();
-        const { firstName, lastName } = req.session.user;
-        const newFeedPost = new FeedPost({
-            _id: new mongoose.Types.ObjectId(),
-            url: url,
-            title: req.body.title,
-            author: `${firstName} ${lastName}`,
-            contents: req.body.contents,
-            location: req.body.location,
-            pictures: []
-        });
+    const beer_bid = req.body.beerBid;
+    const beer_name = req.body.beerName;
+    const beer_label = req.body.beerImg;
+    const beer_description = req.body.beerDescription;
+    const beer_brewery = req.body.brewery;
 
-        FeedPost.create(newFeedPost);
+    objectBeer = {
+      beer: {
+        bid: beer_bid,
+        name: beer_name,
+        img: beer_label,
+        description: beer_description,
+        brewery: beer_brewery
+      }
+    };
 
-        // When the form is posted, redirect to the users' feed
-        res.redirect("/my-feed");
-    } catch(error) {
-        next(error);
+    beersArray.push(objectBeer);
+
+    await User.updateMany({
+      'username': req.session.user.username
+    }, {
+      'beers': beersArray
+    });
+
+    pushVariables()
+
+    function pushVariables() {
+
+      req.session.user.beers = beersArray;
     }
 
     res.redirect("/");
