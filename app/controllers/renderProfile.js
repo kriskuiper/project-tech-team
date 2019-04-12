@@ -1,8 +1,8 @@
 function renderProfile(req, res) {
-    const beerResults = req.session.user.beers;
+    const beerResults = "";
     res.status(200).render("home", {
         user: req.session.user,
-        beerResults : beerResults
+        beerResults: beerResults
     });
 }
 

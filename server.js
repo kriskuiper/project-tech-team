@@ -8,22 +8,22 @@ require("dotenv").config();
 
 // Require controllers
 const serveHome = require("./app/controllers/serveHome");
+const serveNotFound = require("./app/controllers/serveNotFound");
 const renderProfile = require("./app/controllers/renderProfile");
 const renderSetPassword = require("./app/controllers/renderSetPassword");
-const setPassword = require("./app/controllers/setPassword");
 const renderCreateAccount = require("./app/controllers/renderCreateAccount");
-const createAccount = require("./app/controllers/createAccount");
-const login = require("./app/controllers/login");
-const logout = require("./app/controllers/logout");
-const renderLogin = require("./app/controllers/renderLogin");
-const untappdAuth = require("./app/controllers/untappdAuth");
-const addBeer = require("./app/controllers/addBeer");
 const renderMatches = require("./app/controllers/renderMatches");
 const renderUsers = require("./app/controllers/renderUsers");
 const renderBars = require("./app/controllers/renderBars");
 const renderAddBeer = require("./app/controllers/renderAddBeer");
+const renderLogin = require("./app/controllers/renderLogin");
+const login = require("./app/controllers/login");
+const logout = require("./app/controllers/logout");
+const setPassword = require("./app/controllers/setPassword");
+const createAccount = require("./app/controllers/createAccount");
+const untappdAuth = require("./app/controllers/untappdAuth");
+const addBeer = require("./app/controllers/addBeer");
 const searchBeerHome = require("./app/controllers/searchBeerHome");
-const serveNotFound = require("./app/controllers/serveNotFound");
 
 // Process environment vars and connect to database
 const uri = process.env.MONGODB_URI;
@@ -50,12 +50,12 @@ app
     .set("views", "app/view")
 
     .get("/", serveHome)
-    .get("/my-profile", renderProfile)
-    .get("/create-account", renderCreateAccount)
-    .get("/set-password", renderSetPassword)
     .get("/log-in", renderLogin)
     .get("/log-out", logout)
     .get("/untappd-authentication", untappdAuth)
+    .get("/my-profile", renderProfile)
+    .get("/create-account", renderCreateAccount)
+    .get("/set-password", renderSetPassword)
     .get("/add-beer", renderAddBeer)
     .get("/users", renderUsers)
     .get("/matches", renderMatches)

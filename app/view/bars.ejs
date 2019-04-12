@@ -5,11 +5,11 @@
     <header>
         <% include partials/navigation.ejs%>
     </header>
-    <h1> Bar Locations</h1>
+    <h1 class="is--first"> Bar Locations</h1>
     <main>
         <section class="card-grid">
             <% if (barLocations.length > 0) { %>
-                <% for (let i = 0; i < barLocations.length; i++) { %> 
+                <% for (let i = 0; i < barLocations.length; i++) { %>
                     <article class="card">
                         <img src="<%= barImages[i].url %>" alt="Impression image of the bar" class="card__image">
                         <div class="card__meta-block">

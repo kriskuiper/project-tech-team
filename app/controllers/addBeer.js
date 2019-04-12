@@ -1,5 +1,4 @@
 const User = require("../models/User");
-const fetch = require("node-fetch");
 
 async function addBeer(req, res, next) {
   try {
@@ -10,7 +9,7 @@ async function addBeer(req, res, next) {
     const beer_description = req.body.beerDescription;
     const beer_brewery = req.body.brewery;
 
-    objectBeer = {
+    const objectBeer = {
       beer: {
         bid: beer_bid,
         name: beer_name,
@@ -23,14 +22,14 @@ async function addBeer(req, res, next) {
     beersArray.push(objectBeer);
 
     await User.updateMany({
-      'username': req.session.user.username
+      "username": req.session.user.username
     }, {
-      'beers': beersArray
+      "beers": beersArray
     });
 
     req.session.user.beers = beersArray;
 
-    res.redirect("/");
+    res.redirect("/my-profile");
 
   } catch (error) {
     next(error);
