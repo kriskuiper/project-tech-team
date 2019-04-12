@@ -1,5 +1,4 @@
 const User = require("../models/User");
-const fetch = require("node-fetch");
 
 async function addBeer(req, res, next) {
   try {
