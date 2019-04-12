@@ -1,4 +1,5 @@
-const _array = require("lodash/array");
+const _array  = require("lodash/array");
+const _includes = require('lodash/includes');
 const fetch = require("node-fetch");
 
 const User = require("../models/User");
@@ -16,10 +17,11 @@ async function renderUsers(req, res, next) {
         "username": req.session.user.username
       });
       const extractIds = users.map(user => user.id);
+      console.log(_includes(loggedInUser.likedpersons, personid) == false);
 
-        if (personid) {
-            // TODO: add real data instead of users[0]
+        if ((personid) && (_includes(loggedInUser.likedpersons, personid) == false)) {
             loggedInUser.likedpersons.push(personid);
+            console.log(personid);
             loggedInUser.save();
         }
 
@@ -33,7 +35,7 @@ async function renderUsers(req, res, next) {
         //     const imageUrl = fetch ("https://source.unsplash.com/collection/181462/480x480");
         //     userImages.push(imageUrl);
         // }
-        
+
         const promisedUsers = await Promise.all(notLikedUsers);
         const filteredUsers = promisedUsers.filter(user => user.age >= min && user.age <= max && user.gender === gender);
 
