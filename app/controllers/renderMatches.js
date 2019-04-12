@@ -21,10 +21,10 @@ async function renderMatches(req, res, next) {
 
         convertToObject(loggedInUser.likedpersons, likedObjects);
         
-        // for (let i = 0; i < 430; i++) {
-        //     const imageUrl = fetch ("https://source.unsplash.com/collection/181462/480x480");
-        //     peopleImages.push(imageUrl);
-        // }
+        for (let i = 0; i < 30; i++) {
+            const imageUrl = fetch ("https://source.unsplash.com/collection/181462/480x480");
+            peopleImages.push(imageUrl);
+        }
 
         const promisedUsers = await Promise.all(likedObjects);
 
