@@ -13,17 +13,16 @@
                 <a href="/<%= matches[i].id %>">
                     <article class="card">
                         <!-- Image of the user -->
-
-                        <!-- Send a like to the array and saves it -->
-                        <form action="/matches" method="GET">
-                            <input type="hidden" name="currentPerson" value="<%= matches[i].id %>">
-                            <button type="submit"> Remove <%= matches[i].firstName %></button>
-
-                        </form>
+                        <img src="<%= userImages[i].url %>" alt="Profile image of <%= matches[i].firstName %>" class="card__img">
+                        <!-- Sends the user.id to a array -->
                         <!-- Name and city the person lives in -->
-                        <section>
-                            <h2><%= matches[i].firstName + " " + matches[i].lastName %></h2>
-                            <p><%= matches[i].city %></p>
+                        <section class="card__meta-block">
+                            <form action="" method="GET">
+                                <input type="hidden" name="personid" value="<%= matches[i].id %>">
+                                <button type="submit" id="add" class="">Like <%= matches[i].firstName %></button>
+                            </form>
+                            <h3 class="card__meta-title"><%= matches[i].firstName + " " + matches[i].lastName %></h3>
+                            <p>Age: <%= matches[i].age %></p>
                         </section>
                     </article>
                 </a>
