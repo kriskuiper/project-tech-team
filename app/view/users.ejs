@@ -5,7 +5,7 @@
     <header>
         <% include partials/navigation.ejs%>
     </header>
-    <h1>Who to match?</h1>
+    <h1 class="is--first">Who to match?</h1>
     <main>
         <% include partials/filter.ejs %>
         <section class="card-grid">
@@ -14,7 +14,7 @@
                 <a href="/<%= users[i].id %>" id="link" class="">
                     <article class="card">
                         <!-- Image of the user -->
-                        
+
                         <!-- Sends the user.id to a array -->
                         <form action="" method="GET">
                             <input type="hidden" name="personid" value="<%= users[i].id %>">

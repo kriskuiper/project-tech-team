@@ -5,7 +5,7 @@
     <header>
         <% include partials/navigation.ejs%>
     </header>
-    <h1>Your matches</h1>
+    <h1 class="is--first">Your matches</h1>
     <main>
         <section class="card-grid">
                 <!-- Here will be the matches shown based on the user -->
@@ -13,12 +13,12 @@
                 <a href="/<%= matches[i].id %>">
                     <article class="card">
                         <!-- Image of the user -->
-                        
+
                         <!-- Send a like to the array and saves it -->
                         <form action="/matches" method="GET">
                             <input type="hidden" name="currentPerson" value="<%= matches[i].id %>">
                             <button type="submit"> Remove <%= matches[i].firstName %></button>
-                            
+
                         </form>
                         <!-- Name and city the person lives in -->
                         <section>
