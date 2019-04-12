@@ -96,6 +96,10 @@ a {
     font-weight: var(--font-weight-body);
 }
 
+.is--first {
+  margin-top: 4rem;
+}
+
 .error {
     background: #eb4d4b;
     padding: 0.5em;
@@ -362,7 +366,7 @@ nav {
         display: block;
         font-weight: 600;
     }
-    
+
 .filter {
   background: var(--main-color);
   padding: 2em;
