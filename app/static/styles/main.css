@@ -239,12 +239,28 @@ main section h1,h2,h3,h4,p{
             font-weight: var(--font-weight-h3);
         }
 
+        .meta__button--like {
+          Margin-left: auto;
+          width: 5em;
+          height: 5em;
+          padding: inherit;
+          margin-right: 1em;
+          background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png);
+          color: red;
+          border-radius: 3em;
+          background-repeat: no-repeat;
+          background-size: 4em;
+          background-position: center;
+          background-position-y: 0.5em;
+        }
+
 
 /*nav------ */
 
 nav {
   position: fixed;
   bottom: 0;
+  z-index: 10000;
 }
 
 .nav__inner {
@@ -390,6 +406,65 @@ nav {
   height: auto;
 }
 /* 404 Page styling */
+@media screen and (max-width: 120rem) {
+.card-grid {  
+	grid-template-columns: repeat(4, 1fr);
+	}
+} 
+
+@media screen and (max-width: 90rem) {
+  .card-grid {
+  grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 60rem) {  
+  .card-grid {
+  grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 30rem) {
+  .card-grid {
+  grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.titlematch {
+    text-align: center;
+    font-size: 4em;
+    margin: 0em;
+}
+
+main {
+    margin:1em 1em 0em 1em;
+}
+
+main section a article form {
+    margin-top: -5em;
+    z-index: 1;
+    position: relative;
+}
+
+main section a article section {
+    text-align: center;
+    margin-top: 1.5em;
+}
+
+main section a article form button {
+	Margin-left: auto;
+	width: 5em;
+	height: 5em;
+	padding: inherit;
+	margin-right: 1em;
+	background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png);
+	color: red;
+	border-radius: 3em;
+	background-repeat: no-repeat;
+	background-size: 4em;
+	background-position: center;
+	background-position-y: 0.5em;
+}	
 .error__container {
   height: 100vh;
   width: 100vw;
