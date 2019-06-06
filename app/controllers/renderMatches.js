@@ -1,6 +1,5 @@
 //Require list
 const User = require("../models/User");
-const fetch = require("node-fetch");
 
 const convertToObject = require("../helpers/convertToObject");
 
@@ -9,7 +8,6 @@ async function renderMatches(req, res, next) {
     const loggedInUser = await User.findOne({
         "username": req.session.user.username
     });
-    const peopleImages = [];
     const likedObjects = [];
 
     try {
