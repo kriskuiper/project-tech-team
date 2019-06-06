@@ -13,18 +13,15 @@
                 <a href="/<%= matches[i].id %>">
                     <article class="card">
                         <!-- Image of the user -->
-<<<<<<< HEAD
-                        <img src="<%= userImages[i].url %>" alt="Profile image of <%= users[i].firstName %>" class="card__img">
+                        <img src="<%= users[i].profilePicture %>" alt="Profile image of <%= users[i].firstName %>" class="card__img">
                         <!-- Send a like to the array and saves it -->
                         <form action="/matches" method="GET">
                             <input type="hidden" name="currentPerson" value="<%= matches[i].id %>">
                             <button type="submit"> Delete </button>
-                            
+
                         </form>
-=======
-                        <img src="<%= userImages[i].url %>" alt="Profile image of <%= matches[i].firstName %>" class="card__img">
+                        <img src="<%= users[i].profilePicture %>" alt="Profile image of <%= matches[i].firstName %>" class="card__img">
                         <!-- Sends the user.id to a array -->
->>>>>>> development
                         <!-- Name and city the person lives in -->
                         <section class="card__meta-block">
                             <form action="" method="GET">
