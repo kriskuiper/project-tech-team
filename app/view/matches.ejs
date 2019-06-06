@@ -20,17 +20,8 @@
                             <button type="submit"> Delete </button>
 
                         </form>
-                        <img src="<%= matches[i].profilePicture %>" alt="Profile image of <%= matches[i].firstName %>" class="card__img">
-                        <!-- Sends the user.id to a array -->
-                        <!-- Name and city the person lives in -->
-                        <section class="card__meta-block">
-                            <form action="" method="GET">
-                                <input type="hidden" name="personid" value="<%= matches[i].id %>">
-                                <button type="submit" id="add" class="">Like <%= matches[i].firstName %></button>
-                            </form>
-                            <h3 class="card__meta-title"><%= matches[i].firstName + " " + matches[i].lastName %></h3>
-                            <p>Age: <%= matches[i].age %></p>
-                        </section>
+                        <h3 class="card__meta-title"><%= matches[i].firstName + " " + matches[i].lastName %></h3>
+                        <p>Age: <%= matches[i].age %></p>
                     </article>
                 </a>
             <% } %>
