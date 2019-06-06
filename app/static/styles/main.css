@@ -278,6 +278,7 @@ nav {
 
 #logo{
   display: none;
+  padding-top: .5rem;
 }
 
   .nav__item {
@@ -318,8 +319,15 @@ nav {
             grid-template-columns: repeat(6, 1fr);
             bottom: auto;
             top: 0;
-            padding: 0 0 0.5rem 1rem;
+            padding: 0 0 .5rem 1rem;
             align-items: center;
+          }
+
+          .initial__state {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1rem .5rem;
           }
 
           .nav__inner li a img{
@@ -407,10 +415,10 @@ nav {
 }
 /* 404 Page styling */
 @media screen and (max-width: 120rem) {
-.card-grid {  
+.card-grid {
 	grid-template-columns: repeat(4, 1fr);
 	}
-} 
+}
 
 @media screen and (max-width: 90rem) {
   .card-grid {
@@ -418,7 +426,7 @@ nav {
   }
 }
 
-@media screen and (max-width: 60rem) {  
+@media screen and (max-width: 60rem) {
   .card-grid {
   grid-template-columns: repeat(2, 1fr);
   }
@@ -464,7 +472,7 @@ main section a article form button {
 	background-size: 4em;
 	background-position: center;
 	background-position-y: 0.5em;
-}	
+}
 .error__container {
   height: 100vh;
   width: 100vw;
@@ -505,14 +513,7 @@ main section a article form button {
 /* Sign-up styling */
 
 .form__container {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-image: url('../media/images/bg.png');
-  background-position: center;
-  background-size: cover;
+  height: 80vh;
 }
 
 .form__section {
@@ -542,6 +543,10 @@ main section a article form button {
 
 .form__header h1 {
   text-transform: uppercase;
+}
+
+.invisible {
+  display: none! important;
 }
 
 .button--fullwidth {
@@ -604,7 +609,7 @@ main section a article form button {
   padding-left: 1rem;
   padding-right: 1rem;
   height: 80vh;
-  width: 100vw;
+  width: 100%;
   align-items: center;
   justify-content: center;
   background-image: url('../media/images/bg.png');

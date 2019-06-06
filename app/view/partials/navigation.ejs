@@ -1,3 +1,5 @@
+<% if (users) {%>
+
 <nav>
     <ul class="nav__inner">
       <li id="logo" class="nav__item"><a href="/"><img src="/media/images/icons/icon-192.png" alt="Logo Drinkerz" ></a></li>
@@ -8,3 +10,13 @@
       <li class="nav__item"><a class="item__link" href="/bars"><img src="/media/images/bars-inactive.svg" alt="">Bars</a></li>
     </ul>
 </nav>
+
+<% } else { %>
+
+  <nav>
+      <ul class="nav__inner initial__state">
+        <li id="logo" class="nav__item"><a href="/"><img src="/media/images/icons/icon-192.png" alt="Logo Drinkerz" ></a></li>
+      </ul>
+  </nav>
+
+<% } %>

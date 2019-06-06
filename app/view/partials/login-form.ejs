@@ -1,10 +1,8 @@
 <button class="btn button--fullwidth" type="button" name="button" id="untappdConnect" >Connect with Untappd</button>
 <form class="form__form" action="/log-in" method="POST">
-    <label>Username
-        <input type="text" name="username">
-    </label>
-    <label>Password
-        <input type="password" name="password">
-    </label>
+    <label class="invisible" for="username">Username</label>
+        <input type="text" name="username" placeholder="Username">
+    <label class="invisible" for="password">Password</label>
+        <input type="password" name="password" placeholder="Password">
     <button type="submit">Log in</button>
 </form>

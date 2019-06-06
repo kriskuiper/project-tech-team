@@ -7,14 +7,16 @@
       <% include partials/navigation.ejs%>
   </header>
   <main class="form__container">
-    <section class="form__section">
-      <h1>Drinkerz</h1>
-      <% if (error) { %>
-      <p class="error">
-        <%= error %>
-      </p>
-      <% } %>
-      <% include partials/login-form.ejs %>
+    <section class="homepage-banner">
+        <div class="">
+          <h1>Drinkerz</h1>
+          <% if (error) { %>
+          <p class="error">
+            <%= error %>
+          </p>
+          <% } %>
+          <% include partials/login-form.ejs %>
+        </div>
     </section>
   </main>
   <% include partials/footer.ejs %>
