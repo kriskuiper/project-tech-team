@@ -1,12 +1,10 @@
 const _array = require("lodash/array");
-const fetch = require("node-fetch");
 const User = require("../models/User");
 const convertToObject = require("../helpers/convertToObject");
 
 async function renderUsers(req, res, next) {
     const { personid, min, max, gender } = req.query;
     const notLikedUsers = [];
-    const userImages = [];
 
     try {
         const loggedInUser = await User.findOne({
