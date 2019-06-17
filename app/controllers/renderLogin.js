@@ -5,8 +5,7 @@ function renderLogin(req, res, ) {
 
   res.status(200).render("login", {
     error: false,
-    authLink: authLink,
-    users: null,
+    authLink: authLink
   });
 }
 

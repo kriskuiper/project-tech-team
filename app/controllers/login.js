@@ -1,5 +1,4 @@
 const User = require("../models/User");
-const fetch = require("node-fetch");
 require("dotenv").config();
 
 async function login(req, res, next) {
@@ -28,13 +27,13 @@ async function login(req, res, next) {
         res.redirect("/users");
       } else {
         const error = "Username or password incorrect";
-        const authLink = 'https://untappd.com/oauth/authenticate/?client_id=' + process.env.CLIENTID + '&response_type=code&redirect_url=' + process.env.REDIRECT_URL;
+        const authLink = "https://untappd.com/oauth/authenticate/?client_id=" + process.env.CLIENTID + "&response_type=code&redirect_url=" + process.env.REDIRECT_URL;
         res.status(403).render("login", {
           error: error,
           authLink: authLink
         });
       }
-    })
+    });
 
   } catch (error) {
     next(error);

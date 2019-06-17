@@ -23,6 +23,7 @@
     --easing: ease-in;
     --anim-speed-normal: 0.6s;
     --anim-speed-fast: 0.3s;
+
 }
 
 /* Font imports */
@@ -328,11 +329,39 @@ nav {
             align-items: center;
             justify-content: center;
             padding: 0 1rem .5rem;
+            box-shadow: none;
+            transition-duration: .25s;
+          }
+
+          .initial__state.big {
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+          }
+
+          .initial__state a {
+
+          }
+
+          .initial__state .nav__button {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: var(--font-size-buttons);
+            background: var(--main-color);
+            height: 32px;
+            padding: 0 2rem;
+            border: 1px solid var(--bg-color);
+            margin: .5rem 1rem 0 0;
+            color: #fff;
+          }
+
+          .initial__state.big .nav__button {
+            display: block;
           }
 
           .nav__inner li a img{
-              display: none;
-              align-items: center;
+            display: none;
+            align-items: center;
           }
 
           .nav__item{
@@ -445,7 +474,13 @@ nav {
 }
 
 main {
-    margin:1em 1em 0em 1em;
+    margin-top: 1em;
+}
+
+@media only screen and (min-width: 60rem) {
+  main {
+    margin: 1em 1em 0 1em;
+  }
 }
 
 main section a article form {
@@ -551,7 +586,6 @@ main section a article form button {
 
 .button--fullwidth {
   width: 100%;
-
 }
 
 .form__form {
@@ -606,15 +640,29 @@ main section a article form button {
 
 .homepage-banner {
   padding-top: 10rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  height: 80vh;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   align-items: center;
   justify-content: center;
   background-image: url('../media/images/bg.png');
   background-position: center;
   background-size: cover;
+}
+
+@media only screen and (min-width: 60rem) {
+
+  .homepage-banner {
+    padding-top: 10rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    height: 80vh;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../media/images/bg.png');
+    background-position: center;
+    background-size: cover;
+  }
 }
 
 .homepage-banner div {
@@ -635,7 +683,6 @@ main section a article form button {
 .success__story h2{
   margin: 2rem 0;
 }
-
 
 .stories {
   width: 100%;
