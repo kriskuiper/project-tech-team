@@ -1,12 +1,11 @@
 //Require list
 const User = require("../models/User");
 const fetch = require("node-fetch");
-const paginate = require("express-paginate");
 
 const convertToObject = require("../helpers/convertToObject");
 
 async function renderMatches(req, res, next) {
-    const {currentPerson, page, limit} = req.query;
+    const {currentPerson} = req.query;
     const loggedInUser = await User.findOne({
         "username": req.session.user.username
     });
@@ -28,18 +27,10 @@ async function renderMatches(req, res, next) {
         }
 
         const promisedUsers = await Promise.all(likedObjects);
-        const userCount = promisedUsers.length;
-        let pageCount = Math.ceil(userCount / limit);
-        if (pageCount === Infinity || pageCount === 1) pageCount = 0;
 
         await Promise.all(peopleImages)
             .then(userImages => {
-                res.status(200).render("matches", { 
-                    matches: promisedUsers, 
-                    userImages: userImages,
-                    pages: paginate.getArrayPages(req)(4, pageCount, page),
-                    pageCount: pageCount
-                });
+                res.status(200).render("matches", { matches: promisedUsers, userImages: userImages });
             });
     }
     catch(error) {
