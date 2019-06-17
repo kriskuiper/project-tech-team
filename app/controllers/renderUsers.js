@@ -12,7 +12,22 @@ async function renderUsers(req, res, next) {
         const loggedInUser = await User.findOne({
             "username": req.session.user.username
         });
-        const users = await User.find();
+
+        let { limit, page } = req.query;
+        const [users, userCount] = await Promise.all([
+            User.find()
+                .limit(limit)
+                .skip((page-1) * limit)
+                .lean()
+                .exec(),
+            User.countDocuments()
+        ]);
+
+        let pageCount = Math.ceil(userCount / limit);
+        if (pageCount === Infinity || pageCount === 1) {
+            pageCount = 0;
+        }
+
         const extractIds = users.map(user => user.id);
 
         if (personid) {
