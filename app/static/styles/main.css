@@ -548,15 +548,16 @@ main section a article form button {
 /* Sign-up styling */
 
 .form__container {
-  height: 80vh;
+  height: auto;
 }
 
 .form__section {
+  position: relative;
   display: flex;
   flex-flow: column;
   align-items: center;
   justify-content: center;
-  width: calc(25% + 4rem);
+  width: calc(100% - 2rem);
   height: auto;
   background-color: #fff;
   padding: 2rem;
@@ -578,6 +579,22 @@ main section a article form button {
 
 .form__header h1 {
   text-transform: uppercase;
+}
+
+.form__row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: none;
+}
+
+.form__row input {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
 }
 
 .invisible {
@@ -622,8 +639,6 @@ main section a article form button {
   color: #666;
 }
 
-
-
 .preferred__age {
   display: flex;
   flex-flow: row nowrap;
@@ -639,9 +654,10 @@ main section a article form button {
 /* CSS Styling home page (index.html) */
 
 .homepage-banner {
-  padding-top: 10rem;
-  height: 100vh;
-  width: 100vw;
+  height: auto;
+  padding: 2rem 0;
+  /* min-height: 60vh; */
+  width: 100%;
   align-items: center;
   justify-content: center;
   background-image: url('../media/images/bg.png');
@@ -652,10 +668,9 @@ main section a article form button {
 @media only screen and (min-width: 60rem) {
 
   .homepage-banner {
-    padding-top: 10rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    height: 80vh;
+    padding: 2rem 1rem;
+    height: auto;
+    min-height: 80vh;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -663,9 +678,13 @@ main section a article form button {
     background-position: center;
     background-size: cover;
   }
+
+  .homepage-banner.initial {
+    padding: 10em 1rem;
+  }
 }
 
-.homepage-banner div {
+.homepage-banner .form__section {
   display: flex;
   flex-flow: column;
   align-items: center;
