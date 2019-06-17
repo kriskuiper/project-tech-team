@@ -6,7 +6,7 @@ let url = process.env.MONGODB_URI;
 
 
 
-const barLocations = [];
+let barLocations = [];
 const barImages = [];
 const googleApiKey = process.env.GOOGLE_API_KEY;
 
@@ -33,23 +33,31 @@ async function renderBars(req, res) {
 async function searchBars(latitude, longitude, radius = 500) {
     const response = await fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitude},${longitude}&radius=${radius}&type=bar&key=${googleApiKey}`);
     const places = await response.json();
-    console.log(latitude);
+    let noGoogle = places.error_message;
+    console.log(noGoogle);
     
-    if (barLocations.length < 1) {
-        
     
+    if (noGoogle == "The provided API key is invalid.") {
     MongoClient.connect(url, (err, db) => {
         if (err) throw err;
         let dbo = db.db("project-team");
-        dbo.collection("bars").findOne({}, (err, bar) => {
+       
+            dbo.collection("bars").find({}).toArray((err, bar) => {
           if (err) throw err;
-          console.log(bar.city);
+          console.log(bar);
+          barLocations = [];
+          for (let i = 0; i < bar.length; i++) {
+              barLocations.push({"name": bar[i].barname});
+              barLocations.push({"vicinity": bar[i].city});
+
+          }
+          
           db.close();
         });
       });
     }
+    console.log(places);
+    
     return places;
 }
-
-searchBars();
 module.exports = renderBars;
