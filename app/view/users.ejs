@@ -17,7 +17,11 @@
                     <a href="/<%= users[i].id %>" id="link" class="">
                         <article class="card">
                             <!-- Image of the user -->
-                            <img src="<%= users[i].profilePicture %>" alt="Profile image of <%= users[i].firstName %>" class="card__img">
+                            <% if (users[i].profilePicture) { %>
+                              <img src="<%= users[i].profilePicture %>" alt="Profile image of <%= users[i].firstName %>" class="card__img">
+                            <% } else { %>
+                              <img src="./media/images/default_avatar.png" alt="Profile image of <%= users[i].firstName %>" class="card__img">
+                            <% } %>
                             <!-- Sends the user.id to a array -->
                             <!-- Name and city the person lives in -->
                             <section class="card__meta-block">
