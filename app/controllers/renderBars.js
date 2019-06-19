@@ -13,11 +13,11 @@ const barImages = [];
 
 async function renderBars(req, res) {
     //Get location of the user, to search nearby bars with google places api.
-    const {
-        location
-    } = req.cookies;
-    const geoLocationArr = location.split("-");
-    const [lat, long] = geoLocationArr;
+  //  const {
+    //    location
+    //} = req.cookies;
+    //const geoLocationArr = location.split("-");
+    //const [lat, long] = geoLocationArr;
 
     searchBars();
 
