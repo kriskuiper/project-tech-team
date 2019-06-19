@@ -37,12 +37,7 @@ async function renderBars(req, res) {
         });
 }
 
-async function searchBars(latitude, longitude, radius = 500) {
-    const response = await fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitude},${longitude}&radius=${radius}&type=bar&key=${googleApiKey}`);
-    const places = await response.json();
-    let noGoogle = places.error_message;
-
-    if (noGoogle == "The provided API key is invalid.") {
+async function searchBars() {
         MongoClient.connect(url, (err, db) => {
             if (err) throw err;
             let dbo = db.db("project-team");
@@ -63,9 +58,7 @@ async function searchBars(latitude, longitude, radius = 500) {
                 db.close();
             });
         });
-    } else {
-        return places;
-    }
+    
 }
 
 module.exports = renderBars;
