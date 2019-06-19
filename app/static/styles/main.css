@@ -745,3 +745,56 @@ main section a article form button {
   object-fit: cover;
   object-position: center;
 }
+
+
+/* CSS Profile page */
+
+.profile__username {
+  text-align: center;
+  margin-top: 5em;
+}
+
+.beer__search {
+  justify-content: center;
+  display: flex;
+}
+
+.beer__search__name {
+  width: 80%;
+  margin-left: 2em;
+}
+
+.beer__search__button {
+  display: inline;
+  width: 8em;
+  margin: 0em 2em 0em 1em;
+}
+
+.profile__beers {
+  text-align: center;
+  margin-top: 1em;
+}
+
+.profile__beers h2 {
+  display: inline;
+}
+
+.profile__beers img {
+  width: 1.8em;
+}
+
+.beer__list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+
+.list__item {
+  flex: 1 1 20em;
+  max-width: 20em;
+  border: #fcbd12;
+  border-top: 0.3em;
+  border-style: solid;
+  margin: 1em 0em 0em 1em;
+}
