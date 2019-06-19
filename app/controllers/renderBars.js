@@ -10,7 +10,6 @@ let url = process.env.MONGODB_URI;
 
 let barLocations = [];
 const barImages = [];
-const googleApiKey = process.env.GOOGLE_API_KEY;
 
 async function renderBars(req, res) {
     //Get location of the user, to search nearby bars with google places api.
@@ -20,7 +19,7 @@ async function renderBars(req, res) {
     const geoLocationArr = location.split("-");
     const [lat, long] = geoLocationArr;
 
-    searchBars(lat, long);
+    searchBars();
 
     //Fetch images from unsplash using provided specifications.
     for (let i = 0; i < 20; i++) {
