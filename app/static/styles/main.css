@@ -746,6 +746,18 @@ main section a article form button {
   object-position: center;
 }
 
+.button__login{
+  width: 100%;
+}
+
+.input__login{
+  margin: 0.3em;
+}
+
+.subtitle{
+  margin-top: 0;
+}
+
 
 /* CSS Profile page */
 
