@@ -2,14 +2,9 @@ require("dotenv").config();
 
 let {
     MongoClient
-} = require("mongodb");
-let url = process.env.MONGODB_URI;
-
-
-
-let barLocations = [];
-
-
+} = require("mongodb"),
+    url = process.env.MONGODB_URI,
+    barLocations = [];
 
 async function searchBars(req, res) {
     MongoClient.connect(url, (err, db) => {
