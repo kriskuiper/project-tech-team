@@ -1,3 +1,5 @@
 node_modules
 .env
 .DS_Store
+app/static/media/.DS_Store
+app/static/media/images/.DS_Store
