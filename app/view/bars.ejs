@@ -11,10 +11,10 @@
             <% if (barLocations.length > 0) { %>
                 <% for (let i = 0; i < barLocations.length; i++) { %>
                     <article class="card">
-                        <img src="<%= barImages[i].url %>" alt="Impression image of the bar" class="card__image">
+                        <img src="<%= barLocations[i].imgUrl %>" alt="Impression image of the bar" class="card__image">
                         <div class="card__meta-block">
                             <h3 class="card__meta-title"><%= barLocations[i].name %></h3>
-                            <p><b>Straat:</b> <%= barLocations[i].street %></p>
+                            <p><b>Straat:</b> <%= barLocations[i].street %></>
                             <p><b>Plaats:</b> <%= barLocations[i].vicinity %></p>
                             <p><b>Beschrijving:</b> <%= barLocations[i].description %></p>
                         </div>
