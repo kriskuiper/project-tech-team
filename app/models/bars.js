@@ -6,7 +6,8 @@ const barSchema = new Schema({
     barname: String,
     city: String,
     street: String,
-    description: String
+    description: String,
+    image: String
 });
 
 module.exports = mongoose.model("Bar", barSchema);
