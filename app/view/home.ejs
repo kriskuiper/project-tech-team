@@ -11,7 +11,7 @@
     <section>
       <form id="beer__search" action="/search-beer" class="beer__search" method="post">
         <input type="text" name="beerName" id="searchName">
-        <button type="submit" name="button">search</button>
+        <button type="submit" class="beer__search__button" name="button">search</button>
       </form>
       <% if (beerResults) { %>
       <% for (let i = 0; i < beerResults.length; i++) { %>
@@ -20,7 +20,7 @@
           <%= beerResults[i].beer.beer_name %>
         </h2>
         <img src="<%- beerResults[i].beer.beer_label %>" alt="<%- beerResults[i].beer.beer_name %>">
-        <p>
+        <p> 
           <%= beerResults[i].beer.beer_description %>
         </p>
   
@@ -38,8 +38,8 @@
       <% } %>
     </section>
     <section>
-      <h2>Your beers</h2>
-      <img src="../static/media/images/icons/icon-192.png" alt="Logo Drinkerz">
+      <h1 class="beer__my">My beers</h1>
+      <img src="./media/images/logo.png" alt="Logo Drinkerz" class="beer__img">
     </section>
 
   </section>

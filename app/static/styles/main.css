@@ -771,7 +771,7 @@ main section a article form button {
   display: flex;
 }
 
-.beer__search__name {
+#searchName {
   width: 80%;
   margin-left: 2em;
 }
@@ -787,15 +787,17 @@ main section a article form button {
   margin-top: 1em;
 }
 
-.profile__beers h2 {
+.beer__my {
   display: inline;
 }
 
-.profile__beers img {
-  width: 1.8em;
+.beer__img {
+  width: 2.5em;
+  display: inline;
+  margin-top: 2em;
 }
 
-.beer__list {
+.beers__list {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
