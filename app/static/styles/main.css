@@ -320,7 +320,6 @@ h1, h2, h3, h4, p {
 .sidebar__navigation {
   position: fixed;
   bottom: 0;
-  z-index: 10000;
 }
 
 .navigation {
@@ -403,6 +402,7 @@ h1, h2, h3, h4, p {
     top: 0;
     left: 0;
     width: 200px;
+    z-index: 10002;
   }
 
   .navigation__list {
@@ -1096,8 +1096,11 @@ main section a article form button {
 }
 
 .section__title {
-  font-size: 1.1rem;
-  font-weight: 500;
+  background-color: #fcbd12;
+  margin: 0;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  text-align: center;
 }
 
 .matches__container {
