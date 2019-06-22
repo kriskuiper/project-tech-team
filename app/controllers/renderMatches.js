@@ -21,7 +21,7 @@ async function renderMatches(req, res, next) {
 
         const promisedUsers = await Promise.all(likedObjects);
 
-        res.status(200).render("matches", { matches: promisedUsers});
+        res.status(200).render("matches", { matches: promisedUsers, user: loggedInUser});
     }
     catch(error) {
         next(error);

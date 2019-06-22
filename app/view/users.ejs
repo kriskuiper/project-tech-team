@@ -3,13 +3,11 @@
     <title>Users - Drinkerz</title>
 </head>
 <body>
-    <header>
-        <% include partials/navigation.ejs%>
-    </header>
-    <h1 class="is--first">Who to match?</h1>
+    <% include partials/navigation.ejs%>
+
     <main>
         <% include partials/filter.ejs %>
-        <section>
+        <section class="users__container">
             <h2>Users:</h2>
             <div class="card-grid">
                 <!-- Userpage will be the page where all the info is shown -->
