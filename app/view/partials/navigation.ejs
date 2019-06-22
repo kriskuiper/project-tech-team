@@ -5,6 +5,16 @@
       <li class="nav__item"><a class="item__link" href="/"><img src="/media/images/profile-inactive.svg" alt="">My profile</a></li>
       <li class="nav__item"><a class="item__link" href="/users"><img src="/media/images/find-users-inactive.svg" alt="">Users</a></li>
       <li class="nav__item"><a class="item__link" href="/matches"><img src="/media/images/liked-users-inactive.svg" alt="">Liked users</a></li>
-      <li class="nav__item"><a class="item__link" href="/bars"><img src="/media/images/bars-inactive.svg" alt="">Bars</a></li>
+      <li class="nav__item">
+        <% if (jsEnabled) { %>
+          <a class="item__link" href="/bars?limit=0&page=1">
+            <img src="/media/images/bars-inactive.svg" alt="">Bars
+          </a>
+        <% } else { %>
+          <a class="item__link" href="/bars?limit=3&page=1">
+            <img src="/media/images/bars-inactive.svg" alt="">Bars
+          </a>
+        <% } %>
+      </li>
     </ul>
 </nav>
