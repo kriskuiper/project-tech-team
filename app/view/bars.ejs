@@ -8,23 +8,25 @@
     <h1 class="is--first"> Bar Locations</h1>
     <main>
         <section class="card-grid">
-            <% if (barLocations.length > 0) { %>
-                <% for (let i = 0; i < barLocations.length; i++) { %>
+            <% if (bars.length > 0) { %>
+                <% for (let i = 0; i < bars.length; i++) { %>
                     <article class="card">
-                        <img src="<%= barImages[i].url %>" alt="Impression image of the bar" class="card__image">
-                        <div class="card__meta-block">
-                            <h3 class="card__meta-title"><%= barLocations[i].name %></h3>
-                            <p><%= barLocations[i].vicinity %></p>
-                        </div>
+                        <img src="<%= bars[i].image %>" alt="Impression image of the bar" class="card__img">
+                        <section class="card__meta-block">
+                            <h3 class="card__meta-title"><%= bars[i].barname %></h3>
+                            <p><b>Straat:</b> <%= bars[i].street %></p>
+                            <p><b>Plaats:</b> <%= bars[i].city %></p>
+                        </section>
                     </article>
                 <% } %>
             <% } else { %>
                 <section class="bars__section">
-                <h2>Sorry, we couldn't load any bars right now</h2>
-                <p>Come back later, or <a href="/">go back to home</a></p>
+                    <h2>Sorry, we couldn't load any bars right now</h2>
+                    <p>Come back later, or <a href="/">go back to home</a></p>
                 </section>
             <% } %>
         </section>
+        <% include partials/paginate.ejs %>
     </main>
     <% include partials/footer.ejs %>
 </body>

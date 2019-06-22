@@ -29,6 +29,7 @@
     "dotenv": "^7.0.0",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "express-paginate": "^1.0.0",
     "express-session": "^1.15.6",
     "follow-redirects": "^1.7.0",
     "lodash": "^4.17.11",

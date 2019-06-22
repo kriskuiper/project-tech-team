@@ -9,6 +9,7 @@ async function addBeer(req, res, next) {
     const beer_description = req.body.beerDescription;
     const beer_brewery = req.body.brewery;
 
+
     const objectBeer = {
       beer: {
         bid: beer_bid,
