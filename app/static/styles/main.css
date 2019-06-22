@@ -220,6 +220,10 @@ h1, h2, h3, h4, p {
     grid-gap: 1em;
 }
 
+#link {
+  height: 26em;
+}
+
     .card {
         position: relative;
         padding: 0;
@@ -236,12 +240,6 @@ h1, h2, h3, h4, p {
             font-size: 0;
             background-image: url("../path/to/img");
             box-shadow: 0px px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .card__img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .card__meta-block {
@@ -284,7 +282,7 @@ h1, h2, h3, h4, p {
 
 .card__img {
   width: 100%;
-  height: 100%;
+  height: 61%;
   object-fit: cover;
 }
 
@@ -647,7 +645,8 @@ h1, h2, h3, h4, p {
 /* 404 Page styling */
 @media screen and (max-width: 120rem) {
   .card-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    
   }
 }
 
@@ -1196,8 +1195,23 @@ main section a article form button {
   grid-row: 1;
   padding: 0;
   margin: 0;
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: 500;
+  margin-left: 0.5em;
+}
+
+.matches__list li h3:nth-child(3){
+  margin-top: 1.2em;
+}
+
+.matches__list li h3:nth-child(4){
+  margin-top: 2.4em;
+}
+
+.matches__list li h3:nth-child(5){
+  height: 5em;
+  margin-top: 4em;
+  width: 5em;
 }
 
 .users__container {

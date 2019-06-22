@@ -20,7 +20,10 @@
           <% } %>
           <li class="list__item">
             <img src="<%= matches[i].profilePicture %>" alt="Profile image of <%= matches[i].firstName %>" class="card__img">
-            <h3><%= matches[i].firstName + " " + matches[i].lastName %>, <%= matches[i].age %></h3>
+            <h3>Name: <%= matches[i].firstName + " " + matches[i].lastName %> </h3>
+            <h3>Age: <%= matches[i].age %></h3>
+            <h3>Beer: <%= matches[i].beers[0].beer.name %> </h3>
+            <h3><img class="item__image" src="<%= matches[i].beers[0].beer.img %>" alt=""></h3>
           </li>
             <% if(matches.length <= 1) { %>
               <li class="list__item--center">
