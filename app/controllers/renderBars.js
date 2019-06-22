@@ -1,3 +1,5 @@
+const paginate = require("express-paginate");
+
 const Bar = require("../models/Bar");
 
 async function renderBars(req, res) {
