@@ -13,10 +13,9 @@
                     <article class="card">
                         <img src="<%= bars[i].image %>" alt="Impression image of the bar" class="card__img">
                         <section class="card__meta-block">
-                            <h3 class="card__meta-title"><%= bars[i].name %></h3>
+                            <h3 class="card__meta-title"><%= bars[i].barname %></h3>
                             <p><b>Straat:</b> <%= bars[i].street %></p>
-                            <p><b>Plaats:</b> <%= bars[i].vicinity %></p>
-                            <p><b>Beschrijving:</b> <%= bars[i].description %></p>
+                            <p><b>Plaats:</b> <%= bars[i].city %></p>
                         </section>
                     </article>
                 <% } %>
@@ -27,6 +26,7 @@
                 </section>
             <% } %>
         </section>
+        <% include partials/paginate.ejs %>
     </main>
     <% include partials/footer.ejs %>
 </body>
