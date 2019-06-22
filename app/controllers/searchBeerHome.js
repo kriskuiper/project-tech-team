@@ -4,7 +4,7 @@ require("dotenv").config();
 
 async function searchBeerHome(req, res, next) {
   try {
-
+    const jsEnabled = req.cookies.js_enabled;
     const beerValue = req.body.beerName;
 
     if (beerValue.length > 1) {
@@ -16,11 +16,10 @@ async function searchBeerHome(req, res, next) {
       const beerObjects = await beerResults.json();
       const beerList = beerObjects.response.beers.items;
 
-      console.log(beerObjects.response.beers.items[0].beer.beer_name);
-
     res.status(200).render("home", {
       user: req.session.user,
-      beerResults: beerList
+      beerResults: beerList,
+      jsEnabled: jsEnabled
     });
 }
   } catch (error) {
