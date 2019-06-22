@@ -8,7 +8,7 @@ async function login(req, res, next) {
       password
     } = req.body;
     await User.findOne({
-      "username": username.toLowerCase()
+      "username": username
     }, (err, data) => {
       if (err) console.log(err);
 
