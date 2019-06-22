@@ -7,6 +7,7 @@ let filterOpen = false;
 
 // Cut the mustard
 if ("querySelector" in document) {
+  document.cookie = "js_enabled=true";
   document.body.classList.add("js-enabled");
 
   if (filterActivator) {
