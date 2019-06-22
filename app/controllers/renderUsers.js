@@ -28,9 +28,9 @@ async function renderUsers(req, res, next) {
         const filteredUsers = promisedUsers.filter(user => user.age >= min && user.age <= max && user.gender === gender);
 
         if (!min && !max && !gender) {
-            res.status(200).render("users", { users: promisedUsers });
+            res.status(200).render("users", { users: promisedUsers, user: loggedInUser });
         } else {
-            res.status(200).render("users", { users: filteredUsers });
+            res.status(200).render("users", { users: filteredUsers, user: loggedInUser  });
         }
 
     }

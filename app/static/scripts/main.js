@@ -65,19 +65,3 @@ function toggleFilter() {
     filterOpen = false;
   }
 }
-
-// Trigger value
-let triggered = false;
-const navBar = document.querySelector("#nav__inital");
-
-// position on page detector
-window.onscroll = function() {
-  let currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
-  if ((currentScroll >= 20) && (triggered === false)) {
-    navBar.classList.toggle("big");
-    triggered = true;
-  } else if ((currentScroll < 20) && (triggered === true)) {
-    navBar.classList.toggle("big");
-    triggered = false;
-  }
-};

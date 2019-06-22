@@ -2,63 +2,70 @@
 <title>Home | Drinkerz</title>
 </head>
 <body>
-  <header>
-    <% include partials/navigation.ejs%>
-  </header>
-  <section class="profile__username">
-    <h1>Hi
-      <%= user.firstName %>!</h1>
-    <section>
-      <form id="beer__search" action="/search-beer" class="beer__search" method="post">
-        <input type="text" name="beerName" id="searchName">
-        <button type="submit" class="beer__search__button" name="button">search</button>
-      </form>
-      <% if (beerResults) { %>
-      <% for (let i = 0; i < beerResults.length; i++) { %>
-      <article>
-        <h2>
-          <%= beerResults[i].beer.beer_name %>
-        </h2>
-        <img src="<%- beerResults[i].beer.beer_label %>" alt="<%- beerResults[i].beer.beer_name %>">
-        <p> 
-          <%= beerResults[i].beer.beer_description %>
-        </p>
-  
-        <form action="/add-beer" method="post">
-          <input class="invisible" type="text" name="beerName" value="<%- beerResults[i].beer.beer_name %>">
-          <input class="invisible" type="text" name="beerBid" value="<%- beerResults[i].beer.bid %>">
-          <input class="invisible" type="text" name="beerDescription" value="<%- beerResults[i].beer.beer_description %>">
-          <input class="invisible" type="text" name="beerImg" value="<%- beerResults[i].beer.beer_label %>">
-          <input class="invisible" type="text" name="brewery" value="<%- beerResults[i].brewery.brewery_name %>">
-          <button type="submit" name="button">Add
-            <%- beerResults[i].beer.beer_name %></button>
-        </form>
-      </article>
-      <% } %>
-      <% } %>
-    </section>
-    <section>
-      <h1 class="beer__my">My beers</h1>
-      <img src="./media/images/logo.png" alt="Logo Drinkerz" class="beer__img">
-    </section>
+  <% include partials/navigation.ejs%>
+  <main>
 
-  </section>
   <section class="beers__container">
     <ul class="beers__list">
       <% for(let i = 0; i < user.beers.length; i++) { %>
       <li class="list__item">
+        <img class="item__image" src="<%= user.beers[i].beer.img %>" alt="">
         <h3 class="item__title">
           <%= user.beers[i].beer.name %>
         </h3>
-        <p>
-          <%= user.beers[i].beer.description %>
+      </li>
+      <% } %>
+    </ul>
+  </section>
+
+  <section class="activity__container">
+    <h2 class="section__title">Activity</h2>
+    <ul class="activity__list">
+      <% for(let i = user.beers.length - 1; i >= user.beers.length - 3; i--) { %>
+      <li class="list__item">
+        <img src="<%= user.profilePicture %>" alt="<%= user.firstName %>">
+        <h3><%= user.username %></h3>
+        <p class="item__title">
+          Added : <%= user.beers[i].beer.name %> To his beer collection
         </p>
       </li>
       <% } %>
     </ul>
   </section>
 
-  
+  <section class="matches__container">
+    <h2 class="section__title">Matches</h2>
+    <ul class="matches__list">
+      <% for (let i = 0; i < matches.length; i++) { %>
+      <% if(matches.length == 0) { %>
+        <li class="list__item--center">
+          <svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <path d="M50,100 C22.3857625,100 0,77.6142375 0,50 C0,22.3857625 22.3857625,0 50,0 C77.6142375,0 100,22.3857625 100,50 C100,77.6142375 77.6142375,100 50,100 Z M54,48 C53.4477153,48 53,47.5522847 53,47 L53,18 C53,14.6666667 48,14.6666667 48,18 L48,47 C48,47.5522847 47.5522847,48 47,48 L18,48 C14.6666667,48 14.6666667,53 18,53 L47,53 C47.5522847,53 48,53.4477153 48,54 L48,83 C48,86.3333333 53,86.3333333 53,83 L53,54 C53,53.4477153 53.4477153,53 54,53 L83,53 C86.3333333,53 86.3333333,48 83,48 L54,48 Z" id="Combined-Shape" fill="#999999"></path>
+              </g>
+            </svg>
+          <h3>Add more beers for new matches</h3>
+        </li>
+      <% } %>
+      <li class="list__item">
+        <img src="<%= matches[i].profilePicture %>" alt="Profile image of <%= matches[i].firstName %>" class="card__img">
+        <h3><%= matches[i].firstName + " " + matches[i].lastName %>, <%= matches[i].age %></h3>
+      </li>
+        <% if(matches.length <= 1) { %>
+          <li class="list__item--center">
+            <svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <path d="M50,100 C22.3857625,100 0,77.6142375 0,50 C0,22.3857625 22.3857625,0 50,0 C77.6142375,0 100,22.3857625 100,50 C100,77.6142375 77.6142375,100 50,100 Z M54,48 C53.4477153,48 53,47.5522847 53,47 L53,18 C53,14.6666667 48,14.6666667 48,18 L48,47 C48,47.5522847 47.5522847,48 47,48 L18,48 C14.6666667,48 14.6666667,53 18,53 L47,53 C47.5522847,53 48,53.4477153 48,54 L48,83 C48,86.3333333 53,86.3333333 53,83 L53,54 C53,53.4477153 53.4477153,53 54,53 L83,53 C86.3333333,53 86.3333333,48 83,48 L54,48 Z" id="Combined-Shape" fill="#999999"></path>
+                </g>
+              </svg>
+            <h3>Add more beers for new matches</h3>
+          </li>
+        <% } %>
+      <% } %>
+    </ul>
+  </section>
+
+</main>
 
   <% include partials/footer.ejs %>
 </body>
