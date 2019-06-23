@@ -232,7 +232,7 @@ h1, h2, h3, h4, p {
         height: 100%;
         overflow: hidden;
         box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.2);
-    } 
+    }
 
         .card__button {
             position: absolute;
@@ -315,6 +315,10 @@ h1, h2, h3, h4, p {
   background-position-y: 0.5em;
 }
 
+.initial__home {
+  padding: 0;
+}
+
 /*nav------ */
 .sidebar__navigation {
   position: fixed;
@@ -332,6 +336,32 @@ h1, h2, h3, h4, p {
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
 
+.navigation__initial {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 50px;
+  z-index: 10001;
+  background-color: #fff;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navigation__initial a {
+  width: auto;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navigation__initial img {
+  height: 100%;
+  width: auto;
+}
 
 .navigation__list {
   display: grid;
@@ -643,7 +673,7 @@ h1, h2, h3, h4, p {
 @media screen and (max-width: 120rem) {
   .card-grid {
     grid-template-columns: repeat(4, 1fr);
-    
+
   }
 }
 
@@ -739,6 +769,7 @@ main section a article form button {
 /* Sign-up styling */
 .form__container {
   height: auto;
+  padding: 0;
 }
 
 .form__section {
@@ -1134,7 +1165,12 @@ main section a article form button {
   margin-bottom: 2rem;
 }
 
+.matches__container--large .matches__list {
+  padding: 1em;
+}
+
 .matches__container--large .matches__list li {
+  height: 300px;
   grid-template-columns: 300px 1fr;
   grid-template-rows: 1fr;
 }
