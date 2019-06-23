@@ -429,8 +429,6 @@ h1, h2, h3, h4, p {
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   }
 
-  .initial__state a {}
-
   .initial__state .nav__button {
     display: none;
     position: absolute;
@@ -644,7 +642,7 @@ h1, h2, h3, h4, p {
 /* 404 Page styling */
 @media screen and (max-width: 120rem) {
   .card-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     
   }
 }
