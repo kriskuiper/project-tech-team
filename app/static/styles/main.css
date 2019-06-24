@@ -220,6 +220,10 @@ h1, h2, h3, h4, p {
     grid-gap: 1em;
 }
 
+.grid--matches {
+  grid-template-rows: repeat(2, 25rem)
+}
+
 #link {
   height: 26em;
 }
@@ -1127,6 +1131,7 @@ main section a article form button {
   background-color: #fcbd12;
   margin: 0;
   padding-top: 0.2em;
+  margin-bottom: 1rem;
   padding-bottom: 0.2em;
   text-align: center;
 }

@@ -4,40 +4,26 @@
 <body>
         <% include partials/navigation.ejs%>
     <main>
-      <section class="matches__container--large">
-        <h2 class="section__title">Matches</h2>
-        <ul class="matches__list">
+      <section class="users__container">
+        <h1 class="section__title">Matches</h1>
+        <div class="card-grid grid--matches">
           <% for (let i = 0; i < matches.length; i++) { %>
-          <% if(matches.length == 0) { %>
-            <li class="list__item--center">
-              <svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                      <path d="M50,100 C22.3857625,100 0,77.6142375 0,50 C0,22.3857625 22.3857625,0 50,0 C77.6142375,0 100,22.3857625 100,50 C100,77.6142375 77.6142375,100 50,100 Z M54,48 C53.4477153,48 53,47.5522847 53,47 L53,18 C53,14.6666667 48,14.6666667 48,18 L48,47 C48,47.5522847 47.5522847,48 47,48 L18,48 C14.6666667,48 14.6666667,53 18,53 L47,53 C47.5522847,53 48,53.4477153 48,54 L48,83 C48,86.3333333 53,86.3333333 53,83 L53,54 C53,53.4477153 53.4477153,53 54,53 L83,53 C86.3333333,53 86.3333333,48 83,48 L54,48 Z" id="Combined-Shape" fill="#999999"></path>
-                  </g>
-                </svg>
-              <h3>Add more beers for new matches</h3>
-            </li>
+            <article class="card">
+                <% if (matches[i].profilePicture) { %>
+                  <img src="<%= matches[i].profilePicture %>" alt="Profile image of <%= matches[i].firstName %>" class="card__img">
+                <% } else { %>
+                  <img src="./media/images/default_avatar.png" alt="Profile image of <%= matches[i].firstName %>" class="card__img">
+                <% } %>
+                <section class="card__meta-block">
+                    <h3 class="card__meta-title"><%= matches[i].firstName + " " + matches[i].lastName %></h3>
+                    <p>Age: <%= matches[i].age %></p>
+                    <p>Favorite beer: <%= matches[i].beers[0].beer.name %> </p>
+                </section>
+            </article>
           <% } %>
-          <li class="list__item">
-            <img src="<%= matches[i].profilePicture %>" alt="Profile image of <%= matches[i].firstName %>" class="card__img">
-            <h3>Name: <%= matches[i].firstName + " " + matches[i].lastName %> </h3>
-            <h3>Age: <%= matches[i].age %></h3>
-            <h3>Beer: <%= matches[i].beers[0].beer.name %> </h3>
-            <h3><img class="item__image" src="<%= matches[i].beers[0].beer.img %>" alt=""></h3>
-          </li>
-            <% if(matches.length <= 1) { %>
-              <li class="list__item--center">
-                <svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                        <path d="M50,100 C22.3857625,100 0,77.6142375 0,50 C0,22.3857625 22.3857625,0 50,0 C77.6142375,0 100,22.3857625 100,50 C100,77.6142375 77.6142375,100 50,100 Z M54,48 C53.4477153,48 53,47.5522847 53,47 L53,18 C53,14.6666667 48,14.6666667 48,18 L48,47 C48,47.5522847 47.5522847,48 47,48 L18,48 C14.6666667,48 14.6666667,53 18,53 L47,53 C47.5522847,53 48,53.4477153 48,54 L48,83 C48,86.3333333 53,86.3333333 53,83 L53,54 C53,53.4477153 53.4477153,53 54,53 L83,53 C86.3333333,53 86.3333333,48 83,48 L54,48 Z" id="Combined-Shape" fill="#999999"></path>
-                    </g>
-                  </svg>
-                <h3>Add more beers for new matches</h3>
-              </li>
-            <% } %>
-          <% } %>
-        </ul>
+        </div>
       </section>
+      
     </main>
     <% include partials/footer.ejs %>
 </body>
