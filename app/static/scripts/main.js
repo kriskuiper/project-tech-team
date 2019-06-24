@@ -66,3 +66,31 @@ function toggleFilter() {
     filterOpen = false;
   }
 }
+
+// Intersection observer
+const bars = document.querySelectorAll(".card--bar");
+const barsObserver = new IntersectionObserver(showBars);
+
+"IntersectionObserver" in window
+  ? bars.forEach(observeBar)
+  : bars.forEach(bar, makeVisible);
+
+function observeBar(bar) {
+  barsObserver.observe(bar);
+}
+
+function showBars(entries) {
+  entries.forEach(showBar);
+}
+
+function showBar(entry) {
+  const entryClass = entry.target.classList;
+
+  if (entry.isIntersecting) {
+    entryClass.add("is--visible");
+  }
+}
+
+function makeVisible(bar) {
+  bar.classList.add("is--visible");
+}
