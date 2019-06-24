@@ -6,10 +6,7 @@ const convertToObject = require("../helpers/convertToObject");
 async function renderUsers(req, res, next) {
     let { personid, min, max, gender } = req.query;
     const notLikedUsers = [];
-    const userImages = [];
     const jsEnabled = req.cookies.js_enabled;
-
-    console.log(req.query);
 
     try {
         const loggedInUser = await User.findOne({
@@ -58,32 +55,38 @@ async function renderUsers(req, res, next) {
             filters.age = ageRange;
         }
 
-            const multiFilter = function(array, filters) {
-                const filterKeys = Object.keys(filters);
-                // filters all elements passing the criteria
-                return array.filter(item => {
-                    // dynamically validate all filter criteria
-                    return filterKeys.every(key => {
-                        // ignores an empty filter
-                        if (!filters[key].length) {
-                            return true;
-                        }
-                        return filters[key].includes(item[key]);
-                    });
+        const multiFilter = function(array, filters) {
+            const filterKeys = Object.keys(filters);
+            // filters all elements passing the criteria
+            return array.filter(item => {
+                // dynamically validate all filter criteria
+                return filterKeys.every(key => {
+                    // ignores an empty filter
+                    if (!filters[key].length) {
+                        return true;
+                    }
+                    return filters[key].includes(item[key]);
                 });
-            };
+            });
+        };
 
-            const filteredUsers = await multiFilter(promisedUsers, filters);
+        const filteredUsers = await multiFilter(promisedUsers, filters);
 
-            const allFilter = await matchUsersOnBeers(filteredUsers, req.query);
+        const allFilter = await matchUsersOnBeers(filteredUsers, req.query);
 
-        await Promise.all(userImages)
-            .then(userImages => {
-                if(!req.query.heineken) {
-                    res.status(200).render("users", { users: filteredUsers, userImages: userImages, jsEnabled: jsEnabled, beerArray: beerArray });
-                } else{
-                    res.status(200).render("users", { users: allFilter, userImages: userImages, jsEnabled: jsEnabled, beerArray: beerArray });
-                }});
+        !req.query.heineken
+            ? res.status(200).render("users", {
+                users: filteredUsers,
+                jsEnabled: jsEnabled,
+                beerArray: beerArray,
+                user: req.session.user
+            })
+            : res.status(200).render("users", {
+                users: allFilter,
+                jsEnabled: jsEnabled,
+                beerArray: beerArray,
+                user: req.session.user
+            });
     }
     catch(error) {
         next(error);

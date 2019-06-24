@@ -1,20 +1,20 @@
 <% include partials/head.ejs %>
-<title>Log in - Drinkerz</title>
+<title>Login - Drinkerz</title>
 </head>
 
 <body>
-  <header>
-      <% include partials/navigation.ejs%>
-  </header>
+  <% include partials/initial-navigation.ejs%>
   <main class="form__container">
-    <section class="form__section">
-      <h1>Drinkerz</h1>
-      <% if (error) { %>
-      <p class="error">
-        <%= error %>
-      </p>
-      <% } %>
-      <% include partials/login-form.ejs %>
+    <section class="homepage-banner">
+        <div class="form__section">
+          <h1>Drinkerz</h1>
+          <% if (error) { %>
+          <p class="error">
+            <%= error %>
+          </p>
+          <% } %>
+          <% include partials/login-form.ejs %>
+        </div>
     </section>
   </main>
   <% include partials/footer.ejs %>

@@ -2,30 +2,33 @@
 <span class="form__or">or</span>
 <form class="form__form" action="/" method="POST">
 
-    <label>Username
-    <input type="text" name="username" placeholder="username">
-    </label>
+    <label class="invisible" for="username">Username</label>
+    <input type="text" name="username" placeholder="Username" class="input__login">
 
-    <label>Password
-    <input type="password" name="password" placeholder="password">
-    </label>
+    <label class="invisible" for="password">Password</label>
+    <input type="password" name="password" placeholder="Password" class="input__login">
 
-    <label>Firstname
-    <input type="text" name="firstname" placeholder="firstname">
-    </label>
+    <label class="invisible" for="firstname">Firstname</label>
+    <input type="text" name="firstname" placeholder="Firstname" class="input__login">
 
-    <label>Lastname
-    <input type="text" name="lastname" placeholder="lastname">
-    </label>
+    <label class="invisible" for="lastname">Lastname</label>
+    <input type="text" name="lastname" placeholder="Lastname" class="input__login">
 
-    <label>Gender
-    <input type="radio" name="gender" value="male"> Male<br>
-    <input type="radio" name="gender" value="female"> Female<br>
-    <input type="radio" name="gender" value="other"> Other
-    </label>
+    <fieldset class="form__row">
+      <label class="invisible">Gender</label>
+      <div class="form__item">
+        <input type="radio" name="gender" value="male"> Male<br>
+      </div>
+      <div class="form__item">
+      <input type="radio" name="gender" value="female"> Female<br>
+      </div>
+      <div class="form__item">
+      <input type="radio" name="gender" value="other"> Other
+      </div>
+    </fieldset>
 
-    <label>Age
-    <input type="text" name="age" placeholder="age">
-    </label>
+    <label class="invisible" for="age">Age</label>
+    <input type="text" name="age" placeholder="Age">
+
     <button class="button--fullwidth" type="submit">Sign up</button>
 </form>

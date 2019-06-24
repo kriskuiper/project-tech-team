@@ -16,10 +16,11 @@ async function searchBeerHome(req, res, next) {
       const beerObjects = await beerResults.json();
       const beerList = beerObjects.response.beers.items;
 
-    res.status(200).render("home", {
+    res.status(200).render("beer-list", {
       user: req.session.user,
       beerResults: beerList,
-      jsEnabled: jsEnabled
+      jsEnabled: jsEnabled,
+      beerSearchValue: beerValue
     });
 }
   } catch (error) {
