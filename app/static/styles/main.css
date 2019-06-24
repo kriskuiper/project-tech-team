@@ -276,6 +276,14 @@ h1, h2, h3, h4, p {
           background-position-y: 0.5em;
         }
 
+        .pages {
+          display: flex;
+        }
+
+        .pages li {
+          margin-right: 1rem;
+        }
+
 .card__button {
   position: absolute;
   border-radius: 50%;
