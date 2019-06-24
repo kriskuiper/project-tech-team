@@ -21,6 +21,7 @@ async function renderBars(req, res) {
 
     res.status(400).render("bars", {
         bars: bars,
+        user: req.session.user,
         pages: paginate.getArrayPages(req)(4, pageCount, page),
         pageCount: pageCount,
         paginate: paginate,
