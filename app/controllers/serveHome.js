@@ -4,6 +4,7 @@ const path = require("path");
 
 async function serveHome(req, res, next) {
   const beerResults = "";
+  const jsEnabled = req.cookies.js_enabled;
 
   if (!req.session.user) {
     res
@@ -26,7 +27,12 @@ async function serveHome(req, res, next) {
 
         const promisedUsers = await Promise.all(likedObjects);
 
-        res.status(200).render("home", { matches: promisedUsers, user: req.session.user, beerResults: beerResults});
+        res.status(200).render("home", {
+          matches: promisedUsers,
+          user: req.session.user,
+          beerResults: beerResults,
+          jsEnabled: jsEnabled
+        });
     }
     catch(error) {
         next(error);

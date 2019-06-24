@@ -1,0 +1,14 @@
+<noscript>
+    <% if (paginate.hasNextPages || paginate.hasPreviousPages) { %>
+        <ul class="pages">
+            <% if (pages) { %>
+                <% if (pageCount != 0) { %>
+                    <li>Pages:</li>
+                <% } %>
+                <% for (let i = 0; i < pages.length; i++) { %>
+                    <li><a href= "<%= pages[i].url%>"><%= pages[i].number %></a></li>
+                <% } %>
+            <% } %>
+        </ul>
+    <% } %>
+</noscript>

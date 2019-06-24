@@ -9,6 +9,7 @@ async function renderMatches(req, res, next) {
         "username": req.session.user.username
     });
     const likedObjects = [];
+    const jsEnabled = req.cookies.js_enabled;
 
     try {
         if (currentPerson) {
@@ -21,7 +22,11 @@ async function renderMatches(req, res, next) {
 
         const promisedUsers = await Promise.all(likedObjects);
 
-        res.status(200).render("matches", { matches: promisedUsers, user: loggedInUser});
+        res.status(200).render("matches", {
+            matches: promisedUsers,
+            user: loggedInUser,
+            jsEnabled: jsEnabled
+        });
     }
     catch(error) {
         next(error);

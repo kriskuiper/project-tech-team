@@ -39,7 +39,27 @@
             <path fill="#2C2C2C" fill-rule="nonzero" d="M14.77,9 L12,12.11 L9.23,9 L14.77,9 Z M21,3 L3,3 L3,5 L11,14 L11,19 L6,19 L6,21 L18,21 L18,19 L13,19 L13,14 L21,5 L21,3 Z M7.43,7 L5.66,5 L18.35,5 L16.57,7 L7.43,7 Z" />
           </g>
         </svg>
-        Bars</a></li>
+        Bars</a>
+        <% if (jsEnabled) { %>
+          <a class="item__link" href="/bars?limit=0&page=1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                <g fill="none" fill-rule="evenodd" transform="translate(-3 -3)">
+                  <polygon points="0 0 24 0 24 24 0 24" />
+                  <path fill="#2C2C2C" fill-rule="nonzero" d="M14.77,9 L12,12.11 L9.23,9 L14.77,9 Z M21,3 L3,3 L3,5 L11,14 L11,19 L6,19 L6,21 L18,21 L18,19 L13,19 L13,14 L21,5 L21,3 Z M7.43,7 L5.66,5 L18.35,5 L16.57,7 L7.43,7 Z" />
+                </g>
+              </svg>
+              Bars</a>
+        <% } else { %>
+          <a class="item__link" href="/bars?limit=3&page=1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                <g fill="none" fill-rule="evenodd" transform="translate(-3 -3)">
+                  <polygon points="0 0 24 0 24 24 0 24" />
+                  <path fill="#2C2C2C" fill-rule="nonzero" d="M14.77,9 L12,12.11 L9.23,9 L14.77,9 Z M21,3 L3,3 L3,5 L11,14 L11,19 L6,19 L6,21 L18,21 L18,19 L13,19 L13,14 L21,5 L21,3 Z M7.43,7 L5.66,5 L18.35,5 L16.57,7 L7.43,7 Z" />
+                </g>
+              </svg>
+              Bars</a>
+        <% } %>
+      </li>
     <li class="nav__item"><a class="item__link log-out" href="/log-out">
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
           <g fill="none" fill-rule="evenodd" transform="translate(-3 -3)">

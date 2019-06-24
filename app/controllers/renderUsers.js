@@ -5,6 +5,7 @@ const convertToObject = require("../helpers/convertToObject");
 async function renderUsers(req, res, next) {
     const { personid, min, max, gender } = req.query;
     const notLikedUsers = [];
+    const jsEnabled = req.cookies.js_enabled;
 
     try {
         const loggedInUser = await User.findOne({
@@ -28,9 +29,17 @@ async function renderUsers(req, res, next) {
         const filteredUsers = promisedUsers.filter(user => user.age >= min && user.age <= max && user.gender === gender);
 
         if (!min && !max && !gender) {
-            res.status(200).render("users", { users: promisedUsers, user: loggedInUser });
+            res.status(200).render("users", {
+                users: promisedUsers,
+                user: loggedInUser,
+                jsEnabled: jsEnabled
+            });
         } else {
-            res.status(200).render("users", { users: filteredUsers, user: loggedInUser  });
+            res.status(200).render("users", {
+                users: filteredUsers,
+                user: loggedInUser,
+                jsEnabled: jsEnabled
+            });
         }
 
     }
