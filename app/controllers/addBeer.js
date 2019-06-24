@@ -9,7 +9,6 @@ async function addBeer(req, res, next) {
     const beer_description = req.body.beerDescription;
     const beer_brewery = req.body.brewery;
 
-
     const objectBeer = {
       beer: {
         bid: beer_bid,
@@ -30,7 +29,7 @@ async function addBeer(req, res, next) {
 
     req.session.user.beers = beersArray;
 
-    res.redirect("/my-profile");
+    res.redirect("/");
 
   } catch (error) {
     next(error);
