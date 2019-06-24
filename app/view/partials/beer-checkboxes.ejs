@@ -1,0 +1,4 @@
+<% for(let i = 0; i < beerArray.length; i++){ %>
+	<input type="checkbox" value="<%= beerArray[i].toLowerCase() %>" name="<%= beerArray[i].toLowerCase() %>" id="<%= beerArray[i].toLowerCase %>"/>
+	<label for="<%= beerArray[i] %>"><%= beerArray[i]; %></label>
+<%	} %>

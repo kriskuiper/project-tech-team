@@ -1,11 +1,15 @@
 const _array = require("lodash/array");
 const User = require("../models/User");
+const matchUsersOnBeers = require("../helpers/matchUsersOnBeers");
 const convertToObject = require("../helpers/convertToObject");
 
 async function renderUsers(req, res, next) {
     let { personid, min, max, gender } = req.query;
     const notLikedUsers = [];
     const userImages = [];
+    const jsEnabled = req.cookies.js_enabled;
+
+    console.log(req.query);
 
     try {
         const loggedInUser = await User.findOne({
@@ -25,6 +29,12 @@ async function renderUsers(req, res, next) {
 
         convertToObject(extractIds, notLikedUsers);
 
+        let beerArray = [];
+
+        loggedInUser.beers.forEach(beer => {
+            beerArray.push(beer.beer.name);
+        });
+
         const promisedUsers = await Promise.all(notLikedUsers);
 
         const age = await function(value) {
@@ -34,6 +44,7 @@ async function renderUsers(req, res, next) {
             }
             return value;
         };
+
 
         let filters = {};
 
@@ -47,7 +58,7 @@ async function renderUsers(req, res, next) {
             filters.age = ageRange;
         }
 
-            const multiFilter = await function(array, filters) {
+            const multiFilter = function(array, filters) {
                 const filterKeys = Object.keys(filters);
                 // filters all elements passing the criteria
                 return array.filter(item => {
@@ -64,10 +75,15 @@ async function renderUsers(req, res, next) {
 
             const filteredUsers = await multiFilter(promisedUsers, filters);
 
+            const allFilter = await matchUsersOnBeers(filteredUsers, req.query);
+
         await Promise.all(userImages)
             .then(userImages => {
-                    res.status(200).render("users", { users: filteredUsers, userImages: userImages });
-                });
+                if(!req.query.heineken) {
+                    res.status(200).render("users", { users: filteredUsers, userImages: userImages, jsEnabled: jsEnabled, beerArray: beerArray });
+                } else{
+                    res.status(200).render("users", { users: allFilter, userImages: userImages, jsEnabled: jsEnabled, beerArray: beerArray });
+                }});
     }
     catch(error) {
         next(error);

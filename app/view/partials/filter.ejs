@@ -12,5 +12,9 @@
     <input type="number" name="min" value="1">
     <input type="number" name="max" value="99">
   </fieldset>
+  <fieldset class="filter__part">
+    <legend>Preferred beer</legend>
+    <% include beer-checkboxes.ejs %>
+  </fieldset>
   <button type="submit">Submit</button>
 </form>
