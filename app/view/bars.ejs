@@ -11,7 +11,7 @@
             <div class="card-grid">
                 <% if (bars.length > 0) { %>
                     <% for (let i = 0; i < bars.length; i++) { %>
-                        <article class="card">
+                        <article class="card card--bar">
                             <img src="<%= bars[i].image %>" alt="Impression image of the bar" class="card__img">
                             <section class="card__meta-block">
                                 <h3 class="card__meta-title"><%= bars[i].barname %></h3>
@@ -27,8 +27,8 @@
                     </section>
                 <% } %>
             </div>
+            <% include partials/paginate.ejs %>
         </section>
-        <% include partials/paginate.ejs %>
     </main>
     <% include partials/footer.ejs %>
 </body>
