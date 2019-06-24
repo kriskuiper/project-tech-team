@@ -1,11 +1,43 @@
+const User = require("../models/User");
+const convertToObject = require("../helpers/convertToObject");
 const path = require("path");
 
-function serveHome(req, res) {
-    if (!req.session.user) {
-        res.status(200).sendFile(path.join(__dirname, "../static/index.html"));
-    } else {
-        res.status(200).redirect("/my-feed");
+async function serveHome(req, res, next) {
+  const beerResults = "";
+  const jsEnabled = req.cookies.js_enabled;
+
+  if (!req.session.user) {
+    res
+      .status(200)
+      .sendFile(path.join(__dirname, "../static/pages/index.html"));
+  } else {
+    try {
+      const {currentPerson} = req.query;
+      const loggedInUser = await User.findOne({
+          "username": req.session.user.username
+      });
+      const likedObjects = [];
+        if (currentPerson) {
+            const filteredLikedPersons = loggedInUser.likedpersons.filter(likedperson => likedperson != currentPerson);
+            loggedInUser.likedpersons = filteredLikedPersons;
+            loggedInUser.save();
+        }
+
+        convertToObject(loggedInUser.likedpersons, likedObjects);
+
+        const promisedUsers = await Promise.all(likedObjects);
+
+        res.status(200).render("home", {
+          matches: promisedUsers,
+          user: req.session.user,
+          beerResults: beerResults,
+          jsEnabled: jsEnabled
+        });
     }
+    catch(error) {
+        next(error);
+    }
+  }
 }
 
 module.exports = serveHome;

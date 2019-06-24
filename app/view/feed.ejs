@@ -1,14 +1,9 @@
 <% include partials/head.ejs %>
-    <title>My feed - CycLove</title>
+    <title>My feed - Drinkerz</title>
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="/"><img src="/static/media/images/cyclove-logo.svg" alt="Logo CycLove"></a></li>
-                <li><a href="/log-out">Logout</a></li>
-            </ul>
-        </nav>
+      <% include partials/navigation.ejs %>
     </header>
     <section>
         <h1>Hi <%= user.firstName %>!</h1>
@@ -18,6 +13,7 @@
         <a href="/add-post">Add a post</a>
         <h2>Your feed:</h2>
         <% include partials/posts.ejs %>
+        <% include partials/filters.ejs %>
     </section>
     <% include partials/footer.ejs %>
 </body>

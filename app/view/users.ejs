@@ -1,0 +1,42 @@
+<% include partials/head.ejs %>
+<meta content="width=device-width, initial-scale=1" name="viewport" />
+    <title>Users - Drinkerz</title>
+</head>
+<body>
+    <% include partials/navigation.ejs%>
+
+    <main>
+        <% include partials/filter.ejs %>
+        <section class="users__container">
+            <h2>Users:</h2>
+            <div class="card-grid">
+                <!-- Userpage will be the page where all the info is shown -->
+                <% for (let i = 0; i < users.length; i++) { %>
+                    <a href="/<%= users[i].id %>" id="link" class="">
+                        <article class="card">
+                            <!-- Image of the user -->
+                            <% if (users[i].profilePicture) { %>
+                              <img src="<%= users[i].profilePicture %>" alt="Profile image of <%= users[i].firstName %>" class="card__img">
+                            <% } else { %>
+                              <img src="./media/images/default_avatar.png" alt="Profile image of <%= users[i].firstName %>" class="card__img">
+                            <% } %>
+                            <!-- Sends the user.id to a array -->
+                            <!-- Name and city the person lives in -->
+                            <section class="card__meta-block">
+                                <form action="" method="GET">
+                                    <input type="hidden" name="personid" value="<%= users[i].id %>">
+                                    <button type="submit" id="add" class=".meta__button--like">Like</button>
+                                </form>
+                                <h3 class="card__meta-title"><%= users[i].firstName + " " + users[i].lastName %></h3>
+                                <p>Age: <%= users[i].age %></p>
+                                <p>Favorite beer: <%= users[i].beers[0].beer.name %> </p>
+                            </section>
+                        </article>
+                    </a>
+                <% } %>
+            </div>
+        </section>
+    </main>
+    <% include partials/footer.ejs %>
+</body>
+</html>

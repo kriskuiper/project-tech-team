@@ -1,25 +1,33 @@
-# Name of the project
+# Drinkerz, serious about dating
+![our logo](https://github.com/kriskuiper/project-tech-team/blob/update/readme/app/static/media/images/icons/apple-touch-icon-180x180.png?raw=true)
 ![Screenshot of the project]()
 
-(Project name) is a web-app where students from Amsterdam can meet other (single) students by meeting eachother at a café. The user can create an account and log in. (More features described here)
+Drinkerz is a web-app where students from Amsterdam can meet other (single) students by meeting eachother at a café. The user can create an account and log in. (More features described here)
 
 ## Features we want to workout (Have to make decisions about what (not) to do)
-- A meetup feature, like liking people just like Tinder and Happn
-- Following users, For their feed like Facebook
-- Last visited bar, Where they went (api Untappd & Google Maps?)
-- Login, To use the website 
-- Register, To make a account and use the website
-- Password hash, To make sure their passwork is kept safe in a database
-- Male/Female filter, So the user kan search for a female or male.
-- Favorite beer filter, In case of not searching for a male or female you can seach for someone that likes the same beer as you do.
-- Meetup bar, After a match a bar will show up where they serve your favorite beers
-- Google maps, Here will be the bars displayed in your area
+- Filter gender / favo beer ([Chazz](https://github.com/chazzers))
+- Bars nearby (Google api) ([Aron](https://github.com/aronsmit2))
+- Login with Untappd (Untappd api) ([Rick](https://github.com/root-ish))
+- Last visited (checked in) bar ([Kris](https://github.com/kriskuiper))
+- Make it a PWA ([Kris](https://github.com/kriskuiper))
+- Liking other users ([Mark](https://github.com/markschuttehva))
+- ~~Login, To use the website~~
+- ~~Register, To make a account and use the website~~
+- ~~Password hash, To make sure their passwork is kept safe in a database~~ ([Somebody]())
 
 ## Packages
 | Name             | Purpose                          |
 |------------------|----------------------------------|
-|[`express`](https://www.npmjs.com/package/express)         | Used for building the server     |
+|[`array-find`](https://www.npmjs.com/package/array-find) | Used for finding array elements and executing a callback for each element
+|[`body-parser`](https://www.npmjs.com/package/body-parser) | Used to parse all our forms
+|[`cookie-parser`](https://www.npmjs.com/package/cookie-parser) | Used for pasing cookies `geolocation`
+|[`dotenv`](https://www.npmjs.com/package/dotenv) | Load data from the .env file, Storing configuration in the environment separate from code
+|[`ejs`](https://www.npmjs.com/package/ejs) | Our templatting language
+|[`express`](https://www.npmjs.com/package/express)         | Used for building the server     
 |[`express-session`](https://www.npmjs.com/package/express-session) | Used for saving data in sessions
+|[`mongoose`](https://www.npmjs.com/package/mongoose) |  Used to model our Mongodb database
+|[`node-fetch`](https://www.npmjs.com/package/node-fetch) | Used to hhtps request an api directly in `bar locations` and `untappd login`
+|[`slug`](https://www.npmjs.com/package/slug) | used to change an url to all lowercase in `add beers`
 
 ## Installation
 ### Prequisites
@@ -31,8 +39,8 @@ MONGODB_URI=your_mongodb_uri
 SESSION_SECRET=your_session_secret
 ```
 
-### Datamodel
-![Image of the datamodel]()
+### Sitemap
+![Image of the datamodel](https://github.com/kriskuiper/project-tech-team/blob/development/assets/sitemap-drinkerz.png?raw=true)
 
 ### 1. Clone this repository
 Clone this repository by running `git clone`:
