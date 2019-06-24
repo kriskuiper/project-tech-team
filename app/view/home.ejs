@@ -49,7 +49,7 @@
       <% } %>
       <li class="list__item">
         <img src="<%= matches[i].profilePicture %>" alt="Profile image of <%= matches[i].firstName %>" class="card__img">
-        <h3><%= matches[i].firstName + " " + matches[i].lastName %>, <%= matches[i].age %></h3>
+        <b><%= matches[i].firstName + " " + matches[i].lastName %>, <%= matches[i].age %></b>
       </li>
         <% if(matches.length <= 1) { %>
           <li class="list__item--center">
