@@ -24,7 +24,8 @@ async function renderBars(req, res) {
         pages: paginate.getArrayPages(req)(4, pageCount, page),
         pageCount: pageCount,
         paginate: paginate,
-        jsEnabled: jsEnabled
+        jsEnabled: jsEnabled,
+        user: req.session.user
     });
 }
 
